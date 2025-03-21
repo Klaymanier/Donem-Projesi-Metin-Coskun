@@ -1,0 +1,42 @@
+
+:root {
+  --primary-color: rgb(0, 81, 255);
+  --secondary-color: #002546;
+  --accent-color: #ff4081;
+}
+
+
+.navbar-brand {
+  font-family: 'Arial', sans-serif;
+}
+
+.card-product:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card-product .badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+
+.btn-primary {
+  background-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+}
+
+footer li a {
+  color: #000000 !important;
+}
+
+
+footer a:hover {
+  color: #dc3545 !important;
+  transition: color 0.2s ease;
+}
