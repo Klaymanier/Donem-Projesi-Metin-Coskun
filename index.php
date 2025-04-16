@@ -1,322 +1,395 @@
 <?php
-// Header'ı dahil edin - eğer bu dosya başka bir dosyadan devam ediyorsa bu satırı ekleyin
-require_once 'includes/header.php';
-include_once 'database/db.php';
-// Eğer formatPrice fonksiyonu tanımlanmamışsa
-if (!function_exists('formatPrice')) {
-    function formatPrice($price)
-    {
-        // Güvenli çevirme - sayısal değer kontrolü
-        $price = is_numeric($price) ? $price : 0;
-        return number_format($price, 2, ',', '.') . ' ₺';
-    }
+// Gerekli dosyaları dahil et
+require_once 'includes/config.php';
+require_once 'database/db.php';
+
+// Ana sayfa başlığı ve açıklaması
+$pageTitle = "ModaVista | Modern Giyim";
+$description = "En yeni moda trendleri ve özel tasarım giyim ürünleri ModaVista'da!";
+
+// Sosyal medya linkleri
+$socialLinks = [
+  'facebook' => '#',
+  'twitter' => '#',
+  'instagram' => '#',
+  'linkedin' => '#',
+  'discord' => '#'
+];
+
+// Sepet ürün sayısını getir
+try {
+    $userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+    $sessionId = session_id();
+    
+    $sepetStmt = $db->prepare("
+        SELECT COUNT(*) AS count FROM sepet_ogeleri so
+        JOIN sepet s ON so.sepet_id = s.sepet_id
+        WHERE s.kullanici_id = :kullanici_id OR s.session_id = :session_id
+    ");
+    $sepetStmt->bindParam(':kullanici_id', $userId);
+    $sepetStmt->bindParam(':session_id', $sessionId);
+    $sepetStmt->execute();
+    $sepetUrunSayisi = $sepetStmt->fetch()['count'] ?? 0;
+} catch (PDOException $e) {
+    $sepetUrunSayisi = 0;
 }
 
-// Değişkenler tanımlanmış mı kontrol edin
-if (!isset($sliders) || !is_array($sliders)) {
-    // Eğer $sliders tanımlanmamışsa veya dizi değilse, varsayılan değerler atayın
-    $sliders = [];
+// Kategoriler - SQL dosyanızdan gelecek
+try {
+    $stmt = $db->prepare("SELECT * FROM kategoriler WHERE aktif = 1 ORDER BY kategori_adi");
+    $stmt->execute();
+    $menuKategoriler = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $categories = $menuKategoriler; // index.php için gereken değişken adı
+} catch (PDOException $e) {
+    // Veritabanından çekilemezse varsayılan kategorileri kullan
+    $categories = [
+      ['kategori_id' => 1, 'kategori_adi' => 'Kadın', 'kategori_slug' => 'kadin'],
+      ['kategori_id' => 2, 'kategori_adi' => 'Erkek', 'kategori_slug' => 'erkek'],
+      ['kategori_id' => 3, 'kategori_adi' => 'Çocuk', 'kategori_slug' => 'cocuk'],
+      ['kategori_id' => 4, 'kategori_adi' => 'Aksesuar', 'kategori_slug' => 'aksesuar']
+    ];
+    $menuKategoriler = $categories;
 }
 
-if (!isset($kategoriler) || !is_array($kategoriler)) {
-    $kategoriler = [];
-}
+// Vitrindeki ürünler - SQL dosyanızdan gelecek
+$featuredProducts = [
+  [
+    'urun_id' => 1,
+    'urun_adi' => 'Premium Pamuklu T-Shirt',
+    'kategori_adi' => 'Erkek',
+    'kategori_slug' => 'erkek',
+    'urun_fiyat' => 299.90,
+    'indirimli_fiyat' => 249.90,
+    'gorsel_yolu' => '/api/placeholder/400/500',
+    'yeni_urun' => 1,
+    'renkler' => [
+      ['renk_adi' => 'Beyaz', 'renk_kodu' => '#FFFFFF'],
+      ['renk_adi' => 'Siyah', 'renk_kodu' => '#000000'],
+      ['renk_adi' => 'Lacivert', 'renk_kodu' => '#0A2463']
+    ]
+  ],
+  [
+    'urun_id' => 2,
+    'urun_adi' => 'Slim Fit Denim Pantolon',
+    'kategori_adi' => 'Erkek',
+    'kategori_slug' => 'erkek',
+    'urun_fiyat' => 549.90,
+    'indirimli_fiyat' => null,
+    'gorsel_yolu' => '/api/placeholder/400/500',
+    'yeni_urun' => 0,
+    'renkler' => [
+      ['renk_adi' => 'Mavi', 'renk_kodu' => '#1E3888'],
+      ['renk_adi' => 'Siyah', 'renk_kodu' => '#000000']
+    ]
+  ],
+  [
+    'urun_id' => 3,
+    'urun_adi' => 'Oversize Sweatshirt',
+    'kategori_adi' => 'Kadın',
+    'kategori_slug' => 'kadin',
+    'urun_fiyat' => 399.90,
+    'indirimli_fiyat' => 329.90,
+    'gorsel_yolu' => '/api/placeholder/400/500',
+    'yeni_urun' => 1,
+    'renkler' => [
+      ['renk_adi' => 'Bej', 'renk_kodu' => '#E8DDCB'],
+      ['renk_adi' => 'Siyah', 'renk_kodu' => '#000000'],
+      ['renk_adi' => 'Gri', 'renk_kodu' => '#9EA3B0']
+    ]
+  ],
+  [
+    'urun_id' => 4,
+    'urun_adi' => 'Yüksek Bel Palazzo Pantolon',
+    'kategori_adi' => 'Kadın',
+    'kategori_slug' => 'kadin',
+    'urun_fiyat' => 459.90,
+    'indirimli_fiyat' => null,
+    'gorsel_yolu' => '/api/placeholder/400/500',
+    'yeni_urun' => 0,
+    'renkler' => [
+      ['renk_adi' => 'Siyah', 'renk_kodu' => '#000000'],
+      ['renk_adi' => 'Ekru', 'renk_kodu' => '#F2EEE3'],
+      ['renk_adi' => 'Haki', 'renk_kodu' => '#5F6F52']
+    ]
+  ],
+  [
+    'urun_id' => 5,
+    'urun_adi' => 'Organik Pamuk Bebek Tulum',
+    'kategori_adi' => 'Çocuk',
+    'kategori_slug' => 'cocuk',
+    'urun_fiyat' => 279.90,
+    'indirimli_fiyat' => 229.90,
+    'gorsel_yolu' => '/api/placeholder/400/500',
+    'yeni_urun' => 1,
+    'renkler' => [
+      ['renk_adi' => 'Sarı', 'renk_kodu' => '#F0C808'],
+      ['renk_adi' => 'Mint', 'renk_kodu' => '#99E1D9'],
+      ['renk_adi' => 'Beyaz', 'renk_kodu' => '#FFFFFF']
+    ]
+  ],
+  [
+    'urun_id' => 6,
+    'urun_adi' => 'Deri Bileklik Set',
+    'kategori_adi' => 'Aksesuar',
+    'kategori_slug' => 'aksesuar',
+    'urun_fiyat' => 189.90,
+    'indirimli_fiyat' => 149.90,
+    'gorsel_yolu' => '/api/placeholder/400/500',
+    'yeni_urun' => 0,
+    'renkler' => [
+      ['renk_adi' => 'Kahverengi', 'renk_kodu' => '#5E3023'],
+      ['renk_adi' => 'Siyah', 'renk_kodu' => '#000000']
+    ]
+  ]
+];
 
-if (!isset($vitrinUrunleri) || !is_array($vitrinUrunleri)) {
-    $vitrinUrunleri = [];
-}
+// Koleksiyonları getir
+$collections = [
+  [
+    'title' => 'Yaz Koleksiyonu',
+    'description' => 'Sıcak yaz günleri için ferah ve şık tasarımlar',
+    'image' => '/api/placeholder/600/400',
+    'link' => '#yaz-koleksiyonu'
+  ],
+  [
+    'title' => 'Sürdürülebilir Moda',
+    'description' => 'Doğaya saygılı, organik kumaşlardan üretilen çevre dostu ürünler',
+    'image' => '/api/placeholder/600/400',
+    'link' => '#surdurulebilir-moda'
+  ],
+  [
+    'title' => 'Limitli Koleksiyon',
+    'description' => 'Sınırlı sayıda üretilen özel tasarımlar',
+    'image' => '/api/placeholder/600/400',
+    'link' => '#limitli-koleksiyon'
+  ]
+];
 
-if (!isset($yeniUrunler) || !is_array($yeniUrunler)) {
-    $yeniUrunler = [];
-}
+// Ürün filtrelerini belirle
+$productFilters = [
+  'Tümü',
+  'Yeni Gelenler',
+  'Popüler',
+  'İndirimli',
+  'Erkek',
+  'Kadın'
+];
 
-// İndirim yüzdesini hesaplayan yardımcı fonksiyon
-if (!function_exists('calculateDiscountPercentage')) {
-    function calculateDiscountPercentage($original, $discounted)
-    {
-        if ($original <= 0 || $discounted <= 0 || $discounted >= $original) {
-            return 0;
-        }
-        return round(100 - ($discounted / $original * 100));
-    }
-}
+// Site varsayılan dil bilgisi
+$lang = 'tr';
+
+// Tema modu (aydınlık/karanlık)
+$theme = isset($_COOKIE['theme']) ? $_COOKIE['theme'] : 'light';
+
+// Header'ı dahil et
+include_once 'includes/header.php';
 ?>
 
-<?php if (!empty($sliders)): ?>
-    <!-- Ana Slider -->
-    <div id="homeSlider" class="carousel slide mb-4" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <?php foreach ($sliders as $key => $slider): ?>
-                <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="<?= $key ?>" <?= $key === 0 ? 'class="active" aria-current="true"' : '' ?> aria-label="Slide <?= $key + 1 ?>"></button>
-            <?php endforeach; ?>
-        </div>
-
-        <div class="carousel-inner">
-            <?php foreach ($sliders as $key => $slider): ?>
-                <div class="carousel-item <?= $key === 0 ? 'active' : '' ?>">
-                    <img src="<?= htmlspecialchars($slider['gorsel_yolu']) ?>" class="d-block w-100"
-                        alt="<?= htmlspecialchars($slider['baslik']) ?>">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2><?= htmlspecialchars($slider['baslik']) ?></h2>
-                        <h5><?= htmlspecialchars($slider['alt_baslik']) ?></h5>
-                        <p><?= htmlspecialchars($slider['aciklama']) ?></p>
-                        <?php if (!empty($slider['link'])): ?>
-                            <a href="<?= htmlspecialchars($slider['link']) ?>" class="btn btn-primary">Daha Fazla</a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#homeSlider" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Önceki</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#homeSlider" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Sonraki</span>
-        </button>
+<!-- Hero Banner -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">Modern Tasarım, <br>Yenilikçi Stil</h1>
+      <p class="hero-subtitle">En yeni koleksiyonlar ve sezonun trend parçalarıyla tarzınızı yansıtın. Sürdürülebilir moda anlayışımızla çevreye duyarlı alışverişin keyfini çıkarın.</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn btn-primary btn-lg">Alışverişe Başla</a>
+        <a href="#collections" class="btn btn-outline btn-lg">Koleksiyonlar</a>
+      </div>
     </div>
-<?php endif; ?>
-
-<div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <!-- İlk Ürün -->
-        <div class="carousel-item active">
-            <img src="assets/img/product_1.jpg" class="d-block w-100" alt="Ürün 1">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Ürün 1</h5>
-                <p>Kısa açıklama</p>
-                <a href="urun1.html" class="btn btn-primary">Detaylı İncele</a>
-            </div>
-        </div>
-        <!-- İkinci Ürün -->
-        <div class="carousel-item">
-            <img src="assets/img/product_2.jpg" class="d-block w-100" alt="Ürün 2">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Ürün 2</h5>
-                <p>Kısa açıklama</p>
-                <a href="urun2.html" class="btn btn-primary">Detaylı İncele</a>
-            </div>
-        </div>
-        <!-- Üçüncü Ürün -->
-        <div class="carousel-item">
-            <img src="assets/img/product_3.jpg" class="d-block w-100" alt="Ürün 3">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Ürün 3</h5>
-                <p>Kısa açıklama</p>
-                <a href="urun3.html" class="btn btn-primary">Detaylı İncele</a>
-            </div>
-        </div>
+    <div class="hero-image-container">
+      <img src="/api/placeholder/800/1000" alt="ModaVista Hero" class="hero-image">
     </div>
-    <!-- Kontroller -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Önceki</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Sonraki</span>
-    </button>
-</div>
-
+  </div>
+</section>
 
 <!-- Kategoriler -->
-<section class="mb-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Kategoriler</h2>
-        <div class="row g-3">
-            <?php if (!empty($kategoriler)): ?>
-                <?php foreach ($kategoriler as $kategori): ?>
-                    <div class="col-6 col-md-3">
-                        <a href="products.php?kategori=<?= htmlspecialchars($kategori['kategori_slug']) ?>"
-                            class="text-decoration-none">
-                            <div class="card h-100 border-0 shadow-sm">
-                                <div class="card-body text-center">
-                                    <i
-                                        class="bi <?= isset($kategori['ikon']) ? htmlspecialchars($kategori['ikon']) : 'bi-bag-heart' ?> fs-1 text-primary mb-2"></i>
-                                    <h5 class="card-title"><?= htmlspecialchars($kategori['kategori_adi']) ?></h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <div class="col-12 text-center">
-                    <p>Henüz kategori eklenmemiş.</p>
+<section class="categories-section" id="categories">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Kategoriler</h2>
+      <a href="categories.php" class="view-all">Tümünü Gör <i class="fas fa-arrow-right"></i></a>
+    </div>
+    
+    <div class="categories-grid">
+      <?php foreach ($categories as $category): ?>
+        <a href="products.php?kategori=<?php echo $category['kategori_slug']; ?>" class="category-card">
+          <img src="/api/placeholder/500/500" alt="<?php echo $category['kategori_adi']; ?>" class="category-bg">
+          <div class="category-content">
+            <h3 class="category-name"><?php echo $category['kategori_adi']; ?></h3>
+            <div class="category-count">24+ Ürün</div>
+          </div>
+        </a>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- Ürünler -->
+<section class="products-section" id="products">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Öne Çıkan Ürünler</h2>
+      <a href="products.php" class="view-all">Tümünü Gör <i class="fas fa-arrow-right"></i></a>
+    </div>
+    
+    <div class="products-filter">
+      <?php foreach($productFilters as $index => $filter): ?>
+        <button class="filter-button <?php echo $index === 0 ? 'active' : ''; ?>" data-filter="<?php echo strtolower(str_replace(' ', '-', $filter)); ?>">
+          <?php echo $filter; ?>
+        </button>
+      <?php endforeach; ?>
+    </div>
+    
+    <div class="products-grid">
+      <?php foreach($featuredProducts as $product): ?>
+        <div class="product-card">
+          <div class="product-thumb">
+            <img src="<?php echo $product['gorsel_yolu']; ?>" alt="<?php echo $product['urun_adi']; ?>">
+            
+            <div class="product-badges">
+              <?php if($product['yeni_urun'] == 1): ?>
+                <span class="product-badge badge-new">Yeni</span>
+              <?php endif; ?>
+              
+              <?php if($product['indirimli_fiyat'] !== null): ?>
+                <span class="product-badge badge-sale">
+                  %<?php echo round((1 - $product['indirimli_fiyat'] / $product['urun_fiyat']) * 100); ?>
+                </span>
+              <?php endif; ?>
+            </div>
+            
+            <div class="product-actions">
+              <button class="product-action" title="Favorilere Ekle">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="product-action" title="Hızlı Bakış">
+                <i class="fas fa-eye"></i>
+              </button>
+              <button class="product-action" title="Karşılaştır">
+                <i class="fas fa-exchange-alt"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="product-info">
+            <span class="product-category"><?php echo $product['kategori_adi']; ?></span>
+            
+            <h3 class="product-title">
+              <a href="product-detail.php?id=<?php echo $product['urun_id']; ?>">
+                <?php echo $product['urun_adi']; ?>
+              </a>
+            </h3>
+            
+            <div class="product-price">
+              <?php if($product['indirimli_fiyat'] !== null): ?>
+                <span class="current-price"><?php echo number_format($product['indirimli_fiyat'], 2, ',', '.'); ?> ₺</span>
+                <span class="old-price"><?php echo number_format($product['urun_fiyat'], 2, ',', '.'); ?> ₺</span>
+                <span class="discount-percentage">%<?php echo round((1 - $product['indirimli_fiyat'] / $product['urun_fiyat']) * 100); ?></span>
+              <?php else: ?>
+                <span class="current-price"><?php echo number_format($product['urun_fiyat'], 2, ',', '.'); ?> ₺</span>
+              <?php endif; ?>
+            </div>
+            
+            <?php if(!empty($product['renkler'])): ?>
+            <div class="product-colors">
+              <?php foreach($product['renkler'] as $index => $renk): ?>
+                <div class="color-option <?php echo $index === 0 ? 'active' : ''; ?>" 
+                     style="background-color: <?php echo $renk['renk_kodu']; ?>" 
+                     title="<?php echo $renk['renk_adi']; ?>">
                 </div>
+              <?php endforeach; ?>
+            </div>
             <?php endif; ?>
+            
+            <button class="add-to-cart" data-product-id="<?php echo $product['urun_id']; ?>">
+              <i class="fas fa-shopping-cart"></i> Sepete Ekle
+            </button>
+          </div>
         </div>
+      <?php endforeach; ?>
     </div>
+  </div>
 </section>
 
-<!-- Vitrin Ürünleri -->
-<section class="mb-5 bg-light py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Öne Çıkan Ürünler</h2>
-        <div class="row g-4">
-            <?php if (!empty($vitrinUrunleri)): ?>
-                <?php foreach ($vitrinUrunleri as $urun): ?>
-                    <div class="col-6 col-md-3">
-                        <div class="card h-100 card-product">
-                            <?php if (isset($urun['indirimli_fiyat']) && $urun['indirimli_fiyat'] > 0 && $urun['indirimli_fiyat'] < $urun['urun_fiyat']): ?>
-                                <?php $indirimYuzdesi = calculateDiscountPercentage($urun['urun_fiyat'], $urun['indirimli_fiyat']); ?>
-                                <span class="badge bg-danger position-absolute top-0 end-0 m-2">%<?= $indirimYuzdesi ?>
-                                    İndirim</span>
-                            <?php endif; ?>
-                            <a href="product-detail.php?urun=<?= htmlspecialchars($urun['urun_slug']) ?>">
-                                <img src="<?= isset($urun['ana_gorsel']) && $urun['ana_gorsel'] ? htmlspecialchars($urun['ana_gorsel']) : 'assets/img/products/default.jpg' ?>"
-                                    class="card-img-top" alt="<?= htmlspecialchars($urun['urun_adi']) ?>">
-                            </a>
-                            <div class="card-body">
-                                <h5 class="card-title"><?= htmlspecialchars($urun['urun_adi']) ?></h5>
-                                <p class="card-text small text-muted">
-                                    <?= isset($urun['kategori_adi']) ? htmlspecialchars($urun['kategori_adi']) : '' ?>
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <?php if (isset($urun['indirimli_fiyat']) && $urun['indirimli_fiyat'] > 0 && $urun['indirimli_fiyat'] < $urun['urun_fiyat']): ?>
-                                            <span
-                                                class="text-decoration-line-through text-muted"><?= formatPrice($urun['urun_fiyat']) ?></span>
-                                            <span
-                                                class="text-danger fw-bold ms-1"><?= formatPrice($urun['indirimli_fiyat']) ?></span>
-                                        <?php else: ?>
-                                            <span class="fw-bold"><?= formatPrice($urun['urun_fiyat']) ?></span>
-                                        <?php endif; ?>
-                                    </div>
-                                    <a href="product-detail.php?urun=<?= htmlspecialchars($urun['urun_slug']) ?>"
-                                        class="btn btn-sm btn-outline-primary">
-                                        <i class="bi bi-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <div class="col-12 text-center">
-                    <p>Henüz vitrin ürünü eklenmemiş.</p>
-                </div>
-            <?php endif; ?>
-        </div>
+<!-- Koleksiyonlar -->
+<section class="collections-section" id="collections">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Koleksiyonlar</h2>
+      <a href="collections.php" class="view-all">Tümünü Gör <i class="fas fa-arrow-right"></i></a>
     </div>
+    
+    <div class="collections-grid">
+      <?php foreach($collections as $collection): ?>
+        <div class="collection-card">
+          <img src="<?php echo $collection['image']; ?>" alt="<?php echo $collection['title']; ?>" class="collection-image">
+          <div class="collection-content">
+            <h3 class="collection-title"><?php echo $collection['title']; ?></h3>
+            <p class="collection-description"><?php echo $collection['description']; ?></p>
+            <a href="<?php echo $collection['link']; ?>" class="collection-link">Koleksiyonu Keşfet <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
 </section>
 
-<!-- Yeni Ürünler -->
-<section class="mb-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Yeni Ürünler</h2>
-        <div class="row g-4">
-            <?php if (!empty($yeniUrunler)): ?>
-                <?php foreach ($yeniUrunler as $urun): ?>
-                    <div class="col-6 col-md-3">
-                        <div class="card h-100 card-product">
-                            <span class="badge bg-success position-absolute top-0 end-0 m-2">Yeni</span>
-                            <a href="product-detail.php?urun=<?= htmlspecialchars($urun['urun_slug']) ?>">
-                                <img src="<?= isset($urun['ana_gorsel']) && $urun['ana_gorsel'] ? htmlspecialchars($urun['ana_gorsel']) : 'assets/img/products/default.jpg' ?>"
-                                    class="card-img-top" alt="<?= htmlspecialchars($urun['urun_adi']) ?>">
-                            </a>
-                            <div class="card-body">
-                                <h5 class="card-title"><?= htmlspecialchars($urun['urun_adi']) ?></h5>
-                                <p class="card-text small text-muted">
-                                    <?= isset($urun['kategori_adi']) ? htmlspecialchars($urun['kategori_adi']) : '' ?>
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <?php if (isset($urun['indirimli_fiyat']) && $urun['indirimli_fiyat'] > 0 && $urun['indirimli_fiyat'] < $urun['urun_fiyat']): ?>
-                                            <?php $indirimYuzdesi = calculateDiscountPercentage($urun['urun_fiyat'], $urun['indirimli_fiyat']); ?>
-                                            <span
-                                                class="text-decoration-line-through text-muted"><?= formatPrice($urun['urun_fiyat']) ?></span>
-                                            <span
-                                                class="text-danger fw-bold ms-1"><?= formatPrice($urun['indirimli_fiyat']) ?></span>
-                                        <?php else: ?>
-                                            <span class="fw-bold"><?= formatPrice($urun['urun_fiyat']) ?></span>
-                                        <?php endif; ?>
-                                    </div>
-                                    <a href="product-detail.php?urun=<?= htmlspecialchars($urun['urun_slug']) ?>"
-                                        class="btn btn-sm btn-outline-primary">
-                                        <i class="bi bi-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <div class="col-12 text-center">
-                    <p>Henüz yeni ürün eklenmemiş.</p>
-                </div>
-            <?php endif; ?>
+<!-- Özellikler -->
+<section class="features-section">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-truck"></i>
         </div>
-        <div class="text-center mt-4">
-            <a href="products.php?filter=yeni" class="btn btn-outline-primary">Tüm Yeni Ürünleri Gör</a>
+        <h3 class="feature-title">Ücretsiz Kargo</h3>
+        <p class="feature-description">300₺ ve üzeri tüm siparişlerde ücretsiz kargo imkanı</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-sync"></i>
         </div>
+        <h3 class="feature-title">Kolay İade</h3>
+        <p class="feature-description">30 gün içinde ücretsiz iade garantisi</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3 class="feature-title">Güvenli Ödeme</h3>
+        <p class="feature-description">SSL güvenlik sertifikası ile güvenli ödeme</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3 class="feature-title">7/24 Destek</h3>
+        <p class="feature-description">Her zaman yanınızda olan müşteri hizmetleri</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Avantajlar Bölümü -->
-<section class="mb-5 bg-light py-5">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-md-3">
-                <div class="text-center">
-                    <i class="bi bi-truck fs-1 text-primary mb-3"></i>
-                    <h5>Ücretsiz Kargo</h5>
-                    <p class="text-muted">250 TL ve üzeri alışverişlerde ücretsiz kargo</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="text-center">
-                    <i class="bi bi-shield-check fs-1 text-primary mb-3"></i>
-                    <h5>Güvenli Alışveriş</h5>
-                    <p class="text-muted">SSL sertifikası ile güvenli ödeme</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="text-center">
-                    <i class="bi bi-arrow-repeat fs-1 text-primary mb-3"></i>
-                    <h5>Kolay İade</h5>
-                    <p class="text-muted">14 gün içinde kolay iade imkanı</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="text-center">
-                    <i class="bi bi-headset fs-1 text-primary mb-3"></i>
-                    <h5>7/24 Destek</h5>
-                    <p class="text-muted">Müşteri hizmetleri desteği</p>
-                </div>
-            </div>
-        </div>
+<!-- Bülten -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-content">
+      <h2 class="newsletter-title">Bültenimize Abone Olun</h2>
+      <p class="newsletter-description">Yeni koleksiyonlar, özel teklifler ve indirimlerden haberdar olmak için abone olun.</p>
+      
+      <form class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="E-posta adresiniz" required>
+        <button type="submit" class="newsletter-button">Abone Ol</button>
+      </form>
     </div>
-</section>
-
-<!-- Abone Ol -->
-<section class="mb-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card shadow-sm">
-                    <div class="card-body p-4 text-center">
-                        <h3>Bültenimize Abone Olun</h3>
-                        <p class="text-muted">Yeni ürünler, indirimler ve kampanyalardan haberdar olmak için e-posta
-                            listemize kaydolun.</p>
-                        <form class="row g-3 justify-content-center" action="newsletter-subscribe.php" method="post">
-                            <div class="col-md-8">
-                                <input type="email" name="email" class="form-control" placeholder="E-posta adresiniz"
-                                    required>
-                            </div>
-                            <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary w-100">Abone Ol</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </section>
 
 <?php
-// Footer'ı dahil edin
+// Footer'ı dahil et
 require_once 'includes/footer.php';
 ?>
