@@ -389,7 +389,4 @@ include_once 'includes/header.php';
   </div>
 </section>
 
-<?php
-// Footer'ı dahil et
-require_once 'includes/footer.php';
-?>
+<?php include_once 'includes/footer.php'; ?>

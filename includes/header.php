@@ -1,4 +1,6 @@
 <?php
+require_once 'includes/config.php';
+require_once 'database/db.php';
 // CSRF Token oluştur - eğer yoksa
 if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
