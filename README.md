@@ -40,7 +40,7 @@ git clone https://github.com/Klaymanier/Donem-Projesi-Metin-Coskun.git
 cd Donem-Projesi-Metin-Coskun
 ```
 
-### `index.php` Dosyasını açın:
+### `index.html` Dosyasını açın:
 
-Tarayıcınızda `index.php` dosyasını açarak projeyi görüntüleyebilirsiniz.
+Tarayıcınızda `index.html` dosyasını açarak projeyi görüntüleyebilirsiniz.
 
