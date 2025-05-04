@@ -25,10 +25,6 @@ Bu proje, ürünlerin şık bir şekilde sergilendiği ve kullanıcıların sat�
 + CSS: Web sitesinin tasarımı ve stilini belirlemek için.
 
 + JavaScript: Dinamik kullanıcı etkileşimlerini sağlamak için.
-
-+ PHP: Dinamik içerik yönetimi ve ürünlerin listelenmesi için.
-
-+ Bootstrap: Daha hızlı ve responsive bir tasarım için.
 ---
 ## Kurulum ve Çalıştırma
 
@@ -44,7 +40,7 @@ git clone https://github.com/Klaymanier/Donem-Projesi-Metin-Coskun.git
 cd Donem-Projesi-Metin-Coskun
 ```
 
-### `index.php` Dosyasını açın:
+### `index.html` Dosyasını açın:
 
-Tarayıcınızda `index.php` dosyasını açarak projeyi görüntüleyebilirsiniz.
+Tarayıcınızda `index.html` dosyasını açarak projeyi görüntüleyebilirsiniz.
 
