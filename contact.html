@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ModaVista İletişim - Bize ulaşın, sorularınızı yanıtlayalım.">
+    <meta name="theme-color" content="#ffffff">
+    <title>İletişim - ModaVista</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.png" type="image/png">
+    
+    <!-- Fontlar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- CSS Dosyaları -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    
+    <header class="header">
+        <div class="header-inner">
+          <!-- Logo -->
+          <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-tshirt"></i></div>
+            ModaVista
+          </a>
+          
+          <!-- Ana Navigasyon -->
+          <nav class="main-nav">
+            <ul class="nav-links">
+              <!-- Tüm Ürünler Dropdown -->
+              <li class="dropdown">
+                <a href="products.html" class="nav-link">Tüm Ürünler</a>
+                <div class="dropdown-menu">
+                  <a href="products.html?kategori=kadin" class="">Kadın</a>
+                  <a href="products.html?kategori=erkek" class="">Erkek</a>
+                  <a href="products.html?kategori=cocuk" class="">Çocuk</a>
+                  <a href="products.html?kategori=aksesuar" class="">Aksesuar</a>
+                </div>
+              </li>
+              <li>
+                <a href="about.html" class="nav-link">Hakkımızda</a>
+              </li>
+              <li>
+                <a href="contact.html" class="nav-link active">İletişim</a>
+              </li>
+            </ul>
+          </nav>
+          
+          <!-- Sağ Taraf İkonları -->
+          <div class="header-actions">
+            <!-- Arama butonu -->
+            <button class="header-action search-toggle">
+              <i class="fas fa-search"></i>
+            </button>
+            
+            <!-- Sepet butonu -->
+            <a href="cart.html" class="header-action">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="badge">0</span>
+            </a>
+            
+            <!-- Tema Açılır Menüsü -->
+            <div class="theme-dropdown">
+              <button class="header-action theme-toggle">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+              </button>
+              <div class="theme-dropdown-menu">
+                <button class="theme-option" data-theme="light">
+                  <i class="fas fa-sun"></i>
+                  <span>Aydınlık Mod</span>
+                </button>
+                <button class="theme-option" data-theme="dark">
+                  <i class="fas fa-moon"></i>
+                  <span>Karanlık Mod</span>
+                </button>
+                <button class="theme-option" data-theme="auto">
+                  <i class="fas fa-circle-half-stroke"></i>
+                  <span>Sistem Ayarı</span>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Kullanıcı butonu -->
+            <div class="user-dropdown">
+              <button class="header-action user-toggle">
+                <i class="fas fa-user"></i>
+              </button>
+              <div class="user-dropdown-menu">
+                <a href="profile.html" class="user-dropdown-item">
+                  <i class="fas fa-user-circle"></i>
+                  <span>Profilim</span>
+                </a>
+                <a href="orders.html" class="user-dropdown-item">
+                  <i class="fas fa-box"></i>
+                  <span>Siparişlerim</span>
+                </a>
+                <a href="wishlist.html" class="user-dropdown-item">
+                  <i class="fas fa-heart"></i>
+                  <span>Favorilerim</span>
+                </a>
+                <a href="logout.html" class="user-dropdown-item">
+                  <i class="fas fa-sign-out-alt"></i>
+                  <span>Çıkış Yap</span>
+                </a>
+              </div>
+            </div>
+            
+            <a href="login.html" class="header-action">
+              <i class="fas fa-user"></i>
+            </a>
+            
+            <!-- Hamburger Menü (En sağda) -->
+            <button class="header-action menu-toggle" id="menuToggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
+                <li class="breadcrumb-item active">İletişim</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- İletişim Bölümü -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Bizimle İletişime Geçin</h2>
+                <p>Sorularınız, önerileriniz veya geri bildirimleriniz için bize ulaşın. En kısa sürede size yanıt vereceğiz.</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Adresimiz</h3>
+                            <p>Yozgat No:123 Sorgun/Yozgat</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telefonumuz</h3>
+                            <p>+90 212 123 45 67</p>
+                            <p>+90 533 123 45 67</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-posta Adresimiz</h3>
+                            <p>info@modavista.com</p>
+                            <p>destek@modavista.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Çalışma Saatlerimiz</h3>
+                            <p>Pazartesi - Cumartesi: 09:00 - 20:00</p>
+                            <p>Pazar: Kapalı</p>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <h3>Bizi Takip Edin</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h3>Mesaj Gönderin</h3>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Adınız Soyadınız*</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta Adresiniz*</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon Numaranız</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Konu*</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesajınız*</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="privacy" name="privacy" class="form-check-input" required>
+                            <label for="privacy" class="form-check-label">
+                                <a href="privacy.html">Gizlilik politikasını</a> okudum ve kabul ediyorum.
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Harita Bölümü -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24683.636386036427!2d35.15970407932134!3d39.80813929726567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d82cb05c8e4525%3A0x9f5f34e3eb20dcb5!2zU29yZ3VuLCBZb3pnYXQgTWVya2V6L1lvemthdA!5e0!3m2!1str!2str!4v1681920287248!5m2!1str!2str" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- SSS Bölümü -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+                <p>Müşterilerimizin en çok sorduğu soruları ve yanıtları</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Siparişim ne zaman kargolanacak?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Siparişleriniz, ödemeniz onaylandıktan sonra genellikle 1-2 iş günü içerisinde kargoya verilmektedir. Hafta sonu ve resmi tatil günlerinde sipariş hazırlama işlemleri yapılmamaktadır.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Ürün iade koşulları nelerdir?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ürünlerimizi, teslim aldığınız tarihten itibaren 14 gün içerisinde, orijinal etiketleri ve ambalajı ile birlikte iade edebilirsiniz. İade işlemleri hakkında detaylı bilgi için <a href="returns.html">İade Politikası</a> sayfamızı ziyaret edebilirsiniz.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Kargo ücretleri ne kadardır?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>250 TL ve üzeri alışverişlerinizde kargo ücretsizdir. 250 TL altındaki siparişlerinizde ise 29.90 TL kargo ücreti uygulanmaktadır.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Siparişimi nasıl takip edebilirim?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Siparişiniz kargoya verildikten sonra, kayıtlı e-posta adresinize kargo takip numarası ile birlikte bilgilendirme mesajı gönderilecektir. Ayrıca, hesabınıza giriş yaparak "Siparişlerim" bölümünden de sipariş durumunuzu takip edebilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Yeniliklerden Haberdar Olun</h2>
+                <p class="cta-description">En yeni koleksiyonlarımız, indirimlerimiz ve etkinliklerimizden haberdar olmak için bültenimize abone olun.</p>
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="E-posta adresiniz">
+                    <button class="btn">Abone Ol</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon"><i class="fas fa-tshirt"></i></div>
+                        ModaVista
+                    </div>
+                    <p class="footer-description">Modern ve yenilikçi tasarımlarla tarzınızı yeniden keşfedin. Sürdürülebilir moda anlayışımızla çevreye duyarlı alışveriş yapın.</p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer-social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="footer-social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer-social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Kategoriler</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html?kategori=kadin">Kadın</a></li>
+                        <li><a href="products.html?kategori=erkek">Erkek</a></li>
+                        <li><a href="products.html?kategori=cocuk">Çocuk</a></li>
+                        <li><a href="products.html?kategori=aksesuar">Aksesuar</a></li>
+                        <li><a href="products.html?kategori=ayakkabi">Ayakkabı</a></li>
+                        <li><a href="products.html?kategori=canta">Çanta</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Bilgi</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="shipping.html">Teslimat Bilgileri</a></li>
+                        <li><a href="privacy.html">Gizlilik Politikası</a></li>
+                        <li><a href="terms.html">Kullanım Koşulları</a></li>
+                        <li><a href="returns.html">İade Politikası</a></li>
+                        <li><a href="faq.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">İletişim</h3>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                            <div>Yozgat No:123 Sorgun/Yozgat</div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone footer-contact-icon"></i>
+                            <div>+90 212 123 45 67</div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope footer-contact-icon"></i>
+                            <div>info@modavista.com</div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-clock footer-contact-icon"></i>
+                            <div>Pazartesi-Cumartesi: 09:00 - 20:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ModaVista. Tüm hakları saklıdır.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html" class="footer-bottom-link">Gizlilik</a>
+                    <a href="terms.html" class="footer-bottom-link">Şartlar</a>
+                    <a href="cookies.html" class="footer-bottom-link">Çerezler</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js\main.js"></script>

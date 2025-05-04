@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ModaVista - En yeni moda trendleri, kaliteli ürünler ve uygun fiyatlarla online alışverişin adresi.">
+    <meta name="theme-color" content="#ffffff">
+    <title>ModaVista - Online Moda Mağazası</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.png" type="image/png">
+    
+    <!-- Fontlar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    
+    <!-- CSS Dosyaları -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    
+    <header class="header">
+        <div class="header-inner">
+          <!-- Logo -->
+          <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-tshirt"></i></div>
+            ModaVista
+          </a>
+          
+          <!-- Ana Navigasyon -->
+          <nav class="main-nav">
+            <ul class="nav-links">
+              <!-- Tüm Ürünler Dropdown -->
+              <li class="dropdown">
+                <a href="products.html" class="nav-link">Tüm Ürünler</a>
+                <div class="dropdown-menu">
+                  <a href="products.html?kategori=kadin" class="">Kadın</a>
+                  <a href="products.html?kategori=erkek" class="">Erkek</a>
+                  <a href="products.html?kategori=cocuk" class="">Çocuk</a>
+                  <a href="products.html?kategori=aksesuar" class="">Aksesuar</a>
+                </div>
+              </li>
+              <li>
+                <a href="about.html" class="nav-link">Hakkımızda</a>
+              </li>
+              <li>
+                <a href="contact.html" class="nav-link">İletişim</a>
+              </li>
+            </ul>
+          </nav>
+          
+          <!-- Sağ Taraf İkonları -->
+          <div class="header-actions">
+            <!-- Arama butonu -->
+            <button class="header-action search-toggle">
+              <i class="fas fa-search"></i>
+            </button>
+            
+            <!-- Sepet butonu -->
+            <a href="cart.html" class="header-action">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="badge">0</span>
+            </a>
+            
+            <!-- Tema Açılır Menüsü -->
+            <button class="header-action theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+              </button>
+            
+            <!-- Kullanıcı butonu -->
+            <div class="user-dropdown">
+              <button class="header-action user-toggle">
+                <i class="fas fa-user"></i>
+              </button>
+              <div class="user-dropdown-menu">
+                <a href="profile.html" class="user-dropdown-item">
+                  <i class="fas fa-user-circle"></i>
+                  <span>Profilim</span>
+                </a>
+                <a href="orders.html" class="user-dropdown-item">
+                  <i class="fas fa-box"></i>
+                  <span>Siparişlerim</span>
+                </a>
+                <a href="wishlist.html" class="user-dropdown-item">
+                  <i class="fas fa-heart"></i>
+                  <span>Favorilerim</span>
+                </a>
+                <a href="logout.html" class="user-dropdown-item">
+                  <i class="fas fa-sign-out-alt"></i>
+                  <span>Çıkış Yap</span>
+                </a>
+              </div>
+            </div>
+            
+            <a href="login.html" class="header-action">
+              <i class="fas fa-user"></i>
+            </a>
+            
+            <!-- Hamburger Menü (En sağda) -->
+            <button class="header-action menu-toggle" id="menuToggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </header>
+    
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Modern Tasarım, <br>Yenilikçi Stil</h1>
+                <p class="hero-subtitle">En yeni koleksiyonlar ve sezonun trend parçalarıyla tarzınızı yansıtın. Sürdürülebilir moda anlayışımızla çevreye duyarlı alışverişin keyfini çıkarın.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary btn-lg">Alışverişe Başla</a>
+                    <a href="#collections" class="btn btn-outline btn-lg">Koleksiyonlar</a>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <img src="assets\picture\hero.jpg" alt="ModaVista Hero" class="hero-image">
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Kategoriler -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kategoriler</h2>
+                <a href="categories.html" class="view-all">Tümünü Gör <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="categories-grid">
+                <a href="products.html?kategori=kadin" class="category-card">
+                    <img src="assets\picture\kadin.jpg" alt="Kadın" class="category-bg">
+                    <div class="category-content">
+                        <h3 class="category-name">Kadın</h3>
+                        <div class="category-count">24+ Ürün</div>
+                    </div>
+                </a>
+                
+                <a href="products.html?kategori=erkek" class="category-card">
+                    <img src="assets\picture\erkek.jpg" alt="Erkek" class="category-bg">
+                    <div class="category-content">
+                        <h3 class="category-name">Erkek</h3>
+                        <div class="category-count">18+ Ürün</div>
+                    </div>
+                </a>
+                
+                <a href="products.html?kategori=cocuk" class="category-card">
+                    <img src="assets\picture\cocuk.jpg" alt="Çocuk" class="category-bg">
+                    <div class="category-content">
+                        <h3 class="category-name">Çocuk</h3>
+                        <div class="category-count">12+ Ürün</div>
+                    </div>
+                </a>
+                
+                <a href="products.html?kategori=aksesuar" class="category-card">
+                    <img src="assets\picture\aksesuar.jpg" alt="Aksesuar" class="category-bg">
+                    <div class="category-content">
+                        <h3 class="category-name">Aksesuar</h3>
+                        <div class="category-count">30+ Ürün</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ürünler -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Öne Çıkan Ürünler</h2>
+                <a href="products.html" class="view-all">Tümünü Gör <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="products-filter">
+                <button class="filter-button active" data-filter="tumu">Tümü</button>
+                <button class="filter-button" data-filter="yeni-gelenler">Yeni Gelenler</button>
+                <button class="filter-button" data-filter="populer">Popüler</button>
+                <button class="filter-button" data-filter="indirimli">İndirimli</button>
+                <button class="filter-button" data-filter="erkek">Erkek</button>
+                <button class="filter-button" data-filter="kadin">Kadın</button>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Örnek Ürün Kartı -->
+                <div class="product-card">
+                    <div class="product-thumb">
+                        <img src="assets\picture\tshirt.png" alt="Premium Pamuklu T-Shirt">
+                        <div class="product-badges">
+                            <span class="badge new">Yeni</span>
+                            <span class="badge discount">%20</span>
+                        </div>
+                        <div class="product-actions">
+                            <button type="button" class="action-btn wishlist-btn">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button type="button" class="action-btn quick-view-btn">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">
+                            <a href="product-detail.html?id=1">Premium Pamuklu T-Shirt</a>
+                        </h3>
+                        <div class="product-price">
+                            <span class="discount-price">299,90 ₺</span>
+                            <span class="current-price">249,90 ₺</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="rating-count">(24)</span>
+                        </div>
+                        <button class="add-to-cart" data-product-id="1">
+                            <i class="fas fa-shopping-cart"></i> Sepete Ekle
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Diğer ürün kartları buraya gelecek -->
+                <div class="product-card">
+                    <div class="product-thumb">
+                        <img src="assets\picture\ronin-arka.png" alt="Premium Pamuklu T-Shirt">
+                        <div class="product-badges">
+                            <span class="badge new">Yeni</span>
+                            <span class="badge discount">%20</span>
+                        </div>
+                        <div class="product-actions">
+                            <button type="button" class="action-btn wishlist-btn">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button type="button" class="action-btn quick-view-btn">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">
+                            <a href="product-detail.html?id=1"></a>
+                        </h3>
+                        <div class="product-price">
+                            <span class="discount-price">299,90 ₺</span>
+                            <span class="current-price">249,90 ₺</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="rating-count">(24)</span>
+                        </div>
+                        <button class="add-to-cart" data-product-id="1">
+                            <i class="fas fa-shopping-cart"></i> Sepete Ekle
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Koleksiyonlar -->
+    <section class="collections-section" id="collections">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Koleksiyonlar</h2>
+                <a href="collections.html" class="view-all">Tümünü Gör <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="collections-grid">
+                <div class="collection-card">
+                    <img src="assets\picture\yaz.jpg" alt="Yaz Koleksiyonu">
+                    <div class="collection-content">
+                        <h3 class="collection-title">Yaz Koleksiyonu</h3>
+                        <p class="collection-description">Sıcak yaz günleri için ferah ve şık tasarımlar</p>
+                        <a href="#yaz-koleksiyonu" class="btn btn-outline">Keşfet</a>
+                    </div>
+                </div>
+                
+                <div class="collection-card">
+                    <img src="assets\picture\moda.jpg" alt="Sürdürülebilir Moda">
+                    <div class="collection-content">
+                        <h3 class="collection-title">Sürdürülebilir Moda</h3>
+                        <p class="collection-description">Doğaya saygılı, organik kumaşlardan üretilen çevre dostu ürünler</p>
+                        <a href="#surdurulebilir-moda" class="btn btn-outline">Keşfet</a>
+                    </div>
+                </div>
+                
+                <div class="collection-card">
+                    <img src="assets\picture\limitli.jpg" alt="Limitli Koleksiyon">
+                    <div class="collection-content">
+                        <h3 class="collection-title">Limitli Koleksiyon</h3>
+                        <p class="collection-description">Sınırlı sayıda üretilen özel tasarımlar</p>
+                        <a href="#limitli-koleksiyon" class="btn btn-outline">Keşfet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Yeniliklerden Haberdar Olun</h2>
+                <p class="cta-description">En yeni koleksiyonlarımız, indirimlerimiz ve etkinliklerimizden haberdar olmak için bültenimize abone olun.</p>
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="E-posta adresiniz">
+                    <button class="btn">Abone Ol</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon"><i class="fas fa-tshirt"></i></div>
+                        ModaVista
+                    </div>
+                    <p class="footer-description">Modern ve yenilikçi tasarımlarla tarzınızı yeniden keşfedin. Sürdürülebilir moda anlayışımızla çevreye duyarlı alışveriş yapın.</p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer-social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="footer-social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer-social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Bilgi</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="shipping.html">Teslimat Bilgileri</a></li>
+                        <li><a href="privacy.html">Gizlilik Politikası</a></li>
+                        <li><a href="terms.html">Kullanım Koşulları</a></li>
+                        <li><a href="returns.html">İade Politikası</a></li>
+                        <li><a href="faq.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">İletişim</h3>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                            <div>Yozgat No:123 Sorgun/Yozgat</div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone footer-contact-icon"></i>
+                            <div>+90 212 123 45 67</div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope footer-contact-icon"></i>
+                            <div>info@modavista.com</div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-clock footer-contact-icon"></i>
+                            <div>Pazartesi-Cumartesi: 09:00 - 20:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ModaVista. Tüm hakları saklıdır.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html" class="footer-bottom-link">Gizlilik</a>
+                    <a href="terms.html" class="footer-bottom-link">Şartlar</a>
+                    <a href="cookies.html" class="footer-bottom-link">Çerezler</a>
+                </div>
+            </div>
+        </div>
+    </footer>   
+    <!-- JavaScript -->
+    <script src="js\main.js"></script>
+</body>
+</html> 
