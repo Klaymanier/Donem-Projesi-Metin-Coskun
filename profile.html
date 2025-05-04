@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ModaVista - Profilinizi yönetin ve kişisel bilgilerinizi düzenleyin.">
+    <meta name="theme-color" content="#ffffff">
+    <title>Profilim - ModaVista</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.png" type="image/png">
+    
+    <!-- Fontlar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- CSS Dosyaları -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    
+    <header class="header">
+        <div class="header-inner">
+          <!-- Logo -->
+          <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-tshirt"></i></div>
+            ModaVista
+          </a>
+          
+          <!-- Ana Navigasyon -->
+          <nav class="main-nav">
+            <ul class="nav-links">
+              <!-- Tüm Ürünler Dropdown -->
+              <li class="dropdown">
+                <a href="products.html" class="nav-link">Tüm Ürünler</a>
+                <div class="dropdown-menu">
+                  <a href="products.html?kategori=kadin" class="">Kadın</a>
+                  <a href="products.html?kategori=erkek" class="">Erkek</a>
+                  <a href="products.html?kategori=cocuk" class="">Çocuk</a>
+                  <a href="products.html?kategori=aksesuar" class="">Aksesuar</a>
+                </div>
+              </li>
+              <li>
+                <a href="about.html" class="nav-link">Hakkımızda</a>
+              </li>
+              <li>
+                <a href="contact.html" class="nav-link">İletişim</a>
+              </li>
+            </ul>
+          </nav>
+          
+          <!-- Sağ Taraf İkonları -->
+          <div class="header-actions">
+            <!-- Arama butonu -->
+            <button class="header-action search-toggle">
+              <i class="fas fa-search"></i>
+            </button>
+            
+            <!-- Sepet butonu -->
+            <a href="cart.html" class="header-action">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="badge">0</span>
+            </a>
+            
+            <!-- Tema Açılır Menüsü -->
+            <div class="theme-dropdown">
+              <button class="header-action theme-toggle">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+              </button>
+              <div class="theme-dropdown-menu">
+                <button class="theme-option" data-theme="light">
+                  <i class="fas fa-sun"></i>
+                  <span>Aydınlık Mod</span>
+                </button>
+                <button class="theme-option" data-theme="dark">
+                  <i class="fas fa-moon"></i>
+                  <span>Karanlık Mod</span>
+                </button>
+                <button class="theme-option" data-theme="auto">
+                  <i class="fas fa-circle-half-stroke"></i>
+                  <span>Sistem Ayarı</span>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Kullanıcı butonu -->
+            <div class="user-dropdown">
+              <button class="header-action user-toggle active">
+                <i class="fas fa-user"></i>
+              </button>
+              <div class="user-dropdown-menu">
+                <a href="profile.html" class="user-dropdown-item">
+                  <i class="fas fa-user-circle"></i>
+                  <span>Profilim</span>
+                </a>
+                <a href="orders.html" class="user-dropdown-item">
+                  <i class="fas fa-box"></i>
+                  <span>Siparişlerim</span>
+                </a>
+                <a href="wishlist.html" class="user-dropdown-item">
+                  <i class="fas fa-heart"></i>
+                  <span>Favorilerim</span>
+                </a>
+                <a href="logout.html" class="user-dropdown-item">
+                  <i class="fas fa-sign-out-alt"></i>
+                  <span>Çıkış Yap</span>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Hamburger Menü (En sağda) -->
+            <button class="header-action menu-toggle" id="menuToggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-wrapper">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
+                <li class="breadcrumb-item active">Profilim</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Profil Sayfası İçeriği -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-container">
+                <!-- Sol Sidebar -->
+                <div class="profile-sidebar">
+                    <div class="profile-user">
+                        <div class="profile-avatar">
+                            <img src="../assets/images/profile/user-avatar.jpg" alt="Kullanıcı Avatarı">
+                        </div>
+                        <div class="profile-user-info">
+                            <h3 class="profile-user-name">Metin Coşkun</h3>
+                            <p class="profile-user-email">metin.coskun@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-nav">
+                        <a href="profile.html" class="profile-nav-item active">
+                            <i class="fas fa-user"></i>
+                            <span>Hesap Bilgilerim</span>
+                        </a>
+                        <a href="orders.html" class="profile-nav-item">
+                            <i class="fas fa-box"></i>
+                            <span>Siparişlerim</span>
+                        </a>
+                        <a href="addresses.html" class="profile-nav-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Adreslerim</span>
+                        </a>
+                        <a href="wishlist.html" class="profile-nav-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Favorilerim</span>
+                        </a>
+                        <a href="reviews.html" class="profile-nav-item">
+                            <i class="fas fa-star"></i>
+                            <span>Değerlendirmelerim</span>
+                        </a>
+                        <a href="password-change.html" class="profile-nav-item">
+                            <i class="fas fa-lock"></i>
+                            <span>Şifre Değiştir</span>
+                        </a>
+                        <a href="logout.html" class="profile-nav-item logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Çıkış Yap</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Ana İçerik -->
+                <div class="profile-content">
+                    <div class="profile-card">
+                        <div class="profile-card-header">
+                            <h2 class="profile-card-title">Hesap Bilgilerim</h2>
+                            <p class="profile-card-subtitle">Kişisel bilgilerinizi görüntüleyebilir ve güncelleyebilirsiniz.</p>
+                        </div>
+                        
+                        <div class="profile-card-body">
+                            <form class="profile-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name">Ad*</label>
+                                        <input type="text" id="name" class="form-control" value="Metin" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="surname">Soyad*</label>
+                                        <input type="text" id="surname" class="form-control" value="Coşkun" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">E-posta Adresi*</label>
+                                    <input type="email" id="email" class="form-control" value="metin.coskun@example.com" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Telefon Numarası*</label>
+                                    <input type="tel" id="phone" class="form-control" value="0533 123 45 67" required>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="birthdate">Doğum Tarihi</label>
+                                        <input type="date" id="birthdate" class="form-control" value="1990-05-15">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gender">Cinsiyet</label>
+                                        <select id="gender" class="form-control">
+                                            <option value="">Seçiniz</option>
+                                            <option value="male" selected>Erkek</option>
+                                            <option value="female">Kadın</option>
+                                            <option value="other">Diğer</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-check">
+                                    <input type="checkbox" id="newsletter" class="form-check-input" checked>
+                                    <label for="newsletter" class="form-check-label">E-bülten ve kampanyalardan haberdar olmak istiyorum</label>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <div class="profile-card-header">
+                            <h2 class="profile-card-title">Hesap Güvenliği</h2>
+                            <p class="profile-card-subtitle">Hesabınızın güvenliğini artırmak için aşağıdaki adımları izleyebilirsiniz.</p>
+                        </div>
+                        
+                        <div class="profile-card-body">
+                            <div class="profile-security-items">
+                                <div class="security-item">
+                                    <div class="security-item-icon active">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                    <div class="security-item-content">
+                                        <h3>Güçlü Şifre</h3>
+                                        <p>Şifreniz güvenli görünüyor. Son değiştirilme tarihi: 15.03.2023</p>
+                                    </div>
+                                    <a href="password-change.html" class="btn btn-outline btn-sm">Şifre Değiştir</a>
+                                </div>
+                                
+                                <div class="security-item">
+                                    <div class="security-item-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div class="security-item-content">
+                                        <h3>İki Faktörlü Doğrulama</h3>
+                                        <p>Hesabınızı daha güvenli hale getirmek için iki faktörlü doğrulamayı aktifleştirin.</p>
+                                    </div>
+                                    <button class="btn btn-outline btn-sm">Aktifleştir</button>
+                                </div>
+                                
+                                <div class="security-item">
+                                    <div class="security-item-icon active">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="security-item-content">
+                                        <h3>E-posta Doğrulaması</h3>
+                                        <p>E-posta adresiniz doğrulanmış durumda.</p>
+                                    </div>
+                                    <span class="badge success">Doğrulandı</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon"><i class="fas fa-tshirt"></i></div>
+                        ModaVista
+                    </div>
+                    <p class="footer-description">Modern ve yenilikçi tasarımlarla tarzınızı yeniden keşfedin. Sürdürülebilir moda anlayışımızla çevreye duyarlı alışveriş yapın.</p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="footer-social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="footer-social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer-social-link" target="_blank" rel="noopener">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Kategoriler</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html?kategori=kadin">Kadın</a></li>
+                        <li><a href="products.html?kategori=erkek">Erkek</a></li>
+                        <li><a href="products.html?kategori=cocuk">Çocuk</a></li>
+                        <li><a href="products.html?kategori=aksesuar">Aksesuar</a></li>
+                        <li><a href="products.html?kategori=ayakkabi">Ayakkabı</a></li>
+                        <li><a href="products.html?kategori=canta">Çanta</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Bilgi</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="shipping.html">Teslimat Bilgileri</a></li>
+                        <li><a href="privacy.html">Gizlilik Politikası</a></li>
+                        <li><a href="terms.html">Kullanım Koşulları</a></li>
+                        <li><a href="returns.html">İade Politikası</a></li>
+                        <li><a href="faq.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">İletişim</h3>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                            <div>Yozgat No:123 Sorgun/Yozgat</div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone footer-contact-icon"></i>
+                            <div>+90 212 123 45 67</div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope footer-contact-icon"></i>
+                            <div>info@modavista.com</div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-clock footer-contact-icon"></i>
+                            <div>Pazartesi-Cumartesi: 09:00 - 20:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ModaVista. Tüm hakları saklıdır.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html" class="footer-bottom-link">Gizlilik</a>
+                    <a href="terms.html" class="footer-bottom-link">Şartlar</a>
+                    <a href="cookies.html" class="footer-bottom-link">Çerezler</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js\main.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ModaVista - Kayıt Ol ve alışverişe başla.">
+    <meta name="theme-color" content="#ffffff">
+    <title>Kayıt Ol - ModaVista</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    
+    <!-- Fontlar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- CSS Dosyaları -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    
+    <header class="header">
+        <div class="header-inner">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-tshirt"></i></div>
+                ModaVista
+            </a>
+            
+            <!-- Ana Navigasyon -->
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="products.html" class="nav-link">Tüm Ürünler</a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?kategori=kadin">Kadın</a>
+                            <a href="products.html?kategori=erkek">Erkek</a>
+                            <a href="products.html?kategori=cocuk">Çocuk</a>
+                            <a href="products.html?kategori=aksesuar">Aksesuar</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html" class="nav-link">Hakkımızda</a></li>
+                    <li><a href="contact.html" class="nav-link">İletişim</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Sağ Taraf İkonları -->
+            <div class="header-actions">
+                <button class="header-action search-toggle">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="cart.html" class="header-action">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge">0</span>
+                </a>
+                <button class="header-action theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="header-action menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Register Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="register-box" style="background: var(--bg-surface); max-width:500px; margin:0 auto; border-radius:var(--radius-lg); box-shadow:0 8px 32px var(--shadow-color); padding:40px 32px 32px 32px;">
+                    <h1 class="auth-title" style="text-align:center; margin-bottom:24px;">Kayıt Ol</h1>
+                    <form class="auth-form" action="#" method="POST" style="gap:18px;">
+                        <div class="form-group">
+                            <label for="name">Ad</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="surname">Soyad</label>
+                            <input type="text" id="surname" name="surname" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Şifre</label>
+                            <input type="password" id="password" name="password" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password2">Şifre (Tekrar)</label>
+                            <input type="password" id="password2" name="password2" class="form-control" required>
+                        </div>
+                        <div class="form-group remember-me">
+                            <label style="display: flex; align-items: center; gap: 8px;">
+                                <input type="checkbox" name="terms" required>
+                                <span>Kullanım koşullarını <a href="terms.html" target="_blank">kabul ediyorum</a></span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Kayıt Ol</button>
+                    </form>
+                    <div class="auth-divider">
+                        <span>veya</span>
+                    </div>
+                    <div class="social-login">
+                        <button class="btn btn-outline btn-block social-btn google">
+                            <i class="fab fa-google"></i>
+                            Google ile Kayıt Ol
+                        </button>
+                        <button class="btn btn-outline btn-block social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            Facebook ile Kayıt Ol
+                        </button>
+                    </div>
+                    <div class="auth-footer">
+                        Zaten hesabınız var mı? <a href="login.html">Giriş Yap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">ModaVista</h3>
+                    <p class="footer-text">En yeni moda trendleri ve kaliteli ürünlerle tarzınızı yansıtın.</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Hızlı Linkler</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                        <li><a href="terms.html">Kullanım Koşulları</a></li>
+                        <li><a href="privacy.html">Gizlilik Politikası</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">İletişim</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> +90 555 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> info@modavista.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ModaVista. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html> 
