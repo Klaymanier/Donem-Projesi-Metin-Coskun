@@ -25,10 +25,6 @@ Bu proje, ürünlerin şık bir şekilde sergilendiği ve kullanıcıların sat�
 + CSS: Web sitesinin tasarımı ve stilini belirlemek için.
 
 + JavaScript: Dinamik kullanıcı etkileşimlerini sağlamak için.
-
-+ PHP: Dinamik içerik yönetimi ve ürünlerin listelenmesi için.
-
-+ Bootstrap: Daha hızlı ve responsive bir tasarım için.
 ---
 ## Kurulum ve Çalıştırma
 
