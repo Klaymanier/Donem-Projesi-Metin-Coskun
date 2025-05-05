@@ -1,0 +1,1621 @@
+:root {
+    /* Ana renk paleti - daha zengin tonlar */
+    --primary: #8533ff;
+    --primary-light: #9966ff;
+    --primary-dark: #6a29cc;
+    --primary-opacity: rgba(133, 51, 255, 0.1);
+    
+    /* Arka plan renkleri - daha kontrast ve keskin renk geçişleri */
+    --dark-bg: #121220;
+    --darker-bg: #0c0c18;
+    --card-bg: #1e1e3a;
+    --card-hover-bg: #252547;
+    --item-bg: rgba(255, 255, 255, 0.04);
+    
+    /* Metin renkleri - daha yüksek kontrast için */
+    --text-color: #f0f0f0;
+    --text-muted: #b3b3cc;
+    --text-header: #ffffff;
+    
+    /* Diğer renkler */
+    --success: #4cd964;
+    --warning: #f1c40f;
+    --info: #3498db;
+    --danger: #e74c3c;
+    --border-color: rgba(255, 255, 255, 0.08);
+    
+    /* Gölgeler */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.25);
+    --shadow-primary: 0 5px 15px rgba(133, 51, 255, 0.2);
+    
+    /* Geçişler */
+    --transition-fast: all 0.2s ease;
+    --transition-normal: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
+    
+    /* Boyutlar */
+    --border-radius-sm: 6px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 24px;
+    --border-radius-round: 50px;
+}
+
+/* Temel stil sıfırlama ve font ayarları */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Roboto', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 15px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: var(--transition-normal);
+}
+
+/* Özel Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--darker-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-dark);
+    border-radius: var(--border-radius-round);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Sidebar Bölümü - Geliştirilmiş Tasarım */
+.sidebar {
+    background: linear-gradient(180deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+    height: 100vh;
+    position: fixed;
+    padding-top: 20px;
+    width: 260px;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-normal);
+    z-index: 1000;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar-header {
+    text-align: center;
+    padding-bottom: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--text-header);
+    text-shadow: 0 0 15px rgba(133, 51, 255, 0.5);
+    margin-bottom: 5px;
+}
+
+.logo span {
+    color: var(--primary);
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.menu-item {
+    padding: 14px 20px;
+    margin: 5px 15px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    transition: var(--transition-fast);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid transparent;
+    font-weight: 500;
+}
+
+.menu-item:hover, .menu-item.active {
+    background-color: var(--primary-opacity);
+    color: var(--text-header);
+    border-left: 4px solid var(--primary);
+    transform: translateX(5px);
+}
+
+.menu-item.active {
+    background: linear-gradient(90deg, var(--primary-opacity), transparent);
+}
+
+.menu-item i {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: var(--transition-fast);
+}
+
+.menu-item:hover i, .menu-item.active i {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.menu-item span {
+    font-size: 15px;
+}
+
+/* Ana içerik alanı */
+.main-content {
+    margin-left: 260px;
+    padding: 30px;
+    transition: var(--transition-normal);
+    min-height: 100vh;
+}
+
+/* Header Bölümü */
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 25px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-header h4 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-header);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    padding: 8px 15px 8px 8px;
+    border-radius: var(--border-radius-round);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.user-profile:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.user-profile img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+    border: 2px solid var(--primary);
+    transition: var(--transition-fast);
+}
+
+.user-profile:hover img {
+    transform: scale(1.05);
+}
+
+.user-info {
+    line-height: 1.2;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-header);
+}
+
+.user-role {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.header-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+}
+
+.header-icon::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+
+.header-icon.has-notification::after {
+    opacity: 1;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(133, 51, 255, 0.7);
+    }
+    
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 5px rgba(133, 51, 255, 0);
+    }
+    
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(133, 51, 255, 0);
+    }
+}
+
+.header-icon:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-primary);
+}
+
+/* Başlık Stilleri */
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-header);
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
+    border-radius: var(--border-radius-sm);
+}
+
+/* İstatistik Kartları - Geliştirilmiş tasarım */
+.dashboard-card {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-hover-bg) 100%);
+    border-radius: var(--border-radius-lg);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(133, 51, 255, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(133, 51, 255, 0.3);
+}
+
+.dashboard-card:hover::before {
+    opacity: 1;
+}
+
+.card-icon {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: var(--border-radius-md);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-primary);
+    transition: var(--transition-normal);
+}
+
+.dashboard-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.card-icon i {
+    font-size: 24px;
+    color: white;
+}
+
+.stats-title {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.stats-number {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--text-header), var(--text-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.5px;
+}
+
+.trend {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.trend.up {
+    color: var(--success);
+}
+
+.trend.down {
+    color: var(--danger);
+}
+
+.trend i {
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+/* Tablo Konteyner - Geliştirilmiş tasarım */
+.table-container {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-normal);
+}
+
+.table-container:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+/* Tablo Stilleri - Geliştirilmiş tasarım */
+.table > :not(caption) > * > * {
+    padding: 1rem 1rem;
+    color: var(--text-color);
+    background-color: transparent;
+    border-bottom-width: 1px;
+    box-shadow: none;
+}
+
+.custom-table {
+    color: var(--text-color);
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    width: 100%;
+}
+
+.custom-table th {
+    border: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    padding: 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.custom-table td {
+    background-color: var(--item-bg);
+    border: none;
+    padding: 15px;
+    vertical-align: middle;
+    transition: var(--transition-fast);
+}
+
+.custom-table tr {
+    transition: var(--transition-fast);
+}
+
+.custom-table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.custom-table tr td:first-child {
+    border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+    border-left: 3px solid transparent;
+}
+
+.custom-table tr:hover td:first-child {
+    border-left: 3px solid var(--primary);
+}
+
+.custom-table tr td:last-child {
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+.table-img {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius-md);
+    object-fit: cover;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.table-img:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+/* Durum Etiketleri - Geliştirilmiş tasarım */
+.status {
+    padding: 7px 15px;
+    border-radius: var(--border-radius-round);
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.status:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.status.delivered {
+    background: linear-gradient(135deg, rgba(76, 217, 100, 0.15), rgba(76, 217, 100, 0.05));
+    color: var(--success);
+    border: 1px solid rgba(76, 217, 100, 0.2);
+}
+
+.status.shipped {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.15), rgba(52, 152, 219, 0.05));
+    color: var(--info);
+    border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.status.pending {
+    background: linear-gradient(135deg, rgba(241, 196, 15, 0.15), rgba(241, 196, 15, 0.05));
+    color: var(--warning);
+    border: 1px solid rgba(241, 196, 15, 0.2);
+}
+
+.status.canceled {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(231, 76, 60, 0.05));
+    color: var(--danger);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+/* İşlem Butonları - Geliştirilmiş tasarım */
+.action-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: var(--border-radius-md);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    transition: var(--transition-fast);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+.view-btn {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.15), rgba(52, 152, 219, 0.05));
+    color: var(--info);
+    border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.edit-btn {
+    background: linear-gradient(135deg, rgba(241, 196, 15, 0.15), rgba(241, 196, 15, 0.05));
+    color: var(--warning);
+    border: 1px solid rgba(241, 196, 15, 0.2);
+}
+
+.delete-btn {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(231, 76, 60, 0.05));
+    color: var(--danger);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.action-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.view-btn:hover {
+    background-color: rgba(52, 152, 219, 0.25);
+}
+
+.edit-btn:hover {
+    background-color: rgba(241, 196, 15, 0.25);
+}
+
+.delete-btn:hover {
+    background-color: rgba(231, 76, 60, 0.25);
+}
+
+/* Grafik Konteyner - Geliştirilmiş tasarım */
+.chart-container {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-hover-bg) 100%);
+    border-radius: var(--border-radius-lg);
+    padding: 25px;
+    min-height: 350px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(133, 51, 255, 0.1), transparent 70%);
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.chart-container:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.chart-container:hover::before {
+    opacity: 1;
+}
+
+/* Aktivite Listesi - Geliştirilmiş tasarım */
+.recent-activity {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-hover-bg) 100%);
+    border-radius: var(--border-radius-lg);
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-normal);
+}
+
+.recent-activity:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition-fast);
+}
+
+.activity-item:hover {
+    transform: translateX(5px);
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: var(--border-radius-md);
+    padding: 15px 10px;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(133, 51, 255, 0.15), rgba(133, 51, 255, 0.05));
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+    border: 1px solid rgba(133, 51, 255, 0.2);
+}
+
+.activity-item:hover .activity-icon {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-primary);
+}
+
+.activity-content {
+    flex-grow: 1;
+}
+
+.activity-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-header);
+}
+
+.activity-time {
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+}
+
+.activity-time i {
+    font-size: 12px;
+    margin-right: 5px;
+    opacity: 0.7;
+}
+
+/* Özel Butonlar - Geliştirilmiş tasarım */
+.btn-custom-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: 12px 24px;
+    color: white;
+    font-weight: 600;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-primary);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-custom-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition-normal);
+    z-index: -1;
+}
+
+.btn-custom-primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(133, 51, 255, 0.3);
+    color: white;
+}
+
+.btn-custom-primary:hover::before {
+    left: 100%;
+}
+
+.btn-custom-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(133, 51, 255, 0.2);
+}
+
+.btn-custom-primary i {
+    margin-right: 8px;
+    transition: var(--transition-fast);
+}
+
+.btn-custom-primary:hover i {
+    transform: translateX(-3px);
+}
+
+.quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+/* Ürün Kartları - Geliştirilmiş tasarım */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.product-card {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-hover-bg) 100%);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(133, 51, 255, 0.3);
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+.product-image {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    transition: var(--transition-normal);
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.product-details {
+    padding: 20px;
+    position: relative;
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-header);
+    transition: var(--transition-fast);
+}
+
+.product-card:hover .product-title {
+    color: var(--primary-light);
+}
+
+.product-category {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.product-category i {
+    font-size: 12px;
+    margin-right: 5px;
+    opacity: 0.7;
+}
+
+.product-price {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--primary-light);
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stock-badge {
+    padding: 6px 14px;
+    border-radius: var(--border-radius-round);
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.stock-badge i {
+    font-size: 10px;
+    margin-right: 5px;
+}
+
+.in-stock {
+    background: linear-gradient(135deg, rgba(76, 217, 100, 0.15), rgba(76, 217, 100, 0.05));
+    color: var(--success);
+    border: 1px solid rgba(76, 217, 100, 0.2);
+}
+
+.low-stock {
+    background: linear-gradient(135deg, rgba(241, 196, 15, 0.15), rgba(241, 196, 15, 0.05));
+    color: var(--warning);
+    border: 1px solid rgba(241, 196, 15, 0.2);
+}
+
+.out-of-stock {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(231, 76, 60, 0.05));
+    color: var(--danger);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+/* Form Elementleri - Geliştirilmiş tasarım */
+.product-form-container {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-hover-bg) 100%);
+    border-radius: var(--border-radius-lg);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-normal);
+}
+
+.product-form-container:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.form-control, .form-select {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: var(--border-radius-md);
+    padding: 12px 15px;
+    transition: var(--transition-fast);
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.25rem rgba(133, 51, 255, 0.15);
+    color: var(--text-color);
+}
+
+.form-label {
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.form-label i {
+    margin-right: 5px;
+    color: var(--primary);
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+.form-check-input {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    width: 18px;
+    height: 18px;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.form-check-label {
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+.input-group-text {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    border-radius: var(--border-radius-md);
+}
+
+/* Filtre ve Arama Kutuları */
+.filter-card {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-hover-bg) 100%);
+    border-radius: var(--border-radius-lg);
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-normal);
+}
+
+.filter-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-box .form-control {
+    padding-left: 45px;
+    border-radius: var(--border-radius-round);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.search-box .form-control:focus {
+    box-shadow: var(--shadow-md);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    transition: var(--transition-fast);
+}
+
+.search-box .form-control:focus + .search-icon {
+    color: var(--primary);
+}
+
+/* Sipariş Detayları */
+.order-details {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-hover-bg) 100%);
+    border-radius: var(--border-radius-lg);
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-normal);
+}
+
+.order-details:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.order-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.order-id {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-header);
+}
+
+.order-info-item {
+    margin-bottom: 20px;
+}
+
+.order-info-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.order-info-value {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.order-items {
+    margin-top: 30px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: var(--border-radius-md);
+    background-color: rgba(255, 255, 255, 0.03);
+    transition: var(--transition-fast);
+    border: 1px solid var(--border-color);
+}
+
+.order-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateX(5px);
+}
+
+.order-item-image {
+    width: 70px;
+    height: 70px;
+    border-radius: var(--border-radius-md);
+    object-fit: cover;
+    margin-right: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.order-item:hover .order-item-image {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.order-item-details {
+    flex-grow: 1;
+}
+
+.order-item-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-header);
+}
+
+.order-item-variant {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.order-item-price {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-light);
+}
+
+.order-summary {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: var(--border-radius-md);
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.summary-item.total {
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-header);
+}
+
+/* Sayfalama - Geliştirilmiş tasarım */
+.pagination {
+    gap: 5px;
+}
+
+.page-item .page-link {
+    border: none;
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+    border-radius: var(--border-radius-md);
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.page-item .page-link:hover {
+    background-color: rgba(133, 51, 255, 0.1);
+    color: var(--text-header);
+    transform: translateY(-2px);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: var(--shadow-primary);
+}
+
+.page-item.disabled .page-link {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Modal Stilleri - Geliştirilmiş tasarım */
+.modal-content {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-hover-bg) 100%) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--border-radius-lg) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: 20px 25px !important;
+}
+
+.modal-header .btn-close {
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat !important;
+    opacity: 0.7 !important;
+    transition: var(--transition-fast) !important;
+}
+
+.modal-header .btn-close:hover {
+    opacity: 1 !important;
+    transform: rotate(90deg) !important;
+}
+
+.modal-title {
+    color: var(--text-header) !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+}
+
+.modal-body {
+    padding: 25px !important;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border-color) !important;
+    padding: 20px 25px !important;
+}
+
+/* Sekme Stilleri - Geliştirilmiş tasarım */
+.nav-tabs {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 25px;
+}
+
+.nav-tabs .nav-item {
+    margin-right: 5px;
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-muted);
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 12px 20px;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.nav-tabs .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
+    transition: var(--transition-fast);
+    border-radius: var(--border-radius-sm);
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--text-header);
+    border: none;
+}
+
+.nav-tabs .nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary);
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+}
+
+.nav-tabs .nav-link.active::after {
+    width: 100%;
+}
+
+/* Tooltip Stilleri - Geliştirilmiş tasarım */
+.tooltip {
+    position: absolute;
+    z-index: 1070;
+    display: block;
+    margin: 0;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    white-space: normal;
+    line-break: auto;
+    font-size: 0.875rem;
+    word-wrap: break-word;
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+
+.tooltip.show {
+    opacity: 1;
+}
+
+.tooltip-inner {
+    max-width: 200px;
+    padding: 8px 12px;
+    color: #fff;
+    text-align: center;
+    background-color: var(--primary-dark);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+/* Toast Bildirim Stilleri - Yeni eklenen */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1060;
+}
+
+.toast {
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-hover-bg) 100%);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+    width: 350px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.toast::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+}
+
+.toast.success::before {
+    background-color: var(--success);
+}
+
+.toast.warning::before {
+    background-color: var(--warning);
+}
+
+.toast.error::before {
+    background-color: var(--danger);
+}
+
+.toast.info::before {
+    background-color: var(--info);
+}
+
+.toast-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.toast-body {
+    padding: 15px;
+}
+
+.toast-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.toast.success .toast-icon {
+    background-color: rgba(76, 217, 100, 0.15);
+    color: var(--success);
+}
+
+.toast.warning .toast-icon {
+    background-color: rgba(241, 196, 15, 0.15);
+    color: var(--warning);
+}
+
+.toast.error .toast-icon {
+    background-color: rgba(231, 76, 60, 0.15);
+    color: var(--danger);
+}
+
+.toast.info .toast-icon {
+    background-color: rgba(52, 152, 219, 0.15);
+    color: var(--info);
+}
+
+.toast-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text-header);
+    flex-grow: 1;
+}
+
+.toast-close {
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.toast-close:hover {
+    color: var(--text-header);
+    transform: rotate(90deg);
+}
+
+/* Progress Bar Stilleri - Yeni eklenen */
+.progress {
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-round);
+    box-shadow: var(--shadow-sm);
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
+    border-radius: var(--border-radius-round);
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.progress-label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.progress-value {
+    font-weight: 600;
+    color: var(--primary-light);
+}
+
+/* Badge/Etiket Stilleri - Yeni eklenen */
+.badge {
+    padding: 5px 10px;
+    border-radius: var(--border-radius-round);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.badge:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.badge-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+}
+
+.badge-success {
+    background: linear-gradient(135deg, var(--success), #2ecc71);
+    color: white;
+}
+
+.badge-warning {
+    background: linear-gradient(135deg, var(--warning), #f39c12);
+    color: white;
+}
+
+.badge-danger {
+    background: linear-gradient(135deg, var(--danger), #c0392b);
+    color: white;
+}
+
+.badge-info {
+    background: linear-gradient(135deg, var(--info), #2980b9);
+    color: white;
+}
+
+/* Geçiş ve Animasyonlar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary);
+    animation: spin 1s linear infinite;
+}
+
+/* Mobil Responsive İyileştirmeler */
+@media (max-width: 991px) {
+    .sidebar {
+        left: -280px;
+        width: 260px;
+        box-shadow: none;
+    }
+    
+    .sidebar.active {
+        left: 0;
+        box-shadow: var(--shadow-lg);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+    
+    .main-content.active {
+        margin-left: 260px;
+    }
+    
+    .mobile-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1100;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-primary);
+        cursor: pointer;
+        transition: var(--transition-fast);
+    }
+    
+    .mobile-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(133, 51, 255, 0.4);
+    }
+    
+    .mobile-toggle.active {
+        left: 220px;
+    }
+    
+    .nav-header {
+        margin-top: 30px;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    
+    .dashboard-card {
+        margin-bottom: 20px;
+    }
+    
+    .quick-actions {
+        flex-direction: column;
+    }
+    
+    .quick-actions .btn-custom-primary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .nav-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .nav-header > div {
+        margin-top: 15px;
+        align-self: flex-end;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+    
+    .product-form-container {
+        padding: 20px;
+    }
+    
+    .table-responsive {
+        border-radius: var(--border-radius-md);
+    }
+    
+    .custom-table td, .custom-table th {
+        padding: 10px;
+    }
+    
+    .toast-container {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+    }
+    
+    .toast {
+        width: auto;
+    }
+}

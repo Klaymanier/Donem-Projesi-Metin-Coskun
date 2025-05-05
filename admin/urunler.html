@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürünler - Giyim Sitesi Admin Paneli</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-toggle d-lg-none">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">Style<span>Pulse</span></div>
+        </div>
+        
+        <div class="sidebar-menu mt-4">
+            <a href="index.html" class="menu-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="urunler.html" class="menu-item">
+                <i class="fas fa-tshirt"></i>
+                <span>Ürünler</span>
+            </a>
+            <a href="siparisler.html" class="menu-item">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Siparişler</span>
+            </a>
+            <a href="musteriler.html" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Müşteriler</span>
+            </a>
+            <a href="analitik.html" class="menu-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Analitik</span>
+            </a>
+            <a href="indirimler.html" class="menu-item">
+                <i class="fas fa-percentage"></i>
+                <span>İndirimler</span>
+            </a>
+            <a href="pazarlama.html" class="menu-item">
+                <i class="fas fa-bullhorn"></i>
+                <span>Pazarlama</span>
+            </a>
+            <a href="ayarlar.html" class="menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Ayarlar</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="nav-header">
+            <h4>Ürün Yönetimi</h4>
+            <div class="d-flex">
+                <div class="header-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="user-profile">
+                    <img src="assets/images/image-1.jpg" alt="User Profile">
+                    <div class="user-info">
+                        <div class="user-name">Admin Kullanıcı</div>
+                        <div class="user-role">Süper Admin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="quick-actions">
+                    <button class="btn btn-custom-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                        <i class="fas fa-plus me-2"></i> Yeni Ürün Ekle
+                    </button>
+                    <button class="btn btn-custom-primary">
+                        <i class="fas fa-file-import me-2"></i> Toplu İçe Aktar
+                    </button>
+                    <button class="btn btn-custom-primary">
+                        <i class="fas fa-file-export me-2"></i> Dışa Aktar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Filters -->
+        <div class="row mt-3">
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="filter-card">
+                    <h5 class="mb-3">Filtreler</h5>
+                    
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="form-control" id="productSearch" placeholder="Ürün ara...">
+                    </div>
+                    
+                    <h6 class="mt-4 mb-3">Kategoriler</h6>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="category1" checked>
+                        <label class="form-check-label" for="category1">Tüm Kategoriler</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="category2">
+                        <label class="form-check-label" for="category2">Erkek</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="category3">
+                        <label class="form-check-label" for="category3">Kadın</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="category4">
+                        <label class="form-check-label" for="category4">Çocuk</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="category5">
+                        <label class="form-check-label" for="category5">Aksesuar</label>
+                    </div>
+                    
+                    <h6 class="mt-4 mb-3">Stok Durumu</h6>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="stock1" checked>
+                        <label class="form-check-label" for="stock1">Tümü</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="stock2">
+                        <label class="form-check-label" for="stock2">Stokta</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="stock3">
+                        <label class="form-check-label" for="stock3">Az Stok</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="stock4">
+                        <label class="form-check-label" for="stock4">Tükendi</label>
+                    </div>
+                    
+                    <h6 class="mt-4 mb-3">Fiyat Aralığı</h6>
+                    <div class="mb-3">
+                        <label for="minPrice" class="form-label">Minimum Fiyat (₺)</label>
+                        <input type="number" class="form-control" id="minPrice" placeholder="0">
+                    </div>
+                    <div class="mb-3">
+                        <label for="maxPrice" class="form-label">Maksimum Fiyat (₺)</label>
+                        <input type="number" class="form-control" id="maxPrice" placeholder="10000">
+                    </div>
+                    
+                    <button class="btn btn-custom-primary w-100 mt-3">Filtreleri Uygula</button>
+                </div>
+            </div>
+            
+            <div class="col-md-8 col-lg-9">
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="assets/images/tshirt-1.jpg" alt="Ürün Resmi" class="product-image">
+                        <div class="product-details">
+                            <div class="product-title">Oversize T-shirt</div>
+                            <div class="product-category">Erkek / T-shirt</div>
+                            <div class="product-price">₺299</div>
+                            <div class="product-actions">
+                                <span class="stock-badge in-stock">Stokta</span>
+                                <div>
+                                    <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                    <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <img src="assets/images/tshirt-1.jpg" alt="Ürün Resmi" class="product-image">
+                        <div class="product-details">
+                            <div class="product-title">Mom Fit Jean</div>
+                            <div class="product-category">Kadın / Jean</div>
+                            <div class="product-price">₺429</div>
+                            <div class="product-actions">
+                                <span class="stock-badge low-stock">Az Stok</span>
+                                <div>
+                                    <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                    <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <img src="assets/images/tshirt-1.jpg" alt="Ürün Resmi" class="product-image">
+                        <div class="product-details">
+                            <div class="product-title">Blazer Ceket</div>
+                            <div class="product-category">Kadın / Ceket</div>
+                            <div class="product-price">₺799</div>
+                            <div class="product-actions">
+                                <span class="stock-badge in-stock">Stokta</span>
+                                <div>
+                                    <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                    <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <img src="assets/images/tshirt-1.jpg" alt="Ürün Resmi" class="product-image">
+                        <div class="product-details">
+                            <div class="product-title">Slim Fit Gömlek</div>
+                            <div class="product-category">Erkek / Gömlek</div>
+                            <div class="product-price">₺349</div>
+                            <div class="product-actions">
+                                <span class="stock-badge out-of-stock">Tükendi</span>
+                                <div>
+                                    <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                    <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <img src="assets/images/tshirt-1.jpg" alt="Ürün Resmi" class="product-image">
+                        <div class="product-details">
+                            <div class="product-title">Spor Ayakkabı</div>
+                            <div class="product-category">Erkek / Ayakkabı</div>
+                            <div class="product-price">₺1299</div>
+                            <div class="product-actions">
+                                <span class="stock-badge in-stock">Stokta</span>
+                                <div>
+                                    <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                    <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <img src="assets/images/tshirt-1.jpg" alt="Ürün Resmi" class="product-image">
+                        <div class="product-details">
+                            <div class="product-title">Casual Elbise</div>
+                            <div class="product-category">Kadın / Elbise</div>
+                            <div class="product-price">₺599</div>
+                            <div class="product-actions">
+                                <span class="stock-badge in-stock">Stokta</span>
+                                <div>
+                                    <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                    <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <img src="assets/images/tshirt-1.jpg" alt="Ürün Resmi" class="product-image">
+                        <div class="product-details">
+                            <div class="product-title">Deri Cüzdan</div>
+                            <div class="product-category">Aksesuar / Cüzdan</div>
+                            <div class="product-price">₺459</div>
+                            <div class="product-actions">
+                                <span class="stock-badge low-stock">Az Stok</span>
+                                <div>
+                                    <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                    <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <img src="assets/images/tshirt-1.jpg" alt="Ürün Resmi" class="product-image">
+                        <div class="product-details">
+                            <div class="product-title">Sweatshirt</div>
+                            <div class="product-category">Çocuk / Üst Giyim</div>
+                            <div class="product-price">₺249</div>
+                            <div class="product-actions">
+                                <span class="stock-badge in-stock">Stokta</span>
+                                <div>
+                                    <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                    <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="d-flex justify-content-center mt-4">
+                    <nav aria-label="Ürün Sayfaları">
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Önceki</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Sonraki</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="background-color: var(--card-bg); color: var(--text-color);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addProductModalLabel">Yeni Ürün Ekle</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1)"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="productName" class="form-label">Ürün Adı</label>
+                                <input type="text" class="form-control" id="productName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="productCategory" class="form-label">Kategori</label>
+                                <select class="form-select" id="productCategory" required>
+                                    <option value="" selected disabled>Kategori seçin</option>
+                                    <option value="erkek-tshirt">Erkek / T-shirt</option>
+                                    <option value="erkek-gomlek">Erkek / Gömlek</option>
+                                    <option value="erkek-pantolon">Erkek / Pantolon</option>
+                                    <option value="kadin-elbise">Kadın / Elbise</option>
+                                    <option value="kadin-bluz">Kadın / Bluz</option>
+                                    <option value="kadin-jean">Kadın / Jean</option>
+                                    <option value="cocuk-ustgiyim">Çocuk / Üst Giyim</option>
+                                    <option value="cocuk-altgiyim">Çocuk / Alt Giyim</option>
+                                    <option value="aksesuar-canta">Aksesuar / Çanta</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="productPrice" class="form-label">Fiyat (₺)</label>
+                                <input type="number" class="form-control" id="productPrice" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="productStock" class="form-label">Stok Adedi</label>
+                                <input type="number" class="form-control" id="productStock" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label">Ürün Açıklaması</label>
+                            <textarea class="form-control" id="productDescription" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="productImage" class="form-label">Ürün Görseli</label>
+                            <input type="file" class="form-control" id="productImage" accept="image/*">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Beden Seçenekleri</label>
+                            <div class="row">
+                                <div class="col-md-2 col-4 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeXS">
+                                        <label class="form-check-label" for="sizeXS">XS</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-4 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeS">
+                                        <label class="form-check-label" for="sizeS">S</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-4 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeM" checked>
+                                        <label class="form-check-label" for="sizeM">M</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-4 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeL" checked>
+                                        <label class="form-check-label" for="sizeL">L</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-4 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeXL" checked>
+                                        <label class="form-check-label" for="sizeXL">XL</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-4 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sizeXXL">
+                                        <label class="form-check-label" for="sizeXXL">XXL</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Renk Seçenekleri</label>
+                            <div class="row">
+                                <div class="col-md-3 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="colorBlack" checked>
+                                        <label class="form-check-label" for="colorBlack">Siyah</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="colorWhite" checked>
+                                        <label class="form-check-label" for="colorWhite">Beyaz</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="colorRed">
+                                        <label class="form-check-label" for="colorRed">Kırmızı</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="colorBlue">
+                                        <label class="form-check-label" for="colorBlue">Mavi</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-custom-primary">Ürün Ekle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
