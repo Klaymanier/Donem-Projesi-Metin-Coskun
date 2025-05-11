@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Müşteriler - Giyim Sitesi Admin Paneli</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-toggle d-lg-none">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">Style<span>Pulse</span></div>
+        </div>
+        
+        <div class="sidebar-menu mt-4">
+            <a href="index.html" class="menu-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="urunler.html" class="menu-item">
+                <i class="fas fa-tshirt"></i>
+                <span>Ürünler</span>
+            </a>
+            <a href="siparisler.html" class="menu-item">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Siparişler</span>
+            </a>
+            <a href="musteriler.html" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Müşteriler</span>
+            </a>
+            <a href="analitik.html" class="menu-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Analitik</span>
+            </a>
+            <a href="indirimler.html" class="menu-item">
+                <i class="fas fa-percentage"></i>
+                <span>İndirimler</span>
+            </a>
+            <a href="pazarlama.html" class="menu-item">
+                <i class="fas fa-bullhorn"></i>
+                <span>Pazarlama</span>
+            </a>
+            <a href="ayarlar.html" class="menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Ayarlar</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="nav-header">
+            <h4>Müşteri Yönetimi</h4>
+            <div class="d-flex">
+                <div class="header-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="user-profile">
+                    <img src="assets/images/image-1.jpg" alt="User Profile">
+                    <div class="user-info">
+                        <div class="user-name">Admin Kullanıcı</div>
+                        <div class="user-role">Süper Admin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Stats -->
+        <div class="row mt-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stats-title">Toplam Müşteri</div>
+                    <div class="stats-number">1,893</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>12% bu ay</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="stats-title">Yeni Müşteriler</div>
+                    <div class="stats-number">128</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>8% bu hafta</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stats-title">Ortalama Sipariş</div>
+                    <div class="stats-number">₺457</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>5% bu ay</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="stats-title">Abone Sayısı</div>
+                    <div class="stats-number">1,456</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>15% bu ay</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions & Search -->
+        <div class="row mt-4">
+            <div class="col-md-8">
+                <div class="quick-actions mb-3">
+                    <button class="btn btn-custom-primary" data-bs-toggle="modal" data-bs-target="#addCustomerModal">
+                        <i class="fas fa-user-plus me-2"></i> Yeni Müşteri Ekle
+                    </button>
+                    <button class="btn btn-custom-primary">
+                        <i class="fas fa-envelope me-2"></i> Toplu E-posta
+                    </button>
+                    <button class="btn btn-custom-primary">
+                        <i class="fas fa-file-export me-2"></i> Dışa Aktar
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="search-box mb-3">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="form-control" id="customerSearch" placeholder="Müşteri ara...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Customers Table -->
+        <div class="table-container mt-2">
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ad Soyad</th>
+                        <th>E-posta</th>
+                        <th>Telefon</th>
+                        <th>Kayıt Tarihi</th>
+                        <th>Toplam Sipariş</th>
+                        <th>Toplam Harcama</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#MUS-1001</td>
+                        <td>Zeynep Yılmaz</td>
+                        <td>zeynep.yilmaz@email.com</td>
+                        <td>+90 532 123 45 67</td>
+                        <td>10.02.2025</td>
+                        <td>8</td>
+                        <td>₺3,450</td>
+                        <td>
+                            <div class="action-btn view-btn" data-bs-toggle="modal" data-bs-target="#customerDetailModal"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#MUS-1002</td>
+                        <td>Ahmet Kaya</td>
+                        <td>ahmet.kaya@email.com</td>
+                        <td>+90 542 234 56 78</td>
+                        <td>15.02.2025</td>
+                        <td>5</td>
+                        <td>₺2,125</td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#MUS-1003</td>
+                        <td>Ayşe Demir</td>
+                        <td>ayse.demir@email.com</td>
+                        <td>+90 555 345 67 89</td>
+                        <td>20.02.2025</td>
+                        <td>3</td>
+                        <td>₺980</td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#MUS-1004</td>
+                        <td>Mehmet Öz</td>
+                        <td>mehmet.oz@email.com</td>
+                        <td>+90 533 456 78 90</td>
+                        <td>25.02.2025</td>
+                        <td>7</td>
+                        <td>₺4,250</td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#MUS-1005</td>
+                        <td>Selin Korkmaz</td>
+                        <td>selin.korkmaz@email.com</td>
+                        <td>+90 544 567 89 01</td>
+                        <td>01.03.2025</td>
+                        <td>4</td>
+                        <td>₺1,780</td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#MUS-1006</td>
+                        <td>Mustafa Aydın</td>
+                        <td>mustafa.aydin@email.com</td>
+                        <td>+90 552 678 90 12</td>
+                        <td>05.03.2025</td>
+                        <td>2</td>
+                        <td>₺895</td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#MUS-1007</td>
+                        <td>Elif Yıldırım</td>
+                        <td>elif.yildirim@email.com</td>
+                        <td>+90 533 789 01 23</td>
+                        <td>10.03.2025</td>
+                        <td>6</td>
+                        <td>₺3,875</td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#MUS-1008</td>
+                        <td>Burak Şahin</td>
+                        <td>burak.sahin@email.com</td>
+                        <td>+90 541 890 12 34</td>
+                        <td>15.03.2025</td>
+                        <td>3</td>
+                        <td>₺1,230</td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center mt-4">
+            <nav aria-label="Müşteri Sayfaları">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Önceki</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Sonraki</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Customer Detail Modal -->
+    <div class="modal fade" id="customerDetailModal" tabindex="-1" aria-labelledby="customerDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="background-color: var(--card-bg); color: var(--text-color);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="customerDetailModalLabel">Müşteri Detayı</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1)"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center mb-4">
+                            <img src="/api/placeholder/150/150" alt="Müşteri Profil" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                            <h5>Zeynep Yılmaz</h5>
+                            <p class="text-muted">Premium Üye</p>
+                        </div>
+                        <div class="col-md-8">
+                            <h6>Kişisel Bilgiler</h6>
+                            <div class="table-responsive mb-4">
+                                <table class="table" style="color: var(--text-color);">
+                                    <tr>
+                                        <td><strong>Müşteri ID:</strong></td>
+                                        <td>#MUS-1001</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Ad Soyad:</strong></td>
+                                        <td>Zeynep Yılmaz</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>E-posta:</strong></td>
+                                        <td>zeynep.yilmaz@email.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Telefon:</strong></td>
+                                        <td>+90 532 123 45 67</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Kayıt Tarihi:</strong></td>
+                                        <td>10.02.2025</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <h6>Adres Bilgileri</h6>
+                            <div class="card mb-4" style="background-color: rgba(255, 255, 255, 0.05);">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2">Ev Adresi</h6>
+                                    <p class="card-text">
+                                        Bahçelievler Mah. Çiçek Sok. No: 12 D: 5<br>
+                                        Bahçelievler / İstanbul<br>
+                                        34180
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <h6>Satın Alma Bilgileri</h6>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card text-center" style="background-color: rgba(255, 255, 255, 0.05);">
+                                        <div class="card-body">
+                                            <h3>8</h3>
+                                            <p class="card-text">Toplam Sipariş</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card text-center" style="background-color: rgba(255, 255, 255, 0.05);">
+                                        <div class="card-body">
+                                            <h3>₺3,450</h3>
+                                            <p class="card-text">Toplam Harcama</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card text-center" style="background-color: rgba(255, 255, 255, 0.05);">
+                                        <div class="card-body">
+                                            <h3>₺431</h3>
+                                            <p class="card-text">Ortalama Sipariş</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <h6>Son Siparişler</h6>
+                            <div class="table-responsive">
+                                <table class="table custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Sipariş No</th>
+                                            <th>Tarih</th>
+                                            <th>Tutar</th>
+                                            <th>Durum</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#SP-2501</td>
+                                            <td>04.05.2025</td>
+                                            <td>₺1,250</td>
+                                            <td><span class="status delivered">Teslim Edildi</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#SP-2480</td>
+                                            <td>28.04.2025</td>
+                                            <td>₺540</td>
+                                            <td><span class="status delivered">Teslim Edildi</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#SP-2455</td>
+                                            <td>15.04.2025</td>
+                                            <td>₺780</td>
+                                            <td><span class="status delivered">Teslim Edildi</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-custom-primary">Düzenle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Customer Modal -->
+    <div class="modal fade" id="addCustomerModal" tabindex="-1" aria-labelledby="addCustomerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: var(--card-bg); color: var(--text-color);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCustomerModalLabel">Yeni Müşteri Ekle</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1)"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="customerName" class="form-label">Ad Soyad</label>
+                            <input type="text" class="form-control" id="customerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customerEmail" class="form-label">E-posta</label>
+                            <input type="email" class="form-control" id="customerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customerPhone" class="form-label">Telefon</label>
+                            <input type="tel" class="form-control" id="customerPhone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="customerAddress" class="form-label">Adres</label>
+                            <textarea class="form-control" id="customerAddress" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customerCity" class="form-label">Şehir</label>
+                            <input type="text" class="form-control" id="customerCity">
+                        </div>
+                        <div class="mb-3">
+                            <label for="customerPostcode" class="form-label">Posta Kodu</label>
+                            <input type="text" class="form-control" id="customerPostcode">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="newsletterSubscription">
+                            <label class="form-check-label" for="newsletterSubscription">E-posta bültenine abone</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-custom-primary">Müşteri Ekle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

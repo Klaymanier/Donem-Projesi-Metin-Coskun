@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İndirimler - Giyim Sitesi Admin Paneli</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-toggle d-lg-none">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">Style<span>Pulse</span></div>
+        </div>
+        
+        <div class="sidebar-menu mt-4">
+            <a href="index.html" class="menu-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="urunler.html" class="menu-item">
+                <i class="fas fa-tshirt"></i>
+                <span>Ürünler</span>
+            </a>
+            <a href="siparisler.html" class="menu-item">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Siparişler</span>
+            </a>
+            <a href="musteriler.html" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Müşteriler</span>
+            </a>
+            <a href="analitik.html" class="menu-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Analitik</span>
+            </a>
+            <a href="indirimler.html" class="menu-item">
+                <i class="fas fa-percentage"></i>
+                <span>İndirimler</span>
+            </a>
+            <a href="pazarlama.html" class="menu-item">
+                <i class="fas fa-bullhorn"></i>
+                <span>Pazarlama</span>
+            </a>
+            <a href="ayarlar.html" class="menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Ayarlar</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="nav-header">
+            <h4>İndirim Yönetimi</h4>
+            <div class="d-flex">
+                <div class="header-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="user-profile">
+                    <img src="assets/images/image-1.jpg" alt="User Profile">
+                    <div class="user-info">
+                        <div class="user-name">Admin Kullanıcı</div>
+                        <div class="user-role">Süper Admin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Discount Stats -->
+        <div class="row mt-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="stats-title">Aktif İndirimler</div>
+                    <div class="stats-number">8</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>2 yeni bu hafta</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="stats-title">İndirim Kuponları</div>
+                    <div class="stats-number">12</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>3 yeni bu ay</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stats-title">İndirimli Satışlar</div>
+                    <div class="stats-number">245</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>15% bu ay</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="stats-title">Tasarruf Miktarı</div>
+                    <div class="stats-number">₺12,845</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>18% bu ay</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="row mt-4">
+            <div class="col-md-8">
+                <div class="quick-actions mb-3">
+                    <button class="btn btn-custom-primary" data-bs-toggle="modal" data-bs-target="#addDiscountModal">
+                        <i class="fas fa-plus me-2"></i> Yeni İndirim Ekle
+                    </button>
+                    <button class="btn btn-custom-primary" data-bs-toggle="modal" data-bs-target="#addCouponModal">
+                        <i class="fas fa-ticket-alt me-2"></i> Kupon Oluştur
+                    </button>
+                    <button class="btn btn-custom-primary">
+                        <i class="fas fa-file-export me-2"></i> Rapor Al
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="search-box mb-3">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="form-control" id="discountSearch" placeholder="İndirim ara...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Discounts -->
+        <div class="section-title mt-4">Aktif İndirimler</div>
+        <div class="table-container">
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th>İndirim Adı</th>
+                        <th>Tür</th>
+                        <th>Miktar</th>
+                        <th>Başlangıç</th>
+                        <th>Bitiş</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Yaz Sezonu İndirimi</td>
+                        <td>Kategori İndirimi</td>
+                        <td>%25</td>
+                        <td>01.05.2025</td>
+                        <td>30.06.2025</td>
+                        <td><span class="status delivered">Aktif</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bahar Kampanyası</td>
+                        <td>Tüm Mağaza</td>
+                        <td>%15</td>
+                        <td>15.04.2025</td>
+                        <td>15.05.2025</td>
+                        <td><span class="status delivered">Aktif</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ayakkabı İndirimi</td>
+                        <td>Kategori İndirimi</td>
+                        <td>%30</td>
+                        <td>20.04.2025</td>
+                        <td>20.05.2025</td>
+                        <td><span class="status delivered">Aktif</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Yeni Üye İndirimi</td>
+                        <td>Müşteri Grubu</td>
+                        <td>%10</td>
+                        <td>01.01.2025</td>
+                        <td>31.12.2025</td>
+                        <td><span class="status delivered">Aktif</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hafta Sonu Fırsatı</td>
+                        <td>Zaman Bazlı</td>
+                        <td>%20</td>
+                        <td>04.05.2025</td>
+                        <td>05.05.2025</td>
+                        <td><span class="status delivered">Aktif</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Upcoming Discounts -->
+        <div class="section-title mt-4">Gelecek İndirimler</div>
+        <div class="table-container">
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th>İndirim Adı</th>
+                        <th>Tür</th>
+                        <th>Miktar</th>
+                        <th>Başlangıç</th>
+                        <th>Bitiş</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sepette İndirim</td>
+                        <td>Sepet İndirimi</td>
+                        <td>%10</td>
+                        <td>10.05.2025</td>
+                        <td>20.05.2025</td>
+                        <td><span class="status pending">Planlandı</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Anneler Günü Kampanyası</td>
+                        <td>Kategori İndirimi</td>
+                        <td>%20</td>
+                        <td>09.05.2025</td>
+                        <td>12.05.2025</td>
+                        <td><span class="status pending">Planlandı</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Öğrenci İndirimi</td>
+                        <td>Müşteri Grubu</td>
+                        <td>%15</td>
+                        <td>15.05.2025</td>
+                        <td>15.06.2025</td>
+                        <td><span class="status pending">Planlandı</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Discount Coupons -->
+        <div class="section-title mt-4">İndirim Kuponları</div>
+        <div class="table-container">
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th>Kupon Kodu</th>
+                        <th>Açıklama</th>
+                        <th>Miktar</th>
+                        <th>Minimum Sepet</th>
+                        <th>Kullanım Sayısı</th>
+                        <th>Son Geçerlilik</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MAMI55</td>
+                        <td>Samsunlulara özel indirim</td>
+                        <td>%25</td>
+                        <td>₺250</td>
+                        <td>45/100</td>
+                        <td>15.05.2025</td>
+                        <td><span class="status delivered">Aktif</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>HOSGELDIN10</td>
+                        <td>Yeni Üye Hoşgeldin Kuponu</td>
+                        <td>%10</td>
+                        <td>₺100</td>
+                        <td>78/Sınırsız</td>
+                        <td>31.12.2025</td>
+                        <td><span class="status delivered">Aktif</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>KARGO50</td>
+                        <td>Kargo İndirimi</td>
+                        <td>₺50</td>
+                        <td>₺300</td>
+                        <td>124/250</td>
+                        <td>30.05.2025</td>
+                        <td><span class="status delivered">Aktif</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>AYAKKABI30</td>
+                        <td>Ayakkabılarda Özel İndirim</td>
+                        <td>%30</td>
+                        <td>-</td>
+                        <td>67/150</td>
+                        <td>20.05.2025</td>
+                        <td><span class="status delivered">Aktif</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CANTA15</td>
+                        <td>Çantalara Özel İndirim</td>
+                        <td>%15</td>
+                        <td>₺150</td>
+                        <td>0/100</td>
+                        <td>10.05.2025</td>
+                        <td><span class="status pending">Aktif</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Expired Discounts -->
+        <div class="section-title mt-4">Süresi Dolmuş İndirimler</div>
+        <div class="table-container">
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th>İndirim Adı</th>
+                        <th>Tür</th>
+                        <th>Miktar</th>
+                        <th>Başlangıç</th>
+                        <th>Bitiş</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kış Kampanyası</td>
+                        <td>Tüm Mağaza</td>
+                        <td>%20</td>
+                        <td>01.01.2025</td>
+                        <td>01.03.2025</td>
+                        <td><span class="status canceled">Süresi Doldu</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Yılbaşı İndirimi</td>
+                        <td>Kategori İndirimi</td>
+                        <td>%30</td>
+                        <td>25.12.2024</td>
+                        <td>02.01.2025</td>
+                        <td><span class="status canceled">Süresi Doldu</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sevgililer Günü</td>
+                        <td>Kategori İndirimi</td>
+                        <td>%15</td>
+                        <td>10.02.2025</td>
+                        <td>14.02.2025</td>
+                        <td><span class="status canceled">Süresi Doldu</span></td>
+                        <td>
+                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add Discount Modal -->
+    <div class="modal fade" id="addDiscountModal" tabindex="-1" aria-labelledby="addDiscountModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="background-color: var(--card-bg); color: var(--text-color);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addDiscountModalLabel">Yeni İndirim Oluştur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1)"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="discountName" class="form-label">İndirim Adı</label>
+                                <input type="text" class="form-control" id="discountName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="discountType" class="form-label">İndirim Türü</label>
+                                <select class="form-select" id="discountType" required>
+                                    <option value="" selected disabled>Tür seçin</option>
+                                    <option value="category">Kategori İndirimi</option>
+                                    <option value="all">Tüm Mağaza</option>
+                                    <option value="customer">Müşteri Grubu</option>
+                                    <option value="cart">Sepet İndirimi</option>
+                                    <option value="product">Ürün Bazlı İndirim</option>
+                                    <option value="time">Zaman Bazlı İndirim</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="discountAmount" class="form-label">İndirim Miktarı</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="discountAmount" required>
+                                    <select class="form-select" id="discountUnit" required>
+                                        <option value="percent">%</option>
+                                        <option value="amount">₺</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="discountMinAmount" class="form-label">Minimum Sepet Tutarı (Opsiyonel)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">₺</span>
+                                    <input type="number" class="form-control" id="discountMinAmount">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="discountStart" class="form-label">Başlangıç Tarihi</label>
+                                <input type="date" class="form-control" id="discountStart" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="discountEnd" class="form-label">Bitiş Tarihi</label>
+                                <input type="date" class="form-control" id="discountEnd" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="discountDescription" class="form-label">Açıklama</label>
+                            <textarea class="form-control" id="discountDescription" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="mb-3" id="categorySelection" style="display: none;">
+                            <label class="form-label">Kategoriler</label>
+                            <div class="row">
+                                <div class="col-md-4 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="catMen">
+                                        <label class="form-check-label" for="catMen">Erkek</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="catWomen">
+                                        <label class="form-check-label" for="catWomen">Kadın</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="catKids">
+                                        <label class="form-check-label" for="catKids">Çocuk</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="catShoes">
+                                        <label class="form-check-label" for="catShoes">Ayakkabı</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="catBags">
+                                        <label class="form-check-label" for="catBags">Çanta</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="catAccessories">
+                                        <label class="form-check-label" for="catAccessories">Aksesuar</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3" id="customerGroupSelection" style="display: none;">
+                            <label class="form-label">Müşteri Grupları</label>
+                            <div class="row">
+                                <div class="col-md-4 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="custNew">
+                                        <label class="form-check-label" for="custNew">Yeni Üyeler</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="custVIP">
+                                        <label class="form-check-label" for="custVIP">VIP Müşteriler</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="custRegular">
+                                        <label class="form-check-label" for="custRegular">Regular Müşteriler</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6 mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="custStudent">
+                                        <label class="form-check-label" for="custStudent">Öğrenci</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-custom-primary">İndirim Oluştur</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Coupon Modal -->
+    <div class="modal fade" id="addCouponModal" tabindex="-1" aria-labelledby="addCouponModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: var(--card-bg); color: var(--text-color);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCouponModalLabel">Yeni Kupon Oluştur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1)"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="couponCode" class="form-label">Kupon Kodu</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="couponCode" required>
+                                <button class="btn btn-outline-secondary" type="button">Rastgele</button>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="couponDescription" class="form-label">Açıklama</label>
+                            <input type="text" class="form-control" id="couponDescription" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="couponAmount" class="form-label">İndirim Miktarı</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="couponAmount" required>
+                                <select class="form-select" id="couponUnit" required>
+                                    <option value="percent">%</option>
+                                    <option value="amount">₺</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="couponMinAmount" class="form-label">Minimum Sepet Tutarı</label>
+                            <div class="input-group">
+                                <span class="input-group-text">₺</span>
+                                <input type="number" class="form-control" id="couponMinAmount">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="couponUsageLimit" class="form-label">Kullanım Limiti</label>
+                            <input type="number" class="form-control" id="couponUsageLimit" placeholder="Sınırsız için boş bırakın">
+                        </div>
+                        <div class="mb-3">
+                            <label for="couponExpiry" class="form-label">Son Kullanım Tarihi</label>
+                            <input type="date" class="form-control" id="couponExpiry" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="couponUnique">
+                            <label class="form-check-label" for="couponUnique">Tek kullanımlık (müşteri başına)</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-custom-primary">Kupon Oluştur</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // İndirim türüne göre ilgili alanları göster/gizle
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('discountType')) {
+                document.getElementById('discountType').addEventListener('change', function() {
+                    const categorySelection = document.getElementById('categorySelection');
+                    const customerGroupSelection = document.getElementById('customerGroupSelection');
+                    
+                    if (this.value === 'category') {
+                        categorySelection.style.display = 'block';
+                        customerGroupSelection.style.display = 'none';
+                    } else if (this.value === 'customer') {
+                        categorySelection.style.display = 'none';
+                        customerGroupSelection.style.display = 'block';
+                    } else {
+                        categorySelection.style.display = 'none';
+                        customerGroupSelection.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pazarlama - Giyim Sitesi Admin Paneli</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-toggle d-lg-none">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">Style<span>Pulse</span></div>
+        </div>
+        
+        <div class="sidebar-menu mt-4">
+            <a href="index.html" class="menu-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="urunler.html" class="menu-item">
+                <i class="fas fa-tshirt"></i>
+                <span>Ürünler</span>
+            </a>
+            <a href="siparisler.html" class="menu-item">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Siparişler</span>
+            </a>
+            <a href="musteriler.html" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Müşteriler</span>
+            </a>
+            <a href="analitik.html" class="menu-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Analitik</span>
+            </a>
+            <a href="indirimler.html" class="menu-item">
+                <i class="fas fa-percentage"></i>
+                <span>İndirimler</span>
+            </a>
+            <a href="pazarlama.html" class="menu-item">
+                <i class="fas fa-bullhorn"></i>
+                <span>Pazarlama</span>
+            </a>
+            <a href="ayarlar.html" class="menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Ayarlar</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="nav-header">
+            <h4>Pazarlama Yönetimi</h4>
+            <div class="d-flex">
+                <div class="header-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="user-profile">
+                    <img src="assets/images/image-1.jpg" alt="User Profile">
+                    <div class="user-info">
+                        <div class="user-name">Admin Kullanıcı</div>
+                        <div class="user-role">Süper Admin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marketing Stats -->
+        <div class="row mt-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="stats-title">E-posta Aboneleri</div>
+                    <div class="stats-number">1,456</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>15% bu ay</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div class="stats-title">Gönderilen Kampanyalar</div>
+                    <div class="stats-number">24</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>3 yeni bu ay</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stats-title">Açılma Oranı</div>
+                    <div class="stats-number">25.4%</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>2.1% bu ay</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stats-title">Dönüşüm Oranı</div>
+                    <div class="stats-number">3.8%</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>0.5% bu ay</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marketing Tabs -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="marketingTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="campaigns-tab" data-bs-toggle="tab" data-bs-target="#campaigns" type="button" role="tab" aria-controls="campaigns" aria-selected="true">E-posta Kampanyaları</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="social-tab" data-bs-toggle="tab" data-bs-target="#social" type="button" role="tab" aria-controls="social" aria-selected="false">Sosyal Medya</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="banners-tab" data-bs-toggle="tab" data-bs-target="#banners" type="button" role="tab" aria-controls="banners" aria-selected="false">Banner & Pop-up</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="seo-tab" data-bs-toggle="tab" data-bs-target="#seo" type="button" role="tab" aria-controls="seo" aria-selected="false">SEO</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="affiliates-tab" data-bs-toggle="tab" data-bs-target="#affiliates" type="button" role="tab" aria-controls="affiliates" aria-selected="false">Affiliate & İş Ortakları</button>
+                    </li>
+                </ul>
+                <div class="tab-content mt-3" id="marketingTabsContent">
+                    <!-- Email Campaigns Tab -->
+                    <div class="tab-pane fade show active" id="campaigns" role="tabpanel" aria-labelledby="campaigns-tab">
+                        <div class="row mb-3">
+                            <div class="col-md-8">
+                                <div class="quick-actions mb-3">
+                                    <button class="btn btn-custom-primary" data-bs-toggle="modal" data-bs-target="#addCampaignModal">
+                                        <i class="fas fa-plus me-2"></i> Yeni Kampanya
+                                    </button>
+                                    <button class="btn btn-custom-primary">
+                                        <i class="fas fa-users me-2"></i> Segmentler
+                                    </button>
+                                    <button class="btn btn-custom-primary">
+                                        <i class="fas fa-file-export me-2"></i> Rapor Al
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="search-box mb-3">
+                                    <i class="fas fa-search search-icon"></i>
+                                    <input type="text" class="form-control" id="campaignSearch" placeholder="Kampanya ara...">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="table-container">
+                            <table class="table custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Kampanya Adı</th>
+                                        <th>Gönderim Tarihi</th>
+                                        <th>Hedef Kitle</th>
+                                        <th>Açılma Oranı</th>
+                                        <th>Tıklanma Oranı</th>
+                                        <th>Dönüşüm</th>
+                                        <th>Durum</th>
+                                        <th>İşlemler</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Bahar Koleksiyonu Duyurusu</td>
+                                        <td>15.04.2025</td>
+                                        <td>Tüm Aboneler</td>
+                                        <td>32.5%</td>
+                                        <td>8.2%</td>
+                                        <td>2.4%</td>
+                                        <td><span class="status delivered">Gönderildi</span></td>
+                                        <td>
+                                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hafta Sonu İndirimi</td>
+                                        <td>02.05.2025</td>
+                                        <td>Premium Üyeler</td>
+                                        <td>41.8%</td>
+                                        <td>12.3%</td>
+                                        <td>5.1%</td>
+                                        <td><span class="status delivered">Gönderildi</span></td>
+                                        <td>
+                                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Anneler Günü Kampanyası</td>
+                                        <td>08.05.2025</td>
+                                        <td>Tüm Aboneler</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td><span class="status pending">Zamanlandı</span></td>
+                                        <td>
+                                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Terk Edilmiş Sepet Hatırlatması</td>
+                                        <td>Otomatik</td>
+                                        <td>Sepet Terk Eden</td>
+                                        <td>38.2%</td>
+                                        <td>15.7%</td>
+                                        <td>8.3%</td>
+                                        <td><span class="status delivered">Aktif</span></td>
+                                        <td>
+                                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hoşgeldin E-postası</td>
+                                        <td>Otomatik</td>
+                                        <td>Yeni Üyeler</td>
+                                        <td>62.4%</td>
+                                        <td>21.3%</td>
+                                        <td>11.7%</td>
+                                        <td><span class="status delivered">Aktif</span></td>
+                                        <td>
+                                            <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                            <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                            <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Tab -->
+                    <div class="tab-pane fade" id="social" role="tabpanel" aria-labelledby="social-tab">
+                        <div class="row mb-3">
+                            <div class="col-md-8">
+                                <div class="quick-actions mb-3">
+                                    <button class="btn btn-custom-primary" data-bs-toggle="modal" data-bs-target="#addSocialPostModal">
+                                        <i class="fas fa-plus me-2"></i> Yeni Gönderi
+                                    </button>
+                                    <button class="btn btn-custom-primary">
+                                        <i class="fas fa-calendar me-2"></i> İçerik Takvimi
+                                    </button>
+                                    <button class="btn btn-custom-primary">
+                                        <i class="fas fa-file-export me-2"></i> Rapor Al
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 col-lg-3 mb-4">
+                                <div class="dashboard-card">
+                                    <div class="card-icon" style="background: linear-gradient(135deg, #3b5998, #8b9dc3);">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </div>
+                                    <div class="stats-title">Facebook Takipçileri</div>
+                                    <div class="stats-number">24,850</div>
+                                    <div class="trend up">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>350 bu ay</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3 mb-4">
+                                <div class="dashboard-card">
+                                    <div class="card-icon" style="background: linear-gradient(135deg, #833AB4, #E1306C);">
+                                        <i class="fab fa-instagram"></i>
+                                    </div>
+                                    <div class="stats-title">Instagram Takipçileri</div>
+                                    <div class="stats-number">46,275</div>
+                                    <div class="trend up">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>875 bu ay</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3 mb-4">
+                                <div class="dashboard-card">
+                                    <div class="card-icon" style="background: linear-gradient(135deg, #1DA1F2, #AAB8C2);">
+                                        <i class="fab fa-twitter"></i>
+                                    </div>
+                                    <div class="stats-title">Twitter Takipçileri</div>
+                                    <div class="stats-number">12,685</div>
+                                    <div class="trend up">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>210 bu ay</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3 mb-4">
+                                <div class="dashboard-card">
+                                    <div class="card-icon" style="background: linear-gradient(135deg, #C4302B, #F2F2F2);">
+                                        <i class="fab fa-youtube"></i>
+                                    </div>
+                                    <div class="stats-title">YouTube Aboneleri</div>
+                                    <div class="stats-number">8,570</div>
+                                    <div class="trend up">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>125 bu ay</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="product-form-container">
+                                    <h5 class="mb-3">Zamanlanmış Gönderiler</h5>
+                                    <div class="table-responsive">
+                                        <table class="table custom-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Görsel</th>
+                                                    <th>İçerik</th>
+                                                    <th>Platformlar</th>
+                                                    <th>Tarih</th>
+                                                    <th>Durum</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><img src="/api/placeholder/50/50" alt="Post" class="table-img"></td>
+                                                    <td>Yaz koleksiyonu ön izleme #yazmodasigeliyor</td>
+                                                    <td>
+                                                        <i class="fab fa-instagram me-1"></i>
+                                                        <i class="fab fa-facebook-f me-1"></i>
+                                                        <i class="fab fa-twitter me-1"></i>
+                                                    </td>
+                                                    <td>08.05.2025</td>
+                                                    <td><span class="status pending">Zamanlandı</span></td>
+                                                    <td>
+                                                        <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                                        <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                                        <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img src="/api/placeholder/50/50" alt="Post" class="table-img"></td>
+                                                    <td>Anneler Günü hediye önerileri! #annelergunu</td>
+                                                    <td>
+                                                        <i class="fab fa-instagram me-1"></i>
+                                                        <i class="fab fa-facebook-f me-1"></i>
+                                                    </td>
+                                                    <td>10.05.2025</td>
+                                                    <td><span class="status pending">Zamanlandı</span></td>
+                                                    <td>
+                                                        <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                                        <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                                        <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img src="/api/placeholder/50/50" alt="Post" class="table-img"></td>
+                                                    <td>Hafta sonu indirimi başladı! #haftasonufirsati</td>
+                                                    <td>
+                                                        <i class="fab fa-instagram me-1"></i>
+                                                        <i class="fab fa-facebook-f me-1"></i>
+                                                        <i class="fab fa-twitter me-1"></i>
+                                                    </td>
+                                                    <td>03.05.2025</td>
+                                                    <td><span class="status delivered">Paylaşıldı</span></td>
+                                                    <td>
+                                                        <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                                        <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                                        <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Banners & Pop-ups Tab -->
+                    <div class="tab-pane fade" id="banners" role="tabpanel" aria-labelledby="banners-tab">
+                        <div class="row mb-3">
+                            <div class="col-md-8">
+                                <div class="quick-actions mb-3">
+                                    <button class="btn btn-custom-primary">
+                                        <i class="fas fa-plus me-2"></i> Yeni Banner
+                                    </button>
+                                    <button class="btn btn-custom-primary">
+                                        <i class="fas fa-plus me-2"></i> Yeni Pop-up
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="product-form-container">
+                                    <h5 class="mb-3">Aktif Banner ve Pop-uplar</h5>
+                                    <div class="table-responsive">
+                                        <table class="table custom-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Görsel</th>
+                                                    <th>Başlık</th>
+                                                    <th>Tür</th>
+                                                    <th>Sayfa</th>
+                                                    <th>Tarih Aralığı</th>
+                                                    <th>Durum</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><img src="/api/placeholder/100/50" alt="Banner" class="table-img" style="width: 100px;"></td>
+                                                    <td>Yaz Koleksiyonu</td>
+                                                    <td>Ana Sayfa Banner</td>
+                                                    <td>Ana Sayfa</td>
+                                                    <td>01.05.2025 - 30.06.2025</td>
+                                                    <td><span class="status delivered">Aktif</span></td>
+                                                    <td>
+                                                        <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                                        <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                                        <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img src="/api/placeholder/100/50" alt="Banner" class="table-img" style="width: 100px;"></td>
+                                                    <td>İndirim Duyurusu</td>
+                                                    <td>Pop-up</td>
+                                                    <td>Tüm Sayfalar</td>
+                                                    <td>02.05.2025 - 05.05.2025</td>
+                                                    <td><span class="status delivered">Aktif</span></td>
+                                                    <td>
+                                                        <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                                        <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                                        <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img src="/api/placeholder/100/50" alt="Banner" class="table-img" style="width: 100px;"></td>
+                                                    <td>Anneler Günü</td>
+                                                    <td>Kategori Banner</td>
+                                                    <td>Kadın Kategorisi</td>
+                                                    <td>05.05.2025 - 12.05.2025</td>
+                                                    <td><span class="status pending">Planlandı</span></td>
+                                                    <td>
+                                                        <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                                        <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                                        <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><img src="/api/placeholder/100/50" alt="Banner" class="table-img" style="width: 100px;"></td>
+                                                    <td>E-bülten Kayıt</td>
+                                                    <td>Pop-up</td>
+                                                    <td>Ana Sayfa</td>
+                                                    <td>01.01.2025 - 31.12.2025</td>
+                                                    <td><span class="status delivered">Aktif</span></td>
+                                                    <td>
+                                                        <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                                        <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                                        <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- SEO Tab -->
+                    <div class="tab-pane fade" id="seo" role="tabpanel" aria-labelledby="seo-tab">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="dashboard-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <div class="stats-title">Organik Trafik</div>
+                                    <div class="stats-number">24,850</div>
+                                    <div class="trend up">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>12% bu ay</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="dashboard-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-link"></i>
+                                    </div>
+                                    <div class="stats-title">Geri Bağlantılar</div>
+                                    <div class="stats-number">325</div>
+                                    <div class="trend up">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>15 yeni bu ay</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="dashboard-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-sort-numeric-up"></i>
+                                    </div>
+                                    <div class="stats-title">Ortalama Sıralama</div>
+                                    <div class="stats-number">14.2</div>
+                                    <div class="trend up">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>1.5 iyileşme</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="product-form-container">
+                                    <h5 class="mb-3">SEO Performansı</h5>
+                                    <div class="table-responsive">
+                                        <table class="table custom-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Anahtar Kelime</th>
+                                                    <th>Arama Hacmi</th>
+                                                    <th>Sıralama</th>
+                                                    <th>Değişim</th>
+                                                    <th>Sayfa</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>kadın giyim</td>
+                                                    <td>18,200</td>
+                                                    <td>5</td>
+                                                    <td><span class="trend up"><i class="fas fa-arrow-up"></i> 2</span></td>
+                                                    <td>Ana Sayfa</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>erkek t-shirt</td>
+                                                    <td>12,400</td>
+                                                    <td>7</td>
+                                                    <td><span class="trend up"><i class="fas fa-arrow-up"></i> 1</span></td>
+                                                    <td>Kategori: Erkek T-shirt</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ucuz giyim</td>
+                                                    <td>22,300</td>
+                                                    <td>12</td>
+                                                    <td><span class="trend down"><i class="fas fa-arrow-down"></i> 3</span></td>
+                                                    <td>İndirim Sayfası</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>jean modelleri</td>
+                                                    <td>9,800</td>
+                                                    <td>8</td>
+                                                    <td><span class="trend up"><i class="fas fa-arrow-up"></i> 5</span></td>
+                                                    <td>Kategori: Jean</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>kadın gömlek</td>
+                                                    <td>7,500</td>
+                                                    <td>4</td>
+                                                    <td><span class="trend up"><i class="fas fa-arrow-up"></i> 3</span></td>
+                                                    <td>Kategori: Kadın Gömlek</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Affiliates Tab -->
+                    <div class="tab-pane fade" id="affiliates" role="tabpanel" aria-labelledby="affiliates-tab">
+                        <div class="row mb-3">
+                            <div class="col-md-8">
+                                <div class="quick-actions mb-3">
+                                    <button class="btn btn-custom-primary">
+                                        <i class="fas fa-plus me-2"></i> Yeni İş Ortağı
+                                    </button>
+                                    <button class="btn btn-custom-primary">
+                                        <i class="fas fa-link me-2"></i> Referans Linki Oluştur
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="dashboard-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-user-friends"></i>
+                                    </div>
+                                    <div class="stats-title">Aktif İş Ortakları</div>
+                                    <div class="stats-number">48</div>
+                                    <div class="trend up">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>3 yeni bu ay</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="dashboard-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-mouse-pointer"></i>
+                                    </div>
+                                    <div class="stats-title">Yönlendirme Trafik</div>
+                                    <div class="stats-number">8,450</div>
+                                    <div class="trend up">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>15% bu ay</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="dashboard-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                    <div class="stats-title">Affiliate Geliri</div>
+                                    <div class="stats-number">₺12,840</div>
+                                    <div class="trend up">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>8% bu ay</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="product-form-container">
+                                    <h5 class="mb-3">İş Ortakları</h5>
+                                    <div class="table-responsive">
+                                        <table class="table custom-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>İş Ortağı</th>
+                                                    <th>Web Sitesi</th>
+                                                    <th>Yönlendirmeler</th>
+                                                    <th>Dönüşümler</th>
+                                                    <th>Kazanç</th>
+                                                    <th>Durum</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Moda Rehberi</td>
+                                                    <td>modarehberi.com</td>
+                                                    <td>2,450</td>
+                                                    <td>124</td>
+                                                    <td>₺3,720</td>
+                                                    <td><span class="status delivered">Aktif</span></td>
+                                                    <td>
+                                                        <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                                        <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Alışveriş Rehberi</td>
+                                                    <td>alisverisrehberi.com</td>
+                                                    <td>1,850</td>
+                                                    <td>87</td>
+                                                    <td>₺2,610</td>
+                                                    <td><span class="status delivered">Aktif</span></td>
+                                                    <td>
+                                                        <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                                        <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Moda Bloggerı</td>
+                                                    <td>modabloggeri.com</td>
+                                                    <td>1,280</td>
+                                                    <td>56</td>
+                                                    <td>₺1,680</td>
+                                                    <td><span class="status delivered">Aktif</span></td>
+                                                    <td>
+                                                        <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                                        <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Trend Avcısı</td>
+                                                    <td>trendavcisi.com</td>
+                                                    <td>950</td>
+                                                    <td>43</td>
+                                                    <td>₺1,290</td>
+                                                    <td><span class="status delivered">Aktif</span></td>
+                                                    <td>
+                                                        <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                                        <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Campaign Modal -->
+    <div class="modal fade" id="addCampaignModal" tabindex="-1" aria-labelledby="addCampaignModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="background-color: var(--card-bg); color: var(--text-color);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCampaignModalLabel">Yeni E-posta Kampanyası</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1)"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="campaignName" class="form-label">Kampanya Adı</label>
+                            <input type="text" class="form-control" id="campaignName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="campaignSubject" class="form-label">E-posta Konusu</label>
+                            <input type="text" class="form-control" id="campaignSubject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="campaignSender" class="form-label">Gönderen Adı</label>
+                            <input type="text" class="form-control" id="campaignSender" value="StylePulse" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="campaignTarget" class="form-label">Hedef Kitle</label>
+                            <select class="form-select" id="campaignTarget" required>
+                                <option value="all">Tüm Aboneler</option>
+                                <option value="premium">Premium Üyeler</option>
+                                <option value="inactive">Pasif Müşteriler</option>
+                                <option value="new">Yeni Üyeler</option>
+                                <option value="abandoned">Sepet Terk Eden</option>
+                                <option value="custom">Özel Segment</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="campaignDate" class="form-label">Gönderim Tarihi</label>
+                            <input type="datetime-local" class="form-control" id="campaignDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="campaignTemplate" class="form-label">Şablon</label>
+                            <select class="form-select" id="campaignTemplate" required>
+                                <option value="standard">Standart</option>
+                                <option value="promotion">Promosyon</option>
+                                <option value="newsletter">Bülten</option>
+                                <option value="announcement">Duyuru</option>
+                                <option value="custom">Özel Tasarım</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="campaignContent" class="form-label">İçerik</label>
+                            <textarea class="form-control" id="campaignContent" rows="5"></textarea>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="testSend">
+                            <label class="form-check-label" for="testSend">Göndermeden önce test et</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-custom-primary">Oluştur</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Social Post Modal -->
+    <div class="modal fade" id="addSocialPostModal" tabindex="-1" aria-labelledby="addSocialPostModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: var(--card-bg); color: var(--text-color);">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addSocialPostModalLabel">Yeni Sosyal Medya Gönderisi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1)"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="postContent" class="form-label">Gönderi İçeriği</label>
+                            <textarea class="form-control" id="postContent" rows="4" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="postImage" class="form-label">Görsel</label>
+                            <input type="file" class="form-control" id="postImage" accept="image/*">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Yayınlanacak Platformlar</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="platformInstagram" checked>
+                                <label class="form-check-label" for="platformInstagram">Instagram</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="platformFacebook" checked>
+                                <label class="form-check-label" for="platformFacebook">Facebook</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="platformTwitter">
+                                <label class="form-check-label" for="platformTwitter">Twitter</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="postDate" class="form-label">Yayın Tarihi</label>
+                            <input type="datetime-local" class="form-control" id="postDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="postHashtags" class="form-label">Hashtagler</label>
+                            <input type="text" class="form-control" id="postHashtags" placeholder="Virgülle ayırın">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-custom-primary">Oluştur</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

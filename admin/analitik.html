@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analitik - Giyim Sitesi Admin Paneli</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-toggle d-lg-none">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">Style<span>Pulse</span></div>
+        </div>
+        
+        <div class="sidebar-menu mt-4">
+            <a href="index.html" class="menu-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="urunler.html" class="menu-item">
+                <i class="fas fa-tshirt"></i>
+                <span>Ürünler</span>
+            </a>
+            <a href="siparisler.html" class="menu-item">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Siparişler</span>
+            </a>
+            <a href="musteriler.html" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Müşteriler</span>
+            </a>
+            <a href="analitik.html" class="menu-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Analitik</span>
+            </a>
+            <a href="indirimler.html" class="menu-item">
+                <i class="fas fa-percentage"></i>
+                <span>İndirimler</span>
+            </a>
+            <a href="pazarlama.html" class="menu-item">
+                <i class="fas fa-bullhorn"></i>
+                <span>Pazarlama</span>
+            </a>
+            <a href="ayarlar.html" class="menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Ayarlar</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="nav-header">
+            <h4>Analitik</h4>
+            <div class="d-flex">
+                <div class="header-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="user-profile">
+                    <img src="assets/images/image-1.jpg" alt="User Profile">
+                    <div class="user-info">
+                        <div class="user-name">Admin Kullanıcı</div>
+                        <div class="user-role">Süper Admin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Date Range Selector -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="filter-card">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <label for="dateRange" class="form-label">Tarih Aralığı</label>
+                            <select class="form-select" id="dateRange">
+                                <option value="today">Bugün</option>
+                                <option value="yesterday">Dün</option>
+                                <option value="last7days">Son 7 Gün</option>
+                                <option value="last30days" selected>Son 30 Gün</option>
+                                <option value="thisMonth">Bu Ay</option>
+                                <option value="lastMonth">Geçen Ay</option>
+                                <option value="last3months">Son 3 Ay</option>
+                                <option value="last6months">Son 6 Ay</option>
+                                <option value="thisYear">Bu Yıl</option>
+                                <option value="custom">Özel Aralık</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="startDate" class="form-label">Başlangıç</label>
+                                    <input type="date" class="form-control" id="startDate" value="2025-04-04">
+                                </div>
+                                <div class="col-6">
+                                    <label for="endDate" class="form-label">Bitiş</label>
+                                    <input type="date" class="form-control" id="endDate" value="2025-05-04">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 mt-3 mt-md-0">
+                            <button class="btn btn-custom-primary w-100 mt-4">Uygula</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Overview -->
+        <div class="row mt-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stats-title">Toplam Satış</div>
+                    <div class="stats-number">₺45,624</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>24% önceki döneme göre</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="stats-title">Sipariş Sayısı</div>
+                    <div class="stats-number">489</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>12% önceki döneme göre</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stats-title">Yeni Müşteri</div>
+                    <div class="stats-number">128</div>
+                    <div class="trend down">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>5% önceki döneme göre</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-basket"></i>
+                    </div>
+                    <div class="stats-title">Dönüşüm Oranı</div>
+                    <div class="stats-number">3.8%</div>
+                    <div class="trend up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>0.5% önceki döneme göre</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sales Chart -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="section-title">Satış Analizi</div>
+                <div class="chart-container" style="height: 400px;">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 18px; color: var(--text-muted);">
+                        <i class="fas fa-chart-area me-2"></i> Satış Grafiği
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Analytics -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="section-title">Kategoriye Göre Satışlar</div>
+                <div class="chart-container" style="height: 350px;">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 18px; color: var(--text-muted);">
+                        <i class="fas fa-chart-pie me-2"></i> Kategori Dağılımı
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="section-title">Ödeme Yöntemleri</div>
+                <div class="chart-container" style="height: 350px;">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 18px; color: var(--text-muted);">
+                        <i class="fas fa-chart-pie me-2"></i> Ödeme Yöntemi Dağılımı
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="section-title">Cihaz Dağılımı</div>
+                <div class="chart-container" style="height: 350px;">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 18px; color: var(--text-muted);">
+                        <i class="fas fa-chart-pie me-2"></i> Cihaz Dağılımı
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="section-title">Ziyaretçi Trafiği</div>
+                <div class="chart-container" style="height: 350px;">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 18px; color: var(--text-muted);">
+                        <i class="fas fa-chart-line me-2"></i> Trafik Grafiği
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Sellers -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="section-title">En Çok Satan Ürünler</div>
+                <div class="table-container">
+                    <table class="table custom-table">
+                        <thead>
+                            <tr>
+                                <th>Ürün</th>
+                                <th>Kategori</th>
+                                <th>Satış</th>
+                                <th>Gelir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="/api/placeholder/40/40" alt="Ürün" class="table-img me-2">
+                                        <span>Oversize T-shirt</span>
+                                    </div>
+                                </td>
+                                <td>Erkek / T-shirt</td>
+                                <td>125</td>
+                                <td>₺37,375</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="/api/placeholder/40/40" alt="Ürün" class="table-img me-2">
+                                        <span>Mom Fit Jean</span>
+                                    </div>
+                                </td>
+                                <td>Kadın / Jean</td>
+                                <td>98</td>
+                                <td>₺42,042</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="/api/placeholder/40/40" alt="Ürün" class="table-img me-2">
+                                        <span>Blazer Ceket</span>
+                                    </div>
+                                </td>
+                                <td>Kadın / Ceket</td>
+                                <td>87</td>
+                                <td>₺69,513</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="/api/placeholder/40/40" alt="Ürün" class="table-img me-2">
+                                        <span>Slim Fit Gömlek</span>
+                                    </div>
+                                </td>
+                                <td>Erkek / Gömlek</td>
+                                <td>76</td>
+                                <td>₺26,524</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="/api/placeholder/40/40" alt="Ürün" class="table-img me-2">
+                                        <span>Spor Ayakkabı</span>
+                                    </div>
+                                </td>
+                                <td>Erkek / Ayakkabı</td>
+                                <td>65</td>
+                                <td>₺84,435</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="section-title">En Aktif Müşteriler</div>
+                <div class="table-container">
+                    <table class="table custom-table">
+                        <thead>
+                            <tr>
+                                <th>Müşteri</th>
+                                <th>Sipariş</th>
+                                <th>Toplam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/images/image-1.jpg" alt="Kullanıcı" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                        <span>Zeynep Yılmaz</span>
+                                    </div>
+                                </td>
+                                <td>8</td>
+                                <td>₺3,450</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/images/image-1.jpg" alt="Kullanıcı" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                        <span>Mehmet Öz</span>
+                                    </div>
+                                </td>
+                                <td>7</td>
+                                <td>₺4,250</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/images/image-1.jpg" alt="Kullanıcı" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                        <span>Elif Yıldırım</span>
+                                    </div>
+                                </td>
+                                <td>6</td>
+                                <td>₺3,875</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/images/image-1.jpg" alt="Kullanıcı" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                        <span>Ahmet Kaya</span>
+                                    </div>
+                                </td>
+                                <td>5</td>
+                                <td>₺2,125</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/images/image-1.jpg" alt="Kullanıcı" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                        <span>Selin Korkmaz</span>
+                                    </div>
+                                </td>
+                                <td>4</td>
+                                <td>₺1,780</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export Buttons -->
+        <div class="row mt-4 mb-4">
+            <div class="col-12">
+                <div class="quick-actions">
+                    <button class="btn btn-custom-primary">
+                        <i class="fas fa-file-excel me-2"></i> Excel'e Aktar
+                    </button>
+                    <button class="btn btn-custom-primary">
+                        <i class="fas fa-file-pdf me-2"></i> PDF'e Aktar
+                    </button>
+                    <button class="btn btn-custom-primary">
+                        <i class="fas fa-print me-2"></i> Yazdır
+                    </button>
+                    <button class="btn btn-custom-primary">
+                        <i class="fas fa-envelope me-2"></i> E-posta Gönder
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
