@@ -29,9 +29,10 @@ Bu proje, ürünlerin şık bir şekilde sergilendiği ve kullanıcıların sat�
 
 ### Ekran Görüntüleri
 
-![Ekran görüntüsü 2025-05-22 131718](https://github.com/user-attachments/assets/a8308646-eab0-4802-a92f-c51219c06011)
-![Ekran görüntüsü 2025-05-22 131658](https://github.com/user-attachments/assets/52a3203b-9dc5-44c2-8f39-90139d30e456)
 ![Ekran görüntüsü 2025-05-22 131625](https://github.com/user-attachments/assets/7a64b3e6-1ffe-4e22-8701-f84e4328044e)
+![Ekran görüntüsü 2025-05-22 131658](https://github.com/user-attachments/assets/52a3203b-9dc5-44c2-8f39-90139d30e456)
+![Ekran görüntüsü 2025-05-22 131718](https://github.com/user-attachments/assets/a8308646-eab0-4802-a92f-c51219c06011)
+
 
 ---
 
