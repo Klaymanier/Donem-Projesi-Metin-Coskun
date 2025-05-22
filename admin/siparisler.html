@@ -17,7 +17,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="sidebar-header">
-            <div class="logo">Style<span>Pulse</span></div>
+            <div class="logo">Vist<span>Admin</span></div>
         </div>
         
         <div class="sidebar-menu mt-4">
@@ -197,7 +197,7 @@
                                 <td><span class="status delivered">Teslim Edildi</span></td>
                                 <td>Kredi Kartı</td>
                                 <td>
-                                    <div class="action-btn view-btn" data-bs-toggle="modal" data-bs-target="#orderModal"><i class="fas fa-eye"></i></div>
+                                    <div class="action-btn view-btn" data-bs-toggle="modal" data-bs-target="#orderModal" onclick="showOrderDetails('SP-2501', 'Mami Sefa Mandıralı', '04.05.2025', '₺1,250', 'delivered', 'Kredi Kartı')"><i class="fas fa-eye"></i></div>
                                     <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
                                     <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
                                 </td>
@@ -210,7 +210,7 @@
                                 <td><span class="status shipped">Kargoda</span></td>
                                 <td>Havale</td>
                                 <td>
-                                    <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                    <div class="action-btn view-btn" data-bs-toggle="modal" data-bs-target="#orderModal" onclick="showOrderDetails('SP-2500', 'Ahmo Yuksek', '04.05.2025', '₺785', 'shipped', 'Havale')"><i class="fas fa-eye"></i></div>
                                     <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
                                     <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
                                 </td>
@@ -223,7 +223,7 @@
                                 <td><span class="status pending">Hazırlanıyor</span></td>
                                 <td>Kredi Kartı</td>
                                 <td>
-                                    <div class="action-btn view-btn"><i class="fas fa-eye"></i></div>
+                                    <div class="action-btn view-btn" data-bs-toggle="modal" data-bs-target="#orderModal" onclick="showOrderDetails('SP-2499', 'Meto Coşkun', '03.05.2025', '₺350', 'pending', 'Kredi Kartı')"><i class="fas fa-eye"></i></div>
                                     <div class="action-btn edit-btn"><i class="fas fa-pen"></i></div>
                                     <div class="action-btn delete-btn"><i class="fas fa-trash"></i></div>
                                 </td>
@@ -263,8 +263,8 @@
                 <div class="modal-body">
                     <div class="order-details">
                         <div class="order-detail-header">
-                            <div class="order-id">#SP-2501</div>
-                            <span class="status delivered">Teslim Edildi</span>
+                            <div class="order-id" id="modalOrderId">#SP-2501</div>
+                            <span class="status delivered" id="modalOrderStatus">Teslim Edildi</span>
                         </div>
                         
                         <div class="row">
@@ -272,15 +272,15 @@
                                 <h6 class="mb-3">Müşteri Bilgileri</h6>
                                 <div class="order-info-item">
                                     <div class="order-info-label">Ad Soyad</div>
-                                    <div class="order-info-value">Zeynep Yılmaz</div>
+                                    <div class="order-info-value" id="modalCustomerName">Mami Sefa Mandıralı</div>
                                 </div>
                                 <div class="order-info-item">
                                     <div class="order-info-label">E-posta</div>
-                                    <div class="order-info-value">zeynep.yilmaz@email.com</div>
+                                    <div class="order-info-value" id="modalCustomerEmail">mami.sefa@email.com</div>
                                 </div>
                                 <div class="order-info-item">
                                     <div class="order-info-label">Telefon</div>
-                                    <div class="order-info-value">+90 532 123 45 67</div>
+                                    <div class="order-info-value" id="modalCustomerPhone">+90 532 789 12 34</div>
                                 </div>
                             </div>
                             
@@ -288,11 +288,11 @@
                                 <h6 class="mb-3">Sipariş Bilgileri</h6>
                                 <div class="order-info-item">
                                     <div class="order-info-label">Sipariş Tarihi</div>
-                                    <div class="order-info-value">04.05.2025 14:35</div>
+                                    <div class="order-info-value" id="modalOrderDate">04.05.2025 14:35</div>
                                 </div>
                                 <div class="order-info-item">
                                     <div class="order-info-label">Ödeme Yöntemi</div>
-                                    <div class="order-info-value">Kredi Kartı</div>
+                                    <div class="order-info-value" id="modalPaymentMethod">Kredi Kartı</div>
                                 </div>
                                 <div class="order-info-item">
                                     <div class="order-info-label">Kargo Firması</div>
@@ -304,10 +304,10 @@
                         <div class="row mt-4">
                             <div class="col-md-12">
                                 <h6 class="mb-3">Teslimat Adresi</h6>
-                                <div class="order-info-value">
-                                    Bahçelievler Mah. Çiçek Sok. No: 12 D: 5 <br>
-                                    Bahçelievler / İstanbul <br>
-                                    34180
+                                <div class="order-info-value" id="modalDeliveryAddress">
+                                    Fatih Mah. Atatürk Cad. No: 25 D: 3 <br>
+                                    Sorgun / Yozgat <br>
+                                    66700
                                 </div>
                             </div>
                         </div>
@@ -355,7 +355,7 @@
                             </div>
                             <div class="summary-item total">
                                 <div>Toplam</div>
-                                <div>₺1,250</div>
+                                <div id="modalOrderTotal">₺1,250</div>
                             </div>
                         </div>
                     </div>
@@ -371,5 +371,59 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Order details data
+        const orderData = {
+            'SP-2501': {
+                customerName: 'Mami Sefa Mandıralı',
+                customerEmail: 'mami.sefa@email.com',
+                customerPhone: '+90 532 789 12 34',
+                orderDate: '04.05.2025 14:35',
+                address: 'Fatih Mah. Atatürk Cad. No: 25 D: 3 <br>Sorgun / Yozgat <br>66700'
+            },
+            'SP-2500': {
+                customerName: 'Ahmo Yuksek',
+                customerEmail: 'ahmo.yuksek@email.com',
+                customerPhone: '+90 532 456 78 90',
+                orderDate: '04.05.2025 11:20',
+                address: 'Cumhuriyet Mah. İstiklal Sok. No: 8 D: 1 <br>Sorgun / Yozgat <br>66700'
+            },
+            'SP-2499': {
+                customerName: 'Meto Coşkun',
+                customerEmail: 'meto.coskun@email.com',
+                customerPhone: '+90 532 321 65 87',
+                orderDate: '03.05.2025 16:45',
+                address: 'Yeni Mah. Barış Cad. No: 42 D: 7 <br>Sorgun / Yozgat <br>66700'
+            }
+        };
+
+        function showOrderDetails(orderId, customerName, orderDate, orderTotal, status, paymentMethod) {
+            const data = orderData[orderId];
+            
+            // Update modal content
+            document.getElementById('modalOrderId').textContent = '#' + orderId;
+            document.getElementById('modalCustomerName').textContent = data.customerName;
+            document.getElementById('modalCustomerEmail').textContent = data.customerEmail;
+            document.getElementById('modalCustomerPhone').textContent = data.customerPhone;
+            document.getElementById('modalOrderDate').textContent = data.orderDate;
+            document.getElementById('modalPaymentMethod').textContent = paymentMethod;
+            document.getElementById('modalDeliveryAddress').innerHTML = data.address;
+            document.getElementById('modalOrderTotal').textContent = orderTotal;
+            
+            // Update status
+            const statusElement = document.getElementById('modalOrderStatus');
+            statusElement.className = 'status ' + status;
+            
+            let statusText = '';
+            switch(status) {
+                case 'delivered': statusText = 'Teslim Edildi'; break;
+                case 'shipped': statusText = 'Kargoda'; break;
+                case 'pending': statusText = 'Hazırlanıyor'; break;
+                case 'canceled': statusText = 'İptal'; break;
+            }
+            statusElement.textContent = statusText;
+        }
+    </script>
 </body>
 </html>

@@ -36,17 +36,24 @@ if (menuToggle && mobileMenu) {
   menuToggle.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    mobileMenu.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    // Menü açık mı kontrol et
+    if (mobileMenu.classList.contains('active')) {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = ''; // Kaydırmayı geri aç
+    } else {
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Kaydırmayı kapat
+    }
   });
 }
+
 
 if (menuClose && mobileMenu) {
   menuClose.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
     mobileMenu.classList.remove('active');
-    document.body.style.overflow = '';
+    document.body.style.overflow = 'hidden';
   });
 }
 

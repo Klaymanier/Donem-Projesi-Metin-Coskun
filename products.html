@@ -1,131 +1,137 @@
 <!DOCTYPE html>
 <html lang="tr" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ModaVista - En yeni ürünler, indirimler ve koleksiyonlarımız.">
     <meta name="theme-color" content="#ffffff">
     <title>Ürünler - ModaVista</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="../assets/images/favicon.png" type="image/png">
-    
+
     <!-- Fontlar -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
+
     <!-- CSS Dosyaları -->
+    <!-- <link rel="stylesheet" href="css/style-old.css"> -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body>
     <!-- Preloader -->
     <div class="preloader">
         <div class="loader"></div>
     </div>
-    
+
     <header class="header">
         <div class="header-inner">
-          <!-- Logo -->
-          <a href="index.html" class="logo">
-            <div class="logo-icon"><i class="fas fa-tshirt"></i></div>
-            ModaVista
-          </a>
-          
-          <!-- Ana Navigasyon -->
-          <nav class="main-nav">
-            <ul class="nav-links">
-              <!-- Tüm Ürünler Dropdown -->
-              <li class="dropdown">
-                <a href="products.html" class="nav-link active">Tüm Ürünler</a>
-                <div class="dropdown-menu">
-                  <a href="products.html?kategori=kadin" class="">Kadın</a>
-                  <a href="products.html?kategori=erkek" class="">Erkek</a>
-                  <a href="products.html?kategori=cocuk" class="">Çocuk</a>
-                  <a href="products.html?kategori=aksesuar" class="">Aksesuar</a>
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-tshirt"></i></div>
+                ModaVista
+            </a>
+
+            <!-- Ana Navigasyon -->
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <!-- Tüm Ürünler Dropdown -->
+                    <li class="dropdown">
+                        <a href="products.html" class="nav-link active">Tüm Ürünler</a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?kategori=kadin" class="">Kadın</a>
+                            <a href="products.html?kategori=erkek" class="">Erkek</a>
+                            <a href="products.html?kategori=cocuk" class="">Çocuk</a>
+                            <a href="products.html?kategori=aksesuar" class="">Aksesuar</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="about.html" class="nav-link">Hakkımızda</a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="nav-link">İletişim</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Sağ Taraf İkonları -->
+            <div class="header-actions">
+                <!-- Arama butonu -->
+                <button class="header-action search-toggle">
+                    <i class="fas fa-search"></i>
+                </button>
+
+                <!-- Sepet butonu -->
+                <a href="cart.html" class="header-action">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge">0</span>
+                </a>
+
+                <!-- Tema Açılır Menüsü -->
+                <div class="theme-dropdown">
+                    <button class="header-action theme-toggle">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <div class="theme-dropdown-menu">
+                        <button class="theme-option" data-theme="light">
+                            <i class="fas fa-sun"></i>
+                            <span>Aydınlık Mod</span>
+                        </button>
+                        <button class="theme-option" data-theme="dark">
+                            <i class="fas fa-moon"></i>
+                            <span>Karanlık Mod</span>
+                        </button>
+                        <button class="theme-option" data-theme="auto">
+                            <i class="fas fa-circle-half-stroke"></i>
+                            <span>Sistem Ayarı</span>
+                        </button>
+                    </div>
                 </div>
-              </li>
-              <li>
-                <a href="about.html" class="nav-link">Hakkımızda</a>
-              </li>
-              <li>
-                <a href="contact.html" class="nav-link">İletişim</a>
-              </li>
-            </ul>
-          </nav>
-          
-          <!-- Sağ Taraf İkonları -->
-          <div class="header-actions">
-            <!-- Arama butonu -->
-            <button class="header-action search-toggle">
-              <i class="fas fa-search"></i>
-            </button>
-            
-            <!-- Sepet butonu -->
-            <a href="cart.html" class="header-action">
-              <i class="fas fa-shopping-bag"></i>
-              <span class="badge">0</span>
-            </a>
-            
-            <!-- Tema Açılır Menüsü -->
-            <div class="theme-dropdown">
-              <button class="header-action theme-toggle">
-                <i class="fas fa-moon"></i>
-                <i class="fas fa-sun"></i>
-              </button>
-              <div class="theme-dropdown-menu">
-                <button class="theme-option" data-theme="light">
-                  <i class="fas fa-sun"></i>
-                  <span>Aydınlık Mod</span>
+
+                <!-- Kullanıcı butonu -->
+                <div class="user-dropdown">
+                    <button class="header-action user-toggle">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <a href="profile.html" class="user-dropdown-item">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Profilim</span>
+                        </a>
+                        <a href="orders.html" class="user-dropdown-item">
+                            <i class="fas fa-box"></i>
+                            <span>Siparişlerim</span>
+                        </a>
+                        <a href="wishlist.html" class="user-dropdown-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Favorilerim</span>
+                        </a>
+                        <a href="logout.html" class="user-dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Çıkış Yap</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="login.html" class="login-register-button">
+                    <i class="fas fa-user"></i>
+                    <span>Giriş/Kayıt Ol</span>
+                </a>
+
+                <!-- Hamburger Menü (En sağda) -->
+                <button class="header-action menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
-                <button class="theme-option" data-theme="dark">
-                  <i class="fas fa-moon"></i>
-                  <span>Karanlık Mod</span>
-                </button>
-                <button class="theme-option" data-theme="auto">
-                  <i class="fas fa-circle-half-stroke"></i>
-                  <span>Sistem Ayarı</span>
-                </button>
-              </div>
             </div>
-            
-            <!-- Kullanıcı butonu -->
-            <div class="user-dropdown">
-              <button class="header-action user-toggle">
-                <i class="fas fa-user"></i>
-              </button>
-              <div class="user-dropdown-menu">
-                <a href="profile.html" class="user-dropdown-item">
-                  <i class="fas fa-user-circle"></i>
-                  <span>Profilim</span>
-                </a>
-                <a href="orders.html" class="user-dropdown-item">
-                  <i class="fas fa-box"></i>
-                  <span>Siparişlerim</span>
-                </a>
-                <a href="wishlist.html" class="user-dropdown-item">
-                  <i class="fas fa-heart"></i>
-                  <span>Favorilerim</span>
-                </a>
-                <a href="logout.html" class="user-dropdown-item">
-                  <i class="fas fa-sign-out-alt"></i>
-                  <span>Çıkış Yap</span>
-                </a>
-              </div>
-            </div>
-            
-            <a href="login.html" class="header-action">
-              <i class="fas fa-user"></i>
-            </a>
-            
-            <!-- Hamburger Menü (En sağda) -->
-            <button class="header-action menu-toggle" id="menuToggle">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
         </div>
     </header>
 
@@ -134,186 +140,158 @@
     <section class="products-page">
         <div class="container">
             <div class="products-container">
-<!-- Filtre Sidebar -->
-<div class="filter-sidebar minimal">
-    <div class="filter-header">
-        <h3>Filtreler</h3>
-        <button class="mobile-filter-close">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    
-    <!-- Kategori Filtresi -->
-    <div class="filter-group">
-        <h4>Kategoriler</h4>
-        <ul class="category-filter">
-            <li><a href="products.html?kategori=kadin" class="active">Kadın</a></li>
-            <li><a href="products.html?kategori=erkek">Erkek</a></li>
-            <li><a href="products.html?kategori=cocuk">Çocuk</a></li>
-            <li><a href="products.html?kategori=aksesuar">Aksesuar</a></li>
-            <li><a href="products.html?kategori=ayakkabi">Ayakkabı</a></li>
-            <li><a href="products.html?kategori=canta">Çanta</a></li>
-        </ul>
-    </div>
-    
-    <!-- Fiyat Filtresi -->
-    <div class="filter-group">
-        <h4>Fiyat Aralığı</h4>
-        <div class="price-slider-container">
-            <div class="price-slider" id="price-range-slider"></div>
-            <div class="price-values">
-                <span id="price-min-value">0 ₺</span>
-                <span id="price-max-value">2000 ₺</span>
-            </div>
-        </div>
-        <form class="price-filter-form">
-            <div class="price-inputs">
-                <div class="price-input">
-                    <label for="minPrice">Min Fiyat (₺)</label>
-                    <input type="number" id="minPrice" min="0" placeholder="0" class="form-control">
+                <!-- Filtre Sidebar -->
+                <div class="filter-sidebar minimal">
+                    <div class="filter-header">
+                        <h3>Filtreler</h3>
+                        <button class="mobile-filter-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <!-- Kategori Filtresi -->
+                    <div class="filter-group">
+                        <h4>Kategoriler</h4>
+                        <ul class="category-filter">
+                            <li><a href="products.html?kategori=kadin" class="active">Kadın</a></li>
+                            <li><a href="products.html?kategori=erkek">Erkek</a></li>
+                            <li><a href="products.html?kategori=cocuk">Çocuk</a></li>
+                            <li><a href="products.html?kategori=aksesuar">Aksesuar</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Beden Filtresi -->
+                    <div class="filter-group">
+                        <h4>Beden</h4>
+                        <div class="size-options">
+                            <label class="size-option">
+                                <input type="checkbox" id="sizeXS">
+                                <span class="size-badge">XS</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="checkbox" id="sizeS">
+                                <span class="size-badge">S</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="checkbox" id="sizeM">
+                                <span class="size-badge">M</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="checkbox" id="sizeL">
+                                <span class="size-badge">L</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="checkbox" id="sizeXL">
+                                <span class="size-badge">XL</span>
+                            </label>
+                            <label class="size-option">
+                                <input type="checkbox" id="sizeXXL">
+                                <span class="size-badge">XXL</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Renk Filtresi -->
+                    <div class="filter-group">
+                        <h4>Renk</h4>
+                        <div class="color-filter">
+                            <label class="color-item">
+                                <input type="checkbox" id="colorBlack">
+                                <span class="color-circle" style="background-color: #000000;"></span>
+                                <span class="color-name">Siyah</span>
+                            </label>
+                            <label class="color-item">
+                                <input type="checkbox" id="colorWhite">
+                                <span class="color-circle"
+                                    style="background-color: #ffffff; border: 1px solid #ddd;"></span>
+                                <span class="color-name">Beyaz</span>
+                            </label>
+                            <label class="color-item">
+                                <input type="checkbox" id="colorRed">
+                                <span class="color-circle" style="background-color: #e74c3c;"></span>
+                                <span class="color-name">Kırmızı</span>
+                            </label>
+                            <label class="color-item">
+                                <input type="checkbox" id="colorBlue">
+                                <span class="color-circle" style="background-color: #3498db;"></span>
+                                <span class="color-name">Mavi</span>
+                            </label>
+                            <label class="color-item">
+                                <input type="checkbox" id="colorGreen">
+                                <span class="color-circle" style="background-color: #2ecc71;"></span>
+                                <span class="color-name">Yeşil</span>
+                            </label>
+                            <label class="color-item">
+                                <input type="checkbox" id="colorYellow">
+                                <span class="color-circle" style="background-color: #f1c40f;"></span>
+                                <span class="color-name">Sarı</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Özellik Filtresi -->
+                    <div class="filter-group">
+                        <h4>Özellikler</h4>
+                        <div class="checkbox-list">
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="newArrivals">
+                                <span class="custom-checkbox"></span>
+                                <span>Yeni Gelenler</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="discounted">
+                                <span class="custom-checkbox"></span>
+                                <span>İndirimli Ürünler</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="bestSeller">
+                                <span class="custom-checkbox"></span>
+                                <span>Çok Satanlar</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="sustainable">
+                                <span class="custom-checkbox"></span>
+                                <span>Sürdürülebilir</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Filtreleme Butonları -->
+                    <div class="filter-actions">
+                        <button class="apply-filters-btn">
+                            <i class="fas fa-check"></i> Filtreleri Uygula
+                        </button>
+                        <button class="clear-filters-btn">
+                            <i class="fas fa-times"></i> Filtreleri Temizle
+                        </button>
+                    </div>
+
+                    <!-- Aktif Filtreler -->
+                    <div class="active-filters">
+                        <h4>Aktif Filtreler</h4>
+                        <div class="active-filter-tags">
+                            <span class="filter-tag">
+                                Kadın <i class="fas fa-times"></i>
+                            </span>
+                            <span class="filter-tag">
+                                Fiyat: 0₺ - 500₺ <i class="fas fa-times"></i>
+                            </span>
+                            <span class="filter-tag">
+                                Beden: M <i class="fas fa-times"></i>
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <div class="price-input">
-                    <label for="maxPrice">Max Fiyat (₺)</label>
-                    <input type="number" id="maxPrice" min="0" placeholder="2000" class="form-control">
-                </div>
-            </div>
-            <button type="submit" class="filter-button">
-                <i class="fas fa-filter"></i> Uygula
-            </button>
-        </form>
-    </div>
-    
-    <!-- Beden Filtresi -->
-    <div class="filter-group">
-        <h4>Beden</h4>
-        <div class="size-options">
-            <label class="size-option">
-                <input type="checkbox" id="sizeXS">
-                <span class="size-badge">XS</span>
-            </label>
-            <label class="size-option">
-                <input type="checkbox" id="sizeS">
-                <span class="size-badge">S</span>
-            </label>
-            <label class="size-option">
-                <input type="checkbox" id="sizeM">
-                <span class="size-badge">M</span>
-            </label>
-            <label class="size-option">
-                <input type="checkbox" id="sizeL">
-                <span class="size-badge">L</span>
-            </label>
-            <label class="size-option">
-                <input type="checkbox" id="sizeXL">
-                <span class="size-badge">XL</span>
-            </label>
-            <label class="size-option">
-                <input type="checkbox" id="sizeXXL">
-                <span class="size-badge">XXL</span>
-            </label>
-        </div>
-    </div>
-    
-    <!-- Renk Filtresi -->
-    <div class="filter-group">
-        <h4>Renk</h4>
-        <div class="color-filter">
-            <label class="color-item">
-                <input type="checkbox" id="colorBlack">
-                <span class="color-circle" style="background-color: #000000;"></span>
-                <span class="color-name">Siyah</span>
-            </label>
-            <label class="color-item">
-                <input type="checkbox" id="colorWhite">
-                <span class="color-circle" style="background-color: #ffffff; border: 1px solid #ddd;"></span>
-                <span class="color-name">Beyaz</span>
-            </label>
-            <label class="color-item">
-                <input type="checkbox" id="colorRed">
-                <span class="color-circle" style="background-color: #e74c3c;"></span>
-                <span class="color-name">Kırmızı</span>
-            </label>
-            <label class="color-item">
-                <input type="checkbox" id="colorBlue">
-                <span class="color-circle" style="background-color: #3498db;"></span>
-                <span class="color-name">Mavi</span>
-            </label>
-            <label class="color-item">
-                <input type="checkbox" id="colorGreen">
-                <span class="color-circle" style="background-color: #2ecc71;"></span>
-                <span class="color-name">Yeşil</span>
-            </label>
-            <label class="color-item">
-                <input type="checkbox" id="colorYellow">
-                <span class="color-circle" style="background-color: #f1c40f;"></span>
-                <span class="color-name">Sarı</span>
-            </label>
-        </div>
-    </div>
-    
-    <!-- Özellik Filtresi -->
-    <div class="filter-group">
-        <h4>Özellikler</h4>
-        <div class="checkbox-list">
-            <label class="checkbox-item">
-                <input type="checkbox" id="newArrivals">
-                <span class="custom-checkbox"></span>
-                <span>Yeni Gelenler</span>
-            </label>
-            <label class="checkbox-item">
-                <input type="checkbox" id="discounted">
-                <span class="custom-checkbox"></span>
-                <span>İndirimli Ürünler</span>
-            </label>
-            <label class="checkbox-item">
-                <input type="checkbox" id="bestSeller">
-                <span class="custom-checkbox"></span>
-                <span>Çok Satanlar</span>
-            </label>
-            <label class="checkbox-item">
-                <input type="checkbox" id="sustainable">
-                <span class="custom-checkbox"></span>
-                <span>Sürdürülebilir</span>
-            </label>
-        </div>
-    </div>
-    
-    <!-- Filtreleme Butonları -->
-    <div class="filter-actions">
-        <button class="apply-filters-btn">
-            <i class="fas fa-check"></i> Filtreleri Uygula
-        </button>
-        <button class="clear-filters-btn">
-            <i class="fas fa-times"></i> Filtreleri Temizle
-        </button>
-    </div>
-    
-    <!-- Aktif Filtreler -->
-    <div class="active-filters">
-        <h4>Aktif Filtreler</h4>
-        <div class="active-filter-tags">
-            <span class="filter-tag">
-                Kadın <i class="fas fa-times"></i>
-            </span>
-            <span class="filter-tag">
-                Fiyat: 0₺ - 500₺ <i class="fas fa-times"></i>
-            </span>
-            <span class="filter-tag">
-                Beden: M <i class="fas fa-times"></i>
-            </span>
-        </div>
-    </div>
-</div>
-                
+
                 <!-- Ürün Listesi ve Üst Bölüm -->
                 <div class="products-content">
                     <div class="products-header">
                         <div class="product-count">150 Ürün Bulundu</div>
-                        
+
                         <button class="mobile-filter-toggle">
                             <i class="fas fa-filter"></i> Filtrele
                         </button>
-                        
+
                         <div class="sort-options">
                             <select id="sort-by">
                                 <option value="newest">En Yeniler</option>
@@ -324,13 +302,49 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <!-- Ürün Grid Alanı -->
                     <div class="products-grid">
                         <!-- Ürün 1 -->
                         <div class="product-card">
                             <div class="product-thumb">
-                                <img src="assets\picture\tshirt.png" alt="Premium Pamuklu T-Shirt">
+                                <img src="assets\products\urun-1.png" alt="Premium Pamuklu T-Shirt" />
+                                <div class="product-badges">
+                                    <span class="badge new">Yeni</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button type="button" class="product-action wishlist-btn">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
+                                    <button type="button" class="product-action quick-view-btn">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">
+                                    <a href="product-detail.html?id=1">Dead Space Oversize Tshirt</a>
+                                </h3>
+                                <div class="product-price">
+                                    <span class="current-price">₺ 1,099.00</span>
+                                </div>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="rating-count">(24)</span>
+                                </div>
+                                <button class="add-to-cart" data-product-id="1">
+                                    <i class="fas fa-shopping-cart"></i> Sepete Ekle
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Ürün 2 -->
+                        <div class="product-card">
+                            <div class="product-thumb">
+                                <img src="assets\products\urun-2.png" alt="Premium Pamuklu T-Shirt" />
                                 <div class="product-badges">
                                     <span class="badge new">Yeni</span>
                                     <span class="badge discount">%20</span>
@@ -345,67 +359,32 @@
                                 </div>
                             </div>
                             <div class="product-info">
-                                <span class="product-category">Erkek</span>
                                 <h3 class="product-title">
-                                    <a href="product-detail.html?id=1">Premium Pamuklu T-Shirt</a>
+                                    <a href="product-detail.html?id=1">The Crusader Oversize</a>
                                 </h3>
                                 <div class="product-price">
-                                    <span class="old-price">299,90 ₺</span>
-                                    <span class="current-price">249,90 ₺</span>
+                                    <span class="discount-price">₺ 990.00</span>
+                                    <span class="current-price">₺ 792.00</span>
                                 </div>
-                                <div class="product-colors">
-                                    <span class="color-option" style="background-color: #000000;"></span>
-                                    <span class="color-option" style="background-color: #ffffff; border: 1px solid #ddd;"></span>
-                                    <span class="color-option" style="background-color: #3498db;"></span>
-                                    <span class="color-more">+2</span>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="rating-count">(24)</span>
                                 </div>
-                                <button class="add-to-cart">
+                                <button class="add-to-cart" data-product-id="1">
                                     <i class="fas fa-shopping-cart"></i> Sepete Ekle
                                 </button>
                             </div>
                         </div>
-                        
-                        <!-- Ürün 2 -->
-                        <div class="product-card">
-                            <div class="product-thumb">
-                                <img src="assets\picture\tshirt.png" alt="Slim Fit Pamuklu Gömlek">
-                                <div class="product-badges">
-                                    <span class="badge new">Yeni</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button type="button" class="product-action wishlist-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </button>
-                                    <button type="button" class="product-action quick-view-btn">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="product-category">Erkek</span>
-                                <h3 class="product-title">
-                                    <a href="product-detail.html?id=2">Slim Fit Pamuklu Gömlek</a>
-                                </h3>
-                                <div class="product-price">
-                                    <span class="current-price">399,90 ₺</span>
-                                </div>
-                                <div class="product-colors">
-                                    <span class="color-option" style="background-color: #3498db;"></span>
-                                    <span class="color-option" style="background-color: #ffffff; border: 1px solid #ddd;"></span>
-                                    <span class="color-option" style="background-color: #e74c3c;"></span>
-                                </div>
-                                <button class="add-to-cart">
-                                    <i class="fas fa-shopping-cart"></i> Sepete Ekle
-                                </button>
-                            </div>
-                        </div>
-                        
                         <!-- Ürün 3 -->
                         <div class="product-card">
                             <div class="product-thumb">
-                                <img src="assets\picture\tshirt.png" alt="Yüksek Bel Jean">
+                                <img src="assets\products\urun-3.png" alt="Premium Pamuklu T-Shirt" />
                                 <div class="product-badges">
-                                    <span class="badge discount">%15</span>
+                                    <span class="badge new">Yeni</span>
                                 </div>
                                 <div class="product-actions">
                                     <button type="button" class="product-action wishlist-btn">
@@ -417,31 +396,32 @@
                                 </div>
                             </div>
                             <div class="product-info">
-                                <span class="product-category">Kadın</span>
                                 <h3 class="product-title">
-                                    <a href="product-detail.html?id=3">Yüksek Bel Slim Jean</a>
+                                    <a href="product-detail.html?id=1">The Berserkir Oversize Tshirt</a>
                                 </h3>
                                 <div class="product-price">
-                                    <span class="old-price">499,90 ₺</span>
-                                    <span class="current-price">424,90 ₺</span>
+                                    <span class="current-price">₺ 1,099.00</span>
                                 </div>
-                                <div class="product-colors">
-                                    <span class="color-option" style="background-color: #000000;"></span>
-                                    <span class="color-option" style="background-color: #3498db;"></span>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="rating-count">(24)</span>
                                 </div>
-                                <button class="add-to-cart">
+                                <button class="add-to-cart" data-product-id="1">
                                     <i class="fas fa-shopping-cart"></i> Sepete Ekle
                                 </button>
                             </div>
                         </div>
-                        
                         <!-- Ürün 4 -->
                         <div class="product-card">
                             <div class="product-thumb">
-                                <img src="assets\picture\tshirt.png" alt="Oversize Sweatshirt">
+                                <img src="assets\products\urun-4.png" alt="Premium Pamuklu T-Shirt" />
                                 <div class="product-badges">
                                     <span class="badge new">Yeni</span>
-                                    <span class="badge discount">%10</span>
+                                    <span class="badge discount">%20</span>
                                 </div>
                                 <div class="product-actions">
                                     <button type="button" class="product-action wishlist-btn">
@@ -453,188 +433,32 @@
                                 </div>
                             </div>
                             <div class="product-info">
-                                <span class="product-category">Unisex</span>
                                 <h3 class="product-title">
-                                    <a href="product-detail.html?id=4">Oversize Kapüşonlu Sweatshirt</a>
+                                    <a href="product-detail.html?id=1">The Ronin Oversize Tshirt</a>
                                 </h3>
                                 <div class="product-price">
-                                    <span class="old-price">349,90 ₺</span>
-                                    <span class="current-price">314,90 ₺</span>
+                                    <span class="discount-price">₺ 990.00</span>
+                                    <span class="current-price">₺ 792.00</span>
                                 </div>
-                                <div class="product-colors">
-                                    <span class="color-option" style="background-color: #000000;"></span>
-                                    <span class="color-option" style="background-color: #ffffff; border: 1px solid #ddd;"></span>
-                                    <span class="color-option" style="background-color: #e74c3c;"></span>
-                                    <span class="color-more">+3</span>
+                                <div class="product-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="rating-count">(24)</span>
                                 </div>
-                                <button class="add-to-cart">
+                                <button class="add-to-cart" data-product-id="1">
                                     <i class="fas fa-shopping-cart"></i> Sepete Ekle
                                 </button>
                             </div>
                         </div>
-                        
-                        <!-- Ürün 5 -->
-                        <div class="product-card">
-                            <div class="product-thumb">
-                                <img src="assets\picture\tshirt.png" alt="Yüksek Bel Şort">
-                                <div class="product-badges">
-                                    <span class="badge discount">%25</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button type="button" class="product-action wishlist-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </button>
-                                    <button type="button" class="product-action quick-view-btn">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="product-category">Kadın</span>
-                                <h3 class="product-title">
-                                    <a href="product-detail.html?id=5">Yüksek Bel Denim Şort</a>
-                                </h3>
-                                <div class="product-price">
-                                    <span class="old-price">299,90 ₺</span>
-                                    <span class="current-price">224,90 ₺</span>
-                                </div>
-                                <div class="product-colors">
-                                    <span class="color-option" style="background-color: #000000;"></span>
-                                    <span class="color-option" style="background-color: #3498db;"></span>
-                                </div>
-                                <button class="add-to-cart">
-                                    <i class="fas fa-shopping-cart"></i> Sepete Ekle
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Ürün 6 -->
-                        <div class="product-card">
-                            <div class="product-thumb">
-                                <img src="assets\picture\tshirt.png" alt="Klasik Kesim Ceket">
-                                <div class="product-badges">
-                                    <span class="badge new">Yeni</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button type="button" class="product-action wishlist-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </button>
-                                    <button type="button" class="product-action quick-view-btn">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="product-category">Erkek</span>
-                                <h3 class="product-title">
-                                    <a href="product-detail.html?id=6">Klasik Kesim Blazer Ceket</a>
-                                </h3>
-                                <div class="product-price">
-                                    <span class="current-price">899,90 ₺</span>
-                                </div>
-                                <div class="product-colors">
-                                    <span class="color-option" style="background-color: #000000;"></span>
-                                    <span class="color-option" style="background-color: #2c3e50;"></span>
-                                </div>
-                                <button class="add-to-cart">
-                                    <i class="fas fa-shopping-cart"></i> Sepete Ekle
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Ürün 7 -->
-                        <div class="product-card">
-                            <div class="product-thumb">
-                                <img src="assets\picture\tshirt.png" alt="Kolsuz Bluz">
-                                <div class="product-actions">
-                                    <button type="button" class="product-action wishlist-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </button>
-                                    <button type="button" class="product-action quick-view-btn">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="product-category">Kadın</span>
-                                <h3 class="product-title">
-                                    <a href="product-detail.html?id=7">Kolsuz V Yaka Bluz</a>
-                                </h3>
-                                <div class="product-price">
-                                    <span class="current-price">199,90 ₺</span>
-                                </div>
-                                <div class="product-colors">
-                                    <span class="color-option" style="background-color: #ffffff; border: 1px solid #ddd;"></span>
-                                    <span class="color-option" style="background-color: #f1c40f;"></span>
-                                    <span class="color-option" style="background-color: #e74c3c;"></span>
-                                    <span class="color-more">+2</span>
-                                </div>
-                                <button class="add-to-cart">
-                                    <i class="fas fa-shopping-cart"></i> Sepete Ekle
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Ürün 8 -->
-                        <div class="product-card">
-                            <div class="product-thumb">
-                                <img src="assets\picture\tshirt.png" alt="Spor Ayakkabı">
-                                <div class="product-badges">
-                                    <span class="badge discount">%30</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button type="button" class="product-action wishlist-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </button>
-                                    <button type="button" class="product-action quick-view-btn">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="product-category">Unisex</span>
-                                <h3 class="product-title">
-                                    <a href="product-detail.html?id=8">Comfort Spor Ayakkabı</a>
-                                </h3>
-                                <div class="product-price">
-                                    <span class="old-price">799,90 ₺</span>
-                                    <span class="current-price">559,90 ₺</span>
-                                </div>
-                                <div class="product-colors">
-                                    <span class="color-option" style="background-color: #000000;"></span>
-                                    <span class="color-option" style="background-color: #ffffff; border: 1px solid #ddd;"></span>
-                                    <span class="color-option" style="background-color: #3498db;"></span>
-                                </div>
-                                <button class="add-to-cart">
-                                    <i class="fas fa-shopping-cart"></i> Sepete Ekle
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Sayfalama -->
-                    <div class="pagination-container">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <i class="fas fa-chevron-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <i class="fas fa-chevron-right"></i>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -644,7 +468,8 @@
                         <div class="footer-logo-icon"><i class="fas fa-tshirt"></i></div>
                         ModaVista
                     </div>
-                    <p class="footer-description">Modern ve yenilikçi tasarımlarla tarzınızı yeniden keşfedin. Sürdürülebilir moda anlayışımızla çevreye duyarlı alışveriş yapın.</p>
+                    <p class="footer-description">Modern ve yenilikçi tasarımlarla tarzınızı yeniden keşfedin.
+                        Sürdürülebilir moda anlayışımızla çevreye duyarlı alışveriş yapın.</p>
                     <div class="footer-social">
                         <a href="#" class="footer-social-link" target="_blank" rel="noopener">
                             <i class="fab fa-facebook-f"></i>
@@ -660,7 +485,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3 class="footer-title">Kategoriler</h3>
                     <ul class="footer-links">
@@ -672,7 +497,7 @@
                         <li><a href="products.html?kategori=canta">Çanta</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3 class="footer-title">Bilgi</h3>
                     <ul class="footer-links">
@@ -684,7 +509,7 @@
                         <li><a href="faq.html">Sıkça Sorulan Sorular</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3 class="footer-title">İletişim</h3>
                     <div class="footer-contact">
@@ -707,7 +532,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2024 ModaVista. Tüm hakları saklıdır.</p>
                 <div class="footer-bottom-links">
@@ -722,4 +547,5 @@
     <!-- JavaScript -->
     <script src="js\main.js"></script>
 </body>
+
 </html>

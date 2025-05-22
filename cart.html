@@ -1,143 +1,139 @@
 <!DOCTYPE html>
 <html lang="tr" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ModaVista - Sepetinizi görüntüleyin ve alışverişinizi tamamlayın.">
     <meta name="theme-color" content="#ffffff">
     <title>Sepetim - ModaVista</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="../assets/images/favicon.png" type="image/png">
-    
+
     <!-- Fontlar -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
+
     <!-- CSS Dosyaları -->
+    <!-- <link rel="stylesheet" href="css/style-old.css"> -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body>
     <!-- Preloader -->
     <div class="preloader">
         <div class="loader"></div>
     </div>
-    
+
     <header class="header">
         <div class="header-inner">
-          <!-- Logo -->
-          <a href="index.html" class="logo">
-            <div class="logo-icon"><i class="fas fa-tshirt"></i></div>
-            ModaVista
-          </a>
-          
-          <!-- Ana Navigasyon -->
-          <nav class="main-nav">
-            <ul class="nav-links">
-              <!-- Tüm Ürünler Dropdown -->
-              <li class="dropdown">
-                <a href="products.html" class="nav-link">Tüm Ürünler</a>
-                <div class="dropdown-menu">
-                  <a href="products.html?kategori=kadin" class="">Kadın</a>
-                  <a href="products.html?kategori=erkek" class="">Erkek</a>
-                  <a href="products.html?kategori=cocuk" class="">Çocuk</a>
-                  <a href="products.html?kategori=aksesuar" class="">Aksesuar</a>
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-tshirt"></i></div>
+                ModaVista
+            </a>
+
+            <!-- Ana Navigasyon -->
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <!-- Tüm Ürünler Dropdown -->
+                    <li class="dropdown">
+                        <a href="products.html" class="nav-link">Tüm Ürünler</a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?kategori=kadin" class="">Kadın</a>
+                            <a href="products.html?kategori=erkek" class="">Erkek</a>
+                            <a href="products.html?kategori=cocuk" class="">Çocuk</a>
+                            <a href="products.html?kategori=aksesuar" class="">Aksesuar</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="about.html" class="nav-link">Hakkımızda</a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="nav-link">İletişim</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Sağ Taraf İkonları -->
+            <div class="header-actions">
+                <!-- Arama butonu -->
+                <button class="header-action search-toggle">
+                    <i class="fas fa-search"></i>
+                </button>
+
+                <!-- Sepet butonu -->
+                <a href="cart.html" class="header-action active">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge">3</span>
+                </a>
+
+                <!-- Tema Açılır Menüsü -->
+                <div class="theme-dropdown">
+                    <button class="header-action theme-toggle">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <div class="theme-dropdown-menu">
+                        <button class="theme-option" data-theme="light">
+                            <i class="fas fa-sun"></i>
+                            <span>Aydınlık Mod</span>
+                        </button>
+                        <button class="theme-option" data-theme="dark">
+                            <i class="fas fa-moon"></i>
+                            <span>Karanlık Mod</span>
+                        </button>
+                        <button class="theme-option" data-theme="auto">
+                            <i class="fas fa-circle-half-stroke"></i>
+                            <span>Sistem Ayarı</span>
+                        </button>
+                    </div>
                 </div>
-              </li>
-              <li>
-                <a href="about.html" class="nav-link">Hakkımızda</a>
-              </li>
-              <li>
-                <a href="contact.html" class="nav-link">İletişim</a>
-              </li>
-            </ul>
-          </nav>
-          
-          <!-- Sağ Taraf İkonları -->
-          <div class="header-actions">
-            <!-- Arama butonu -->
-            <button class="header-action search-toggle">
-              <i class="fas fa-search"></i>
-            </button>
-            
-            <!-- Sepet butonu -->
-            <a href="cart.html" class="header-action active">
-              <i class="fas fa-shopping-bag"></i>
-              <span class="badge">3</span>
-            </a>
-            
-            <!-- Tema Açılır Menüsü -->
-            <div class="theme-dropdown">
-              <button class="header-action theme-toggle">
-                <i class="fas fa-moon"></i>
-                <i class="fas fa-sun"></i>
-              </button>
-              <div class="theme-dropdown-menu">
-                <button class="theme-option" data-theme="light">
-                  <i class="fas fa-sun"></i>
-                  <span>Aydınlık Mod</span>
+
+                <!-- Kullanıcı butonu -->
+                <div class="user-dropdown">
+                    <button class="header-action user-toggle">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <a href="profile.html" class="user-dropdown-item">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Profilim</span>
+                        </a>
+                        <a href="orders.html" class="user-dropdown-item">
+                            <i class="fas fa-box"></i>
+                            <span>Siparişlerim</span>
+                        </a>
+                        <a href="wishlist.html" class="user-dropdown-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Favorilerim</span>
+                        </a>
+                        <a href="logout.html" class="user-dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Çıkış Yap</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="login.html" class="login-register-button">
+                    <i class="fas fa-user"></i>
+                    <span>Giriş/Kayıt Ol</span>
+                </a>
+
+                <!-- Hamburger Menü (En sağda) -->
+                <button class="header-action menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
-                <button class="theme-option" data-theme="dark">
-                  <i class="fas fa-moon"></i>
-                  <span>Karanlık Mod</span>
-                </button>
-                <button class="theme-option" data-theme="auto">
-                  <i class="fas fa-circle-half-stroke"></i>
-                  <span>Sistem Ayarı</span>
-                </button>
-              </div>
             </div>
-            
-            <!-- Kullanıcı butonu -->
-            <div class="user-dropdown">
-              <button class="header-action user-toggle">
-                <i class="fas fa-user"></i>
-              </button>
-              <div class="user-dropdown-menu">
-                <a href="profile.html" class="user-dropdown-item">
-                  <i class="fas fa-user-circle"></i>
-                  <span>Profilim</span>
-                </a>
-                <a href="orders.html" class="user-dropdown-item">
-                  <i class="fas fa-box"></i>
-                  <span>Siparişlerim</span>
-                </a>
-                <a href="wishlist.html" class="user-dropdown-item">
-                  <i class="fas fa-heart"></i>
-                  <span>Favorilerim</span>
-                </a>
-                <a href="logout.html" class="user-dropdown-item">
-                  <i class="fas fa-sign-out-alt"></i>
-                  <span>Çıkış Yap</span>
-                </a>
-              </div>
-            </div>
-            
-            <a href="login.html" class="header-action">
-              <i class="fas fa-user"></i>
-            </a>
-            
-            <!-- Hamburger Menü (En sağda) -->
-            <button class="header-action menu-toggle" id="menuToggle">
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div>
         </div>
     </header>
-
-    <!-- Breadcrumb -->
-    <div class="breadcrumb-wrapper">
-        <div class="container">
-            <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
-                <li class="breadcrumb-item active">Sepetim</li>
-            </ul>
-        </div>
-    </div>
 
     <!-- Sepet Bölümü -->
     <section class="cart-section">
@@ -145,7 +141,7 @@
             <div class="section-header">
                 <h2 class="section-title">Alışveriş Sepetim</h2>
             </div>
-            
+
             <div class="cart-container">
                 <div class="cart-content">
                     <table class="cart-table">
@@ -163,12 +159,49 @@
                             <tr class="cart-item">
                                 <td class="item-info">
                                     <div class="item-product">
-                                        <img src="../assets/images/products/product1.jpg" alt="Premium Pamuklu T-Shirt" class="item-image">
+                                        <img src="../assets/products/urun-2.png" alt="Premium Pamuklu T-Shirt"
+                                            class="item-image">
                                         <div class="item-details">
-                                            <a href="product-detail.html?id=1" class="item-name">Premium Pamuklu T-Shirt</a>
+                                            <a href="product-detail.html?id=1" class="item-name">The Crusader
+                                                Oversize</a>
                                             <div class="item-variant">
-                                                <span>Renk: <span class="color-dot" style="background-color: #000000;"></span> Siyah</span>
+                                                <span>Renk: <span class="color-dot"
+                                                        style="background-color: #ffffff;"></span> Beyaz</span>
                                             </div>
+                                            <div class="item-variant">
+                                                <span>Beden: L</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-column">
+                                    <span class="discount-price">₺ 990.00</span>
+                                    <span class="current-price">₺ 792.00</span>
+                                </td>
+                                <td>
+                                    <div class="quantity-controls">
+                                        <button class="quantity-btn minus">-</button>
+                                        <input type="text" class="quantity-input" value="1">
+                                        <button class="quantity-btn plus">+</button>
+                                    </div>
+                                </td>
+                                <td class="price-column">₺ 792.00</td>
+                                <td>
+                                    <button class="remove-item">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Sepet Ürünü 2 -->
+                            <tr class="cart-item">
+                                <td class="item-info">
+                                    <div class="item-product">
+                                        <img src="../assets/products/urun-1.png" alt="Yüksek Bel Jean"
+                                            class="item-image">
+                                        <div class="item-details">
+                                            <a href="product-detail.html?id=3" class="item-name">Dead Space Oversize
+                                                Tshirt</a>
                                             <div class="item-variant">
                                                 <span>Beden: M</span>
                                             </div>
@@ -176,8 +209,7 @@
                                     </div>
                                 </td>
                                 <td class="price-column">
-                                    <span class="discount-price">299,90 ₺</span>
-                                    <span class="current-price">249,90 ₺</span>
+                                    <span class="current-price">₺ 1,099.00</span>
                                 </td>
                                 <td>
                                     <div class="quantity-controls">
@@ -186,61 +218,29 @@
                                         <button class="quantity-btn plus">+</button>
                                     </div>
                                 </td>
-                                <td class="price-column">249,90 ₺</td>
+                                <td class="price-column">₺ 1,099.00</td>
                                 <td>
                                     <button class="remove-item">
                                         <i class="fas fa-times"></i>
                                     </button>
                                 </td>
                             </tr>
-                            
-                            <!-- Sepet Ürünü 2 -->
-                            <tr class="cart-item">
-                                <td class="item-info">
-                                    <div class="item-product">
-                                        <img src="../assets/images/products/product3.jpg" alt="Yüksek Bel Jean" class="item-image">
-                                        <div class="item-details">
-                                            <a href="product-detail.html?id=3" class="item-name">Yüksek Bel Slim Jean</a>
-                                            <div class="item-variant">
-                                                <span>Renk: <span class="color-dot" style="background-color: #3498db;"></span> Mavi</span>
-                                            </div>
-                                            <div class="item-variant">
-                                                <span>Beden: 38</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="price-column">
-                                    <span class="discount-price">499,90 ₺</span>
-                                    <span class="current-price">424,90 ₺</span>
-                                </td>
-                                <td>
-                                    <div class="quantity-controls">
-                                        <button class="quantity-btn minus">-</button>
-                                        <input type="text" class="quantity-input" value="1">
-                                        <button class="quantity-btn plus">+</button>
-                                    </div>
-                                </td>
-                                <td class="price-column">424,90 ₺</td>
-                                <td>
-                                    <button class="remove-item">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            
+
                             <!-- Sepet Ürünü 3 -->
                             <tr class="cart-item">
                                 <td class="item-info">
                                     <div class="item-product">
-                                        <img src="../assets/images/products/product8.jpg" alt="Comfort Spor Ayakkabı" class="item-image">
+                                        <img src="../assets/products/urun-3.png" alt="Comfort Spor Ayakkabı"
+                                            class="item-image">
                                         <div class="item-details">
-                                            <a href="product-detail.html?id=8" class="item-name">Comfort Spor Ayakkabı</a>
+                                            <a href="product-detail.html?id=8" class="item-name">The Berserkir Oversize
+                                                Tshirt</a>
                                             <div class="item-variant">
-                                                <span>Renk: <span class="color-dot" style="background-color: #000000;"></span> Siyah</span>
+                                                <span>Renk: <span class="color-dot"
+                                                        style="background-color: #000000;"></span> Siyah</span>
                                             </div>
                                             <div class="item-variant">
-                                                <span>Numara: 41</span>
+                                                <span>Beden: XL</span>
                                             </div>
                                         </div>
                                     </div>
@@ -265,7 +265,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    
+
                     <div class="cart-actions">
                         <a href="products.html" class="continue-shopping">
                             <i class="fas fa-arrow-left"></i> Alışverişe Devam Et
@@ -275,7 +275,7 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="cart-summary">
                     <div class="summary-header">
                         <h3 class="summary-title">Sipariş Özeti</h3>
@@ -283,11 +283,11 @@
                     <div class="summary-content">
                         <div class="summary-row">
                             <span>Ara Toplam:</span>
-                            <span>1.234,70 ₺</span>
+                            <span>2.450,90 ₺</span>
                         </div>
                         <div class="summary-row">
                             <span>İndirim:</span>
-                            <span>-364,80 ₺</span>
+                            <span>-438,00 ₺</span>
                         </div>
                         <div class="summary-row">
                             <span>Kargo Ücreti:</span>
@@ -295,29 +295,29 @@
                         </div>
                         <div class="summary-total">
                             <span>Toplam:</span>
-                            <span>1.234,70 ₺</span>
+                            <span>2.012,90 ₺</span>
                         </div>
-                        
+
                         <a href="checkout.html" class="btn btn-primary checkout-btn">
                             <i class="fas fa-lock"></i> Ödeme Adımına Geç
                         </a>
-                        
+
                         <h4 class="coupon-title">Kupon Kodu</h4>
                         <div class="coupon-input-group">
                             <input type="text" class="coupon-input" placeholder="Kupon kodunuzu girin">
                             <button class="apply-coupon">Uygula</button>
                         </div>
-                        
+
                         <div class="available-coupons">
                             <div class="coupon-card">
                                 <div>
-                                    <span class="coupon-code">HOŞGELDIN10</span>
+                                    <span class="coupon-code">mami10</span>
                                     <p class="coupon-info">İlk siparişinize özel %10 indirim</p>
                                 </div>
                                 <button class="use-coupon">Kullan</button>
                             </div>
                         </div>
-                        
+
                         <div class="security-info">
                             <i class="fas fa-shield-alt"></i>
                             <span>Güvenli ödeme sistemleri ile işlemleriniz koruma altındadır.</span>
@@ -325,7 +325,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Boş Sepet Durumu (Normalde gizli olacak) -->
             <div class="cart-empty" style="display: none;">
                 <div class="empty-icon">
@@ -335,50 +335,18 @@
                 <p>Sepetinizde ürün bulunmuyor. Hemen alışverişe başlayabilirsiniz!</p>
                 <a href="products.html" class="btn btn-primary">Alışverişe Başla</a>
             </div>
-            
+
             <!-- Öneri Ürünleri -->
             <div class="recommended-products">
                 <div class="section-header">
                     <h2 class="section-title">Bunlar da İlginizi Çekebilir</h2>
                 </div>
-                
+
                 <div class="products-grid">
-                    <!-- Öneri Ürün 1 -->
+                    <!-- Ürün 1 -->
                     <div class="product-card">
                         <div class="product-thumb">
-                            <img src="../assets/images/products/product4.jpg" alt="Oversize Sweatshirt">
-                            <div class="product-badges">
-                                <span class="badge new">Yeni</span>
-                                <span class="badge discount">%10</span>
-                            </div>
-                            <div class="product-actions">
-                                <button type="button" class="product-action wishlist-btn">
-                                    <i class="fas fa-heart"></i>
-                                </button>
-                                <button type="button" class="product-action quick-view-btn">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <span class="product-category">Unisex</span>
-                            <h3 class="product-title">
-                                <a href="product-detail.html?id=4">Oversize Kapüşonlu Sweatshirt</a>
-                            </h3>
-                            <div class="product-price">
-                                <span class="old-price">349,90 ₺</span>
-                                <span class="current-price">314,90 ₺</span>
-                            </div>
-                            <button class="add-to-cart">
-                                <i class="fas fa-shopping-cart"></i> Sepete Ekle
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Öneri Ürün 2 -->
-                    <div class="product-card">
-                        <div class="product-thumb">
-                            <img src="../assets/images/products/product2.jpg" alt="Slim Fit Gömlek">
+                            <img src="assets\products\urun-1.png" alt="Premium Pamuklu T-Shirt" />
                             <div class="product-badges">
                                 <span class="badge new">Yeni</span>
                             </div>
@@ -392,25 +360,32 @@
                             </div>
                         </div>
                         <div class="product-info">
-                            <span class="product-category">Erkek</span>
                             <h3 class="product-title">
-                                <a href="product-detail.html?id=2">Slim Fit Pamuklu Gömlek</a>
+                                <a href="product-detail.html?id=1">Dead Space Oversize Tshirt</a>
                             </h3>
                             <div class="product-price">
-                                <span class="current-price">399,90 ₺</span>
+                                <span class="current-price">₺ 1,099.00</span>
                             </div>
-                            <button class="add-to-cart">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(24)</span>
+                            </div>
+                            <button class="add-to-cart" data-product-id="1">
                                 <i class="fas fa-shopping-cart"></i> Sepete Ekle
                             </button>
                         </div>
                     </div>
-                    
-                    <!-- Öneri Ürün 3 -->
+                    <!-- Ürün 2 -->
                     <div class="product-card">
                         <div class="product-thumb">
-                            <img src="../assets/images/products/product5.jpg" alt="Yüksek Bel Şort">
+                            <img src="assets\products\urun-2.png" alt="Premium Pamuklu T-Shirt" />
                             <div class="product-badges">
-                                <span class="badge discount">%25</span>
+                                <span class="badge new">Yeni</span>
+                                <span class="badge discount">%20</span>
                             </div>
                             <div class="product-actions">
                                 <button type="button" class="product-action wishlist-btn">
@@ -422,24 +397,33 @@
                             </div>
                         </div>
                         <div class="product-info">
-                            <span class="product-category">Kadın</span>
                             <h3 class="product-title">
-                                <a href="product-detail.html?id=5">Yüksek Bel Denim Şort</a>
+                                <a href="product-detail.html?id=1">The Crusader Oversize</a>
                             </h3>
                             <div class="product-price">
-                                <span class="old-price">299,90 ₺</span>
-                                <span class="current-price">224,90 ₺</span>
+                                <span class="discount-price">₺ 990.00</span>
+                                <span class="current-price">₺ 792.00</span>
                             </div>
-                            <button class="add-to-cart">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(24)</span>
+                            </div>
+                            <button class="add-to-cart" data-product-id="1">
                                 <i class="fas fa-shopping-cart"></i> Sepete Ekle
                             </button>
                         </div>
                     </div>
-                    
-                    <!-- Öneri Ürün 4 -->
+                    <!-- Ürün 3 -->
                     <div class="product-card">
                         <div class="product-thumb">
-                            <img src="../assets/images/products/product7.jpg" alt="Kolsuz Bluz">
+                            <img src="assets\products\urun-3.png" alt="Premium Pamuklu T-Shirt" />
+                            <div class="product-badges">
+                                <span class="badge new">Yeni</span>
+                            </div>
                             <div class="product-actions">
                                 <button type="button" class="product-action wishlist-btn">
                                     <i class="fas fa-heart"></i>
@@ -450,20 +434,66 @@
                             </div>
                         </div>
                         <div class="product-info">
-                            <span class="product-category">Kadın</span>
                             <h3 class="product-title">
-                                <a href="product-detail.html?id=7">Kolsuz V Yaka Bluz</a>
+                                <a href="product-detail.html?id=1">The Berserkir Oversize Tshirt</a>
                             </h3>
                             <div class="product-price">
-                                <span class="current-price">199,90 ₺</span>
+                                <span class="current-price">₺ 1,099.00</span>
                             </div>
-                            <button class="add-to-cart">
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(24)</span>
+                            </div>
+                            <button class="add-to-cart" data-product-id="1">
+                                <i class="fas fa-shopping-cart"></i> Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Ürün 4 -->
+                    <div class="product-card">
+                        <div class="product-thumb">
+                            <img src="assets\products\urun-4.png" alt="Premium Pamuklu T-Shirt" />
+                            <div class="product-badges">
+                                <span class="badge new">Yeni</span>
+                                <span class="badge discount">%20</span>
+                            </div>
+                            <div class="product-actions">
+                                <button type="button" class="product-action wishlist-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button type="button" class="product-action quick-view-btn">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">
+                                <a href="product-detail.html?id=1">The Ronin Oversize Tshirt</a>
+                            </h3>
+                            <div class="product-price">
+                                <span class="discount-price">₺ 990.00</span>
+                                <span class="current-price">₺ 792.00</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(24)</span>
+                            </div>
+                            <button class="add-to-cart" data-product-id="1">
                                 <i class="fas fa-shopping-cart"></i> Sepete Ekle
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -471,7 +501,8 @@
         <div class="container">
             <div class="cta-content">
                 <h2 class="cta-title">Yeniliklerden Haberdar Olun</h2>
-                <p class="cta-description">En yeni koleksiyonlarımız, indirimlerimiz ve etkinliklerimizden haberdar olmak için bültenimize abone olun.</p>
+                <p class="cta-description">En yeni koleksiyonlarımız, indirimlerimiz ve etkinliklerimizden haberdar
+                    olmak için bültenimize abone olun.</p>
                 <div class="input-group">
                     <input type="email" class="form-control" placeholder="E-posta adresiniz">
                     <button class="btn">Abone Ol</button>
@@ -479,7 +510,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -489,7 +520,8 @@
                         <div class="footer-logo-icon"><i class="fas fa-tshirt"></i></div>
                         ModaVista
                     </div>
-                    <p class="footer-description">Modern ve yenilikçi tasarımlarla tarzınızı yeniden keşfedin. Sürdürülebilir moda anlayışımızla çevreye duyarlı alışveriş yapın.</p>
+                    <p class="footer-description">Modern ve yenilikçi tasarımlarla tarzınızı yeniden keşfedin.
+                        Sürdürülebilir moda anlayışımızla çevreye duyarlı alışveriş yapın.</p>
                     <div class="footer-social">
                         <a href="#" class="footer-social-link" target="_blank" rel="noopener">
                             <i class="fab fa-facebook-f"></i>
@@ -505,7 +537,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3 class="footer-title">Kategoriler</h3>
                     <ul class="footer-links">
@@ -517,7 +549,7 @@
                         <li><a href="products.html?kategori=canta">Çanta</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3 class="footer-title">Bilgi</h3>
                     <ul class="footer-links">
@@ -529,7 +561,7 @@
                         <li><a href="faq.html">Sıkça Sorulan Sorular</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3 class="footer-title">İletişim</h3>
                     <div class="footer-contact">
@@ -552,7 +584,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2024 ModaVista. Tüm hakları saklıdır.</p>
                 <div class="footer-bottom-links">
@@ -563,8 +595,9 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- JavaScript -->
     <script src="js\main.js"></script>
 </body>
+
 </html>

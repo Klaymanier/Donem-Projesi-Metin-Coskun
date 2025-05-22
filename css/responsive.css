@@ -1,0 +1,713 @@
+/* responsive_style.css - ModaVista 2025 */
+/* Tüm medya sorguları bu dosyada toplanmıştır */
+
+/* Tablet boyutu - Genel */
+@media (max-width: 992px) {
+  .main-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .header-actions {
+    gap: 15px;
+  }
+
+  /* Hero bölümü düzenlemeleri */
+  .hero-image {
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  /* Koleksiyon kartları */
+  .collection-card {
+    height: 350px;
+  }
+
+  .collection-title {
+    font-size: 1.75rem;
+  }
+
+  /* Profil sayfası */
+  .profile-container {
+    flex-direction: column;
+  }
+
+  .profile-sidebar {
+    width: 100%;
+  }
+
+  /* About sayfası */
+  .about-hero-content {
+    flex-direction: column;
+  }
+
+  .about-hero-image {
+    margin-bottom: 30px;
+  }
+
+  .timeline::before {
+    left: 40px;
+  }
+
+  .timeline-dot {
+    left: 40px;
+  }
+
+  .timeline-content {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+  }
+
+  .timeline-content.right {
+    margin-left: 80px;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Ürünler sayfası */
+  .products-container {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-sidebar {
+    width: 100%;
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100vh;
+    max-height: 100vh;
+    z-index: 1000;
+    border-radius: 0;
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+
+  .filter-sidebar.active {
+    left: 0;
+  }
+
+  .filter-sidebar.minimal .mobile-filter-close {
+    display: block;
+  }
+
+
+  .mobile-filter-toggle {
+    display: flex;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Sepet sayfası */
+  .cart-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-summary {
+    position: static;
+  }
+}
+
+/* Orta-Küçük tablet boyutu */
+@media (max-width: 768px) {
+  .header-actions {
+    gap: 10px;
+  }
+
+  .header-action {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Contact sayfası */
+  .contact-info-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    margin-bottom: 10px;
+  }
+
+  .map-container {
+    height: 350px;
+  }
+
+  /* Hero bölümü */
+  .hero {
+    text-align: center;
+    padding-top: calc(var(--header-height) + 2rem);
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-image {
+    display: none;
+  }
+
+  /* Bölüm başlıkları */
+  .section-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Abonelik formu */
+  .newsletter-form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .newsletter-input,
+  .newsletter-button {
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Koleksiyonlar grid */
+  .collections-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .collection-card {
+    height: 300px;
+  }
+
+  /* Sepet sayfası */
+  .cart-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .cart-actions {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .clear-cart {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Ürün sayfası */
+  .products-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .mobile-filter-toggle,
+  .sort-options {
+    width: 100%;
+  }
+
+  .sort-options select {
+    width: 100%;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Password sayfası */
+  .password-strength-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .password-info-icon {
+    margin-bottom: 15px;
+  }
+
+  .security-setting-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .security-setting-icon {
+    margin-bottom: 15px;
+  }
+
+  .setting-toggle {
+    justify-content: center;
+  }
+
+  /* Adresler sayfası */
+  .address-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .address-actions {
+    align-self: flex-start;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
+  /* Profil sayfası */
+  .form-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .security-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .security-item .btn {
+    align-self: flex-start;
+  }
+
+  /* Wishlist sayfası */
+  .wishlist-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wishlist-item-thumb {
+    width: 100%;
+    height: 180px;
+  }
+
+  .wishlist-item-actions {
+    flex-direction: row;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  /* Review sayfası */
+  .review-item {
+    padding: 15px;
+  }
+
+  .review-product {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .review-product-image {
+    width: 100%;
+    height: 150px;
+  }
+
+  .review-actions {
+    justify-content: flex-start;
+  }
+
+  .awaiting-review-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .awaiting-review-item .btn {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+
+  /* About sayfası */
+  .about-stats {
+    justify-content: space-between;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+  }
+}
+
+/* Mobil boyut */
+@media (max-width: 576px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .category-card {
+    height: 200px;
+  }
+
+  .products-filter {
+    gap: 0.5rem;
+  }
+
+  .filter-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .collection-card {
+    height: 250px;
+  }
+
+  .collection-title {
+    font-size: 1.5rem;
+  }
+
+  /* Map container */
+  .map-container {
+    height: 300px;
+  }
+
+  .faq-question h3 {
+    font-size: 1rem;
+  }
+
+  /* Sepet sayfası */
+  .cart-section {
+    padding: 2rem 0 4rem;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    padding: 1rem;
+  }
+
+  .item-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .item-name {
+    font-size: 0.95rem;
+  }
+
+  .price-column,
+  .current-price {
+    font-size: 0.95rem;
+  }
+
+  .quantity-controls {
+    max-width: 100px;
+  }
+
+  .quantity-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .quantity-input {
+    width: calc(100% - 64px);
+    height: 32px;
+  }
+
+  /* Ürünler sayfası */
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Review fotoğraflar */
+  .review-photos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .review-photo {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+
+  /* About sayfası */
+  .about-hero {
+    padding: 40px 0;
+    margin-bottom: 60px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .input-group .form-control {
+    border-radius: var(--radius-md);
+    margin-bottom: 10px;
+  }
+
+  .input-group .btn {
+    border-radius: var(--radius-md);
+    width: 100%;
+  }
+
+  /* Auth sayfası */
+  .auth-section {
+    padding: 20px 0;
+  }
+
+  .auth-container {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .auth-box {
+    padding: 24px 8px 16px 8px;
+  }
+
+  .auth-title {
+    font-size: 1.5rem;
+  }
+
+  /* Menü toggle */
+  .menu-toggle {
+    width: 28px;
+    height: 28px;
+  }
+
+  .menu-toggle span {
+    width: 18px;
+    height: 2.5px;
+    margin: 2.5px 0;
+  }
+}
+
+/* Mobil küçük boyut */
+@media (max-width: 480px) {
+  .mobile-menu {
+    max-width: 100%;
+  }
+
+  .header-inner {
+    padding: 0 15px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .logo-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Büyük ekranlar için ek düzenlemeler */
+@media (min-width: 992px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  :root {
+    --container-width: 1320px;
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.35rem;
+    max-width: 80%;
+  }
+
+  .hero-image {
+    max-width: 444px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Ekstra geniş ekranlar */
+@media (min-width: 1600px) {
+  :root {
+    --container-width: 1500px;
+  }
+
+  .container {
+    max-width: var(--container-width);
+  }
+
+  body {
+    font-size: 18px;
+  }
+
+  .hero-content {
+    max-width: 700px;
+  }
+
+  .hero-image {
+    max-width: 450px;
+    right: 5%;
+  }
+
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .product-card {
+    transform: scale(1.02);
+  }
+
+  .collection-card {
+    height: 450px;
+  }
+}
+
+/* Yatay tablet veya düşük yükseklikli ekranlar için düzeltmeler */
+@media (max-height: 800px) and (min-width: 768px) {
+  .hero {
+    min-height: 600px;
+    height: auto;
+    padding: 120px 0 80px;
+  }
+
+  .hero-image {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    width: 100%;
+    max-width: 645px;
+    margin-left: auto;
+  }
+
+  .hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hero-content {
+    margin-right: 20px;
+  }
+}
+
+/* Kategori Izgarası */
+@media (min-width: 576px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Farklı ekran boyutları için ürün ızgarası */
+@media (min-width: 576px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Farklı ekran boyutları için koleksiyon ızgarası */
+@media (min-width: 576px) {
+  .collections-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .collections-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  .collections-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
