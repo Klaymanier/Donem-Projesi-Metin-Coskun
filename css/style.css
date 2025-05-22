@@ -3218,7 +3218,7 @@ a:hover {
 
 .member-photo img {
   width: 100%;
-  height: 100%;
+  height: 125%;
   object-fit: cover;
   transition: transform var(--transition-medium);
 }
